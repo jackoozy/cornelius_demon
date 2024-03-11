@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="selfie_drawing_robot" type="test_script" name="operations" output="screen"/>
+</launch>

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/operation.dir/src/operations.cpp.o  -o devel/lib/selfie_drawing_robot/operation 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/devel/setup.sh
