@@ -1,3 +1,7 @@
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
 cmake_minimum_required(VERSION 3.0.2)
 project(selfie_drawing_robot)
 
@@ -43,6 +47,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+
+# Motion planning
 add_executable(test_script src/test_script.cpp)
 add_executable(operations src/operations.cpp src/Robot.cpp)
 
@@ -50,4 +56,12 @@ target_link_libraries(test_script
   ${catkin_LIBRARIES})
 target_link_libraries(operations
   ${catkin_LIBRARIES})
+
+
+# Line detection
+
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(test_line_detection src/test_line_detection.cpp src/line_detection.cpp)
+target_link_libraries(test_line_detection ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 

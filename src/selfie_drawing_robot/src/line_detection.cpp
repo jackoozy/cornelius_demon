@@ -11,6 +11,8 @@ Ideas/improvements:
 #include <iostream>
 #include <filesystem>
 
+#include <ros/package.h>
+
 // Constructor implementation
 Line_detection::Line_detection(int initialValue) : value(initialValue)
 {
@@ -22,7 +24,11 @@ void Line_detection::begin()
     // account for different image formats
 
     // find number of files inside data->faces folder
-    int num_faces = std::distance(std::filesystem::directory_iterator("../data/faces"), std::filesystem::directory_iterator{});
+
+    std::string package_path = ros::package::getPath("selfie_drawing_robot");
+    data_path = package_path + "/src/line_detect_data";
+
+    int num_faces = std::distance(std::filesystem::directory_iterator(data_path + "/faces"), std::filesystem::directory_iterator{});
 
     std::cout << "choose a value from 0 - " << (num_faces - 1) << " to select a face: ";
     std::cin >> value;
@@ -30,22 +36,22 @@ void Line_detection::begin()
     switch (value)
     {
     case 0:
-        input_image = cv::imread("../data/faces/elon_portrait.jpg", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/elon_portrait.jpg", cv::IMREAD_COLOR);
         break;
     case 1:
-        input_image = cv::imread("../data/faces/huberman.jpg", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/huberman.jpg", cv::IMREAD_COLOR);
         break;
     case 2:
-        input_image = cv::imread("../data/faces/lex.jpg", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/lex.jpg", cv::IMREAD_COLOR);
         break;
     case 3:
-        input_image = cv::imread("../data/faces/reeves.jpg", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/reeves.jpg", cv::IMREAD_COLOR);
         break;
     case 4:
-        input_image = cv::imread("../data/faces/zuck_HD.webp", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/zuck_HD.webp", cv::IMREAD_COLOR);
         break;
     case 5:
-        input_image = cv::imread("../data/faces/group.webp", cv::IMREAD_COLOR);
+        input_image = cv::imread(data_path + "/faces/group.webp", cv::IMREAD_COLOR);
         break;
     default:
         std::cout << "Invalid input" << std::endl;
@@ -271,7 +277,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
 {
     // Load the Haar Cascade file for facial detection
     cv::CascadeClassifier faceCascade;
-    faceCascade.load("../data/haarcascade_frontalface_default.xml");
+    faceCascade.load(data_path + "/haarcascade_frontalface_default.xml");
 
     // Check if the Haar Cascade file is loaded
     if (faceCascade.empty())

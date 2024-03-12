@@ -23,6 +23,8 @@ private:
 
     cv::Rect findImageBounds(cv::Mat &edgeImageBW);
 
+    std::string data_path;
+
 
 public:
     Line_detection(int initialValue); // Constructor
