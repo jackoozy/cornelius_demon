@@ -9,6 +9,8 @@ rosdep update
 
 cd ~/cornelius_ws # or whatever your workspace is named
 rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+source devel/setup.bash
 ~~~
 
 
