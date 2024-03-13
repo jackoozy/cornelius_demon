@@ -5,7 +5,6 @@ Ideas/improvements:
 
 */
 
-
 // line_detection.cpp
 #include "line_detection.h"
 #include <iostream>
@@ -68,7 +67,7 @@ void Line_detection::begin()
     // cv::resize(input_image, input_image, cv::Size(), 0.5, 0.5, cv::INTER_LINEAR);
     cv::Mat edgeImage = edgeDetection(input_image);
 
-    std::vector<std::vector<float>> lines = convertToNormalisedLines(edgeImage);
+    std::vector<cv::Vec2f> lines = convertToNormalisedLines(edgeImage);
 
     // create something to store shaded regions. Use k-means clustering
 
@@ -76,9 +75,10 @@ void Line_detection::begin()
     cv::waitKey(0); // Wait indefinitely for a key press
 }
 
-std::vector<std::vector<float>> Line_detection::convertToNormalisedLines(cv::Mat &edgeImageBW)
+std::vector<cv::Vec2f> Line_detection::convertToNormalisedLines(cv::Mat &edgeImageBW)
 {
-    std::vector<std::vector<float>> lines;
+    // std::vector<std::vector<float>> lines;
+    std::vector<cv::Vec2f> lines;
 
     // first check if it is black and white
     if (!isBinary(edgeImageBW))
@@ -88,7 +88,7 @@ std::vector<std::vector<float>> Line_detection::convertToNormalisedLines(cv::Mat
     }
 
     // ensure there are more white pixels than black. This should be the case...
-    // ...if the image has been edge extracted, contains black lines.
+    // ...if the image has been edge extracted. Expecting lines to be black.
     uint whitePixels = colourCount(edgeImageBW, 255);
     uint blackPixels = colourCount(edgeImageBW, 0);
 
@@ -104,7 +104,215 @@ std::vector<std::vector<float>> Line_detection::convertToNormalisedLines(cv::Mat
 
     cv::Mat croppedImage = edgeImageBW(boundaryBox);
 
+    cv::bitwise_not(croppedImage, croppedImage);
+
     cv::imshow("Image", croppedImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
+
+    std::vector<std::vector<cv::Point>> contours;
+    std::vector<cv::Vec4i> hierarchy;
+    cv::findContours(croppedImage, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+
+    cv::Mat lineImage = cv::Mat::zeros(croppedImage.size(), CV_8UC3);
+
+    // A vector to hold the level of each contour
+    std::vector<int> levels(contours.size(), 0);
+
+    // Function to recursively determine the level of each contour
+    std::function<void(int, int)> determineLevels = [&](int index, int level)
+    {
+        if (index == -1)
+            return;            // Base case: no contour
+        levels[index] = level; // Set the level of the current contour
+        // Recurse for all children
+        determineLevels(hierarchy[index][2], level + 1);
+        // Proceed to the next contour at the same level
+        determineLevels(hierarchy[index][0], level);
+    };
+
+    // Start the recursion with the outermost contours (those without a parent)
+    determineLevels(0, 0);
+
+    // go through each contour and determine the length of it. if its below a certain threshold, remove it
+    for (int i = contours.size() - 1; i >= 0; --i)
+    {
+        double length = cv::arcLength(contours[i], false);
+        if (length < 50)
+        {
+            contours.erase(contours.begin() + i);
+        }
+    }
+
+    std::cout << "number of contours: " << contours.size() << std::endl;
+
+    const int n = 10;               // Number of contours to ghost
+    const double fadeFactor = 0.9; // Factor to fade previous contours by, closer to 0 makes them fade faster
+
+    cv::Mat background = cv::Mat::zeros(croppedImage.size(), CV_8UC3); // Initial background
+
+    while (true)
+    {
+        for (size_t i = 0; i < contours.size(); ++i)
+        {
+            cv::Mat lineImage = cv::Mat::zeros(croppedImage.size(), CV_8UC3); // Image for the current contour
+
+            int level = levels[i];
+            cv::Scalar color;
+            switch (level % 4)
+            {
+            case 0:
+                color = cv::Scalar(255, 0, 0);
+                break; // Blue
+            case 1:
+                color = cv::Scalar(0, 255, 0);
+                break; // Green
+            case 2:
+                color = cv::Scalar(0, 0, 255);
+                break; // Red
+            case 3:
+                color = cv::Scalar(255, 255, 0);
+                break; // Cyan
+            }
+
+            // Draw the current contour with full intensity
+            cv::drawContours(lineImage, contours, static_cast<int>(i), color, 2, cv::LINE_8, hierarchy, 0);
+
+            // Fade the background by blending it with a black image
+            background = (1 - fadeFactor) * cv::Mat::zeros(croppedImage.size(), CV_8UC3) + fadeFactor * background;
+
+            // Add the current contour onto the background
+            cv::addWeighted(background, 1.0, lineImage, 1.0, 0, background);
+
+            // Display the combined image
+            cv::imshow("Contours Animation with Ghosting", background);
+
+            if (cv::waitKey(50) >= 0)
+                break; // Exit if any key is pressed
+        }
+    }
+
+    // // display new image
+    // cv::imshow("Image", lineImage);
+    // cv::waitKey(0); // Wait indefinitely for a key press
+
+    // select a starting point of a selected contour
+    // compare it the starting and ending point of every contour
+    // find the smallest value and compare it to a threshold
+    // if below the threshold, joint them together and add it to the new list
+    // if above the threshold, do this again but from the ending point of the contour
+
+    // std::vector<std::deque<cv::Point>> formulatedContours; // this will be in the format required for the next module. each row should describe a continuous line
+
+    // formulatedContours.resize(contours.size());
+    // double distanceThreshold = 0.1; // threshold for euclidean distance between points
+    // double distance = 0.0;          // euclidean distance between the two points
+
+    // cv::Point currentPoint; // will fill with the last point of the current contour
+    // cv::Point nextPoint;    // will fill with the first point of the next contour
+
+    // size_t lineCount = 0;
+
+    // while (!contours.empty())
+    // {
+
+    //     // add the first contour in the list
+    //     formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[0].begin(), contours[0].end());
+
+    //     // remove the contour from the list
+    //     contours.erase(contours.begin());
+
+    //     std::cout << "contours size" << contours.size() << std::endl;
+
+    //     double minDistanceStart = 9999999;
+    //     size_t minIndexStart = 0;
+    //     double minDistanceEnd = 9999999;
+    //     size_t minIndexEnd = 0;
+
+    //     while (true)
+    //     {
+    //         currentPoint = formulatedContours[lineCount].back();
+
+    //         for (size_t i = 0; i < contours.size(); ++i)
+    //         {
+    //             nextPoint = contours[i].front();
+    //             distance = cv::norm(currentPoint - nextPoint);
+
+    //             if (distance < minDistanceEnd)
+    //             {
+    //                 minDistanceEnd = distance;
+    //                 minIndexEnd = i;
+    //             }
+    //         }
+
+    //         if (minDistanceEnd < distanceThreshold)
+    //         {
+    //             formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[minIndexEnd].begin(), contours[minIndexEnd].end());
+    //             contours.erase(contours.begin() + minIndexEnd);
+    //         }
+    //         else
+    //         {
+    //             break;
+    //         }
+    //     }
+
+    //     while (true)
+    //     {
+    //         currentPoint = formulatedContours[lineCount].front();
+    //         for (size_t i = 0; i < contours.size(); ++i)
+    //         {
+    //             nextPoint = contours[i].back();
+    //             distance = cv::norm(currentPoint - nextPoint);
+
+    //             if (distance < minDistanceStart)
+    //             {
+    //                 minDistanceStart = distance;
+    //                 minIndexStart = i;
+    //             }
+    //         }
+
+    //         if (minDistanceStart < distanceThreshold)
+    //         {
+    //             formulatedContours[lineCount].insert(formulatedContours[lineCount].begin(), contours[minIndexStart].begin(), contours[minIndexStart].end());
+    //             contours.erase(contours.begin() + minIndexStart);
+    //         }
+    //         else
+    //         {
+    //             break;
+    //         }
+    //     }
+
+    //     lineCount++;
+    //     std::cout << "line count: " << lineCount << std::endl;
+    // }
+
+    // std::cout << "number of lines: " << lineCount << std::endl;
+
+    // for (size_t i = 0; i < contours.size(); ++i)
+    // {
+    //     std::cout << "contour " << i << " has " << contours[i].size() << " points" << std::endl;
+    //     formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[i].begin(), contours[i].end());
+    //     currentPoint = contours[i].back();
+    //     nextPoint = contours[i + 1].front(); // contours[hierarchy[i][0]].front();
+
+    //     // compare their euclidean distance
+    //     distance = cv::norm(currentPoint - nextPoint); // calcualte euclidean distance between the two points
+
+    //     std::cout << "distance between points: " << distance << std::endl; // debugging
+
+    //     if (distance < distanceThreshold)
+    //     {
+    //         // add to the same row
+    //         formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[i + 1].begin(), contours[i + 1].end());
+    //     }
+    //     else
+    //     {
+    //         // start a new row
+    //         lineCount++;
+    //     }
+    // }
+
+    // display new image
+    cv::imshow("Image", lineImage);
     cv::waitKey(0); // Wait indefinitely for a key press
 
     // use the concept of momentum. If the line is being drawn in a similar direction,...

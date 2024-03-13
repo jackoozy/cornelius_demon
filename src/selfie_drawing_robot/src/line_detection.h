@@ -15,7 +15,7 @@ private:
     cv::Rect expandRectanglePercentage(cv::Mat &input_image, const cv::Rect &originalRect, int percentage);
 
     // expects a black and white (lines are black) image that has been reduces to edges
-    std::vector<std::vector<float>> convertToNormalisedLines(cv::Mat &edgeImageBW);
+    std::vector<cv::Vec2f> convertToNormalisedLines(cv::Mat &edgeImageBW);
 
     bool isBinary(const cv::Mat &image);
     bool isGrayscale(const cv::Mat &image);
