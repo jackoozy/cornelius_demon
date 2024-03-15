@@ -1,6 +1,6 @@
-# cornelius_demon
+<h1 align="center">😈 cornelius_demon 😈</h1>
 
-### To install all dependancies:
+## 📦 Install dependancies:
 ~~~Ruby
 sudo apt update
 sudo apt install python3-rosdep
@@ -14,7 +14,7 @@ source devel/setup.bash
 ~~~
 
 
-## To run line detection test script:
+## ✅ Run line detection test script:
 
 ~~~Ruby
 rosrun selfie_drawing_robot test_line_detection
