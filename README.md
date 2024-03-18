@@ -23,3 +23,26 @@ rosrun selfie_drawing_robot test_line_detection
 # a window should pop up. Once you close this window,
 # another window will pop up showing the edges.
 ~~~
+
+
+# Modules:
+
+### cornelius' Curves
+<details>
+info
+</details>
+
+### cornelius' Cognition
+<details>
+info
+</details>
+
+### cornelius' Cerebral Cortex
+<details>
+info
+</details>
+
+### cornelius' Caress (or Cock)
+<details>
+info
+</details>
