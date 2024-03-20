@@ -1,5 +1,7 @@
 /*
 
+search for '!!!' in document, these are areas that need to be tested, improved or fixed
+
 Ideas/improvements:
 - add contrast adjustment and see how it affects the detail
 
@@ -13,7 +15,7 @@ Ideas/improvements:
 #include <ros/package.h>
 
 // Constructor implementation
-Line_detection::Line_detection(int initialValue) : value(initialValue)
+Line_detection::Line_detection()
 {
     std::cout << "Line_detection constructor called" << std::endl;
 }
@@ -29,10 +31,12 @@ void Line_detection::begin()
 
     int num_faces = std::distance(std::filesystem::directory_iterator(data_path + "/faces"), std::filesystem::directory_iterator{});
 
-    std::cout << "choose a value from 0 - " << (num_faces - 1) << " to select a face: ";
-    std::cin >> value;
+    int selected_face = 0;
 
-    switch (value)
+    std::cout << "choose a value from 0 - " << (num_faces - 1) << " to select a face: ";
+    std::cin >> selected_face;
+
+    switch (selected_face)
     {
     case 0:
         input_image = cv::imread(data_path + "/faces/elon_portrait.jpg", cv::IMREAD_COLOR);
@@ -67,24 +71,36 @@ void Line_detection::begin()
     // cv::resize(input_image, input_image, cv::Size(), 0.5, 0.5, cv::INTER_LINEAR);
     cv::Mat edgeImage = edgeDetection(input_image);
 
-    std::vector<cv::Vec2f> lines = convertToNormalisedLines(edgeImage);
+    // create contour group
+    contourData contourGroup;
+    contourGroup = bwImageToContours(edgeImage);
 
-    // create something to store shaded regions. Use k-means clustering
+    // Animation of contours with ghosting
+    animateContours(contourGroup);
 
-    cv::imshow("Image", edgeImage);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
+    int response;
+    std::cin >> response;
+
+    if (response == 1)
+    {
+        std::cout << "select name" << std::endl;
+        std::string fileName;
+        std::cin >> fileName;
+
+        contours_to_svg(contourGroup.contours, fileName);
+    }
 }
 
-std::vector<cv::Vec2f> Line_detection::convertToNormalisedLines(cv::Mat &edgeImageBW)
+contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
 {
-    // std::vector<std::vector<float>> lines;
-    std::vector<cv::Vec2f> lines;
+    contourData contourGroup;
 
     // first check if it is black and white
     if (!isBinary(edgeImageBW))
     {
         std::cout << "Input is not black and white" << std::endl;
-        return lines;
+        return contourGroup;
     }
 
     // ensure there are more white pixels than black. This should be the case...
@@ -95,68 +111,77 @@ std::vector<cv::Vec2f> Line_detection::convertToNormalisedLines(cv::Mat &edgeIma
     if (blackPixels > whitePixels)
     {
         std::cout << "more black pixels than white" << std::endl;
-        return lines;
+        return contourGroup;
     }
 
     // next crop the image to the max and mins of the black pixels
     // then resize it to some universal value
     cv::Rect boundaryBox = findImageBounds(edgeImageBW);
 
-    cv::Mat croppedImage = edgeImageBW(boundaryBox);
+    contourGroup.croppedImage = edgeImageBW(boundaryBox);
 
-    cv::bitwise_not(croppedImage, croppedImage);
+    cv::bitwise_not(contourGroup.croppedImage, contourGroup.croppedImage);
 
-    cv::imshow("Image", croppedImage);
+    cv::imshow("Image", contourGroup.croppedImage);
     cv::waitKey(0); // Wait indefinitely for a key press
 
-    std::vector<std::vector<cv::Point>> contours;
-    std::vector<cv::Vec4i> hierarchy;
-    cv::findContours(croppedImage, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
-
-    cv::Mat lineImage = cv::Mat::zeros(croppedImage.size(), CV_8UC3);
+    cv::findContours(contourGroup.croppedImage, contourGroup.contours, contourGroup.hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
     // A vector to hold the level of each contour
-    std::vector<int> levels(contours.size(), 0);
+    contourGroup.levels = std::vector<int>(contourGroup.contours.size(), 0);
 
     // Function to recursively determine the level of each contour
     std::function<void(int, int)> determineLevels = [&](int index, int level)
     {
         if (index == -1)
-            return;            // Base case: no contour
-        levels[index] = level; // Set the level of the current contour
+            return;                         // Base case: no contour
+        contourGroup.levels[index] = level; // Set the level of the current contour
         // Recurse for all children
-        determineLevels(hierarchy[index][2], level + 1);
+        determineLevels(contourGroup.hierarchy[index][2], level + 1);
         // Proceed to the next contour at the same level
-        determineLevels(hierarchy[index][0], level);
+        determineLevels(contourGroup.hierarchy[index][0], level);
     };
 
     // Start the recursion with the outermost contours (those without a parent)
     determineLevels(0, 0);
 
     // go through each contour and determine the length of it. if its below a certain threshold, remove it
-    for (int i = contours.size() - 1; i >= 0; --i)
+    for (int i = contourGroup.contours.size() - 1; i >= 0; --i)
     {
-        double length = cv::arcLength(contours[i], false);
+        double length = cv::arcLength(contourGroup.contours[i], false);
+
+        // !!! this is arbitrary and needs to be tested
         if (length < 50)
         {
-            contours.erase(contours.begin() + i);
+            contourGroup.contours.erase(contourGroup.contours.begin() + i);
         }
     }
 
-    std::cout << "number of contours: " << contours.size() << std::endl;
+    std::cout << "number of contours: " << contourGroup.contours.size() << std::endl;
 
-    const int n = 10;               // Number of contours to ghost
+    // !!! epsilon value needs to be tested on varying faces
+    contourGroup.contours = douglasPeuckerReduction(contourGroup.contours, 2);
+
+    // !!! look into spline fitting to polylines
+
+    return contourGroup;
+}
+
+void Line_detection::animateContours(contourData &contourGroup_)
+{
+    const int iterationPeriod = 5; // Number of frames to display
+    const int n = 10;              // Number of contours to ghost
     const double fadeFactor = 0.9; // Factor to fade previous contours by, closer to 0 makes them fade faster
 
-    cv::Mat background = cv::Mat::zeros(croppedImage.size(), CV_8UC3); // Initial background
+    cv::Mat background = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3); // Initial background
 
-    while (true)
+    for (int iteration = 0; iteration < iterationPeriod; ++iteration)
     {
-        for (size_t i = 0; i < contours.size(); ++i)
+        for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
         {
-            cv::Mat lineImage = cv::Mat::zeros(croppedImage.size(), CV_8UC3); // Image for the current contour
+            cv::Mat lineImage = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3); // Image for the current contour
 
-            int level = levels[i];
+            int level = contourGroup_.levels[i];
             cv::Scalar color;
             switch (level % 4)
             {
@@ -175,10 +200,10 @@ std::vector<cv::Vec2f> Line_detection::convertToNormalisedLines(cv::Mat &edgeIma
             }
 
             // Draw the current contour with full intensity
-            cv::drawContours(lineImage, contours, static_cast<int>(i), color, 2, cv::LINE_8, hierarchy, 0);
+            cv::drawContours(lineImage, contourGroup_.contours, static_cast<int>(i), color, 2, cv::LINE_8, contourGroup_.hierarchy, 0);
 
             // Fade the background by blending it with a black image
-            background = (1 - fadeFactor) * cv::Mat::zeros(croppedImage.size(), CV_8UC3) + fadeFactor * background;
+            background = (1 - fadeFactor) * cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3) + fadeFactor * background;
 
             // Add the current contour onto the background
             cv::addWeighted(background, 1.0, lineImage, 1.0, 0, background);
@@ -190,141 +215,6 @@ std::vector<cv::Vec2f> Line_detection::convertToNormalisedLines(cv::Mat &edgeIma
                 break; // Exit if any key is pressed
         }
     }
-
-    // // display new image
-    // cv::imshow("Image", lineImage);
-    // cv::waitKey(0); // Wait indefinitely for a key press
-
-    // select a starting point of a selected contour
-    // compare it the starting and ending point of every contour
-    // find the smallest value and compare it to a threshold
-    // if below the threshold, joint them together and add it to the new list
-    // if above the threshold, do this again but from the ending point of the contour
-
-    // std::vector<std::deque<cv::Point>> formulatedContours; // this will be in the format required for the next module. each row should describe a continuous line
-
-    // formulatedContours.resize(contours.size());
-    // double distanceThreshold = 0.1; // threshold for euclidean distance between points
-    // double distance = 0.0;          // euclidean distance between the two points
-
-    // cv::Point currentPoint; // will fill with the last point of the current contour
-    // cv::Point nextPoint;    // will fill with the first point of the next contour
-
-    // size_t lineCount = 0;
-
-    // while (!contours.empty())
-    // {
-
-    //     // add the first contour in the list
-    //     formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[0].begin(), contours[0].end());
-
-    //     // remove the contour from the list
-    //     contours.erase(contours.begin());
-
-    //     std::cout << "contours size" << contours.size() << std::endl;
-
-    //     double minDistanceStart = 9999999;
-    //     size_t minIndexStart = 0;
-    //     double minDistanceEnd = 9999999;
-    //     size_t minIndexEnd = 0;
-
-    //     while (true)
-    //     {
-    //         currentPoint = formulatedContours[lineCount].back();
-
-    //         for (size_t i = 0; i < contours.size(); ++i)
-    //         {
-    //             nextPoint = contours[i].front();
-    //             distance = cv::norm(currentPoint - nextPoint);
-
-    //             if (distance < minDistanceEnd)
-    //             {
-    //                 minDistanceEnd = distance;
-    //                 minIndexEnd = i;
-    //             }
-    //         }
-
-    //         if (minDistanceEnd < distanceThreshold)
-    //         {
-    //             formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[minIndexEnd].begin(), contours[minIndexEnd].end());
-    //             contours.erase(contours.begin() + minIndexEnd);
-    //         }
-    //         else
-    //         {
-    //             break;
-    //         }
-    //     }
-
-    //     while (true)
-    //     {
-    //         currentPoint = formulatedContours[lineCount].front();
-    //         for (size_t i = 0; i < contours.size(); ++i)
-    //         {
-    //             nextPoint = contours[i].back();
-    //             distance = cv::norm(currentPoint - nextPoint);
-
-    //             if (distance < minDistanceStart)
-    //             {
-    //                 minDistanceStart = distance;
-    //                 minIndexStart = i;
-    //             }
-    //         }
-
-    //         if (minDistanceStart < distanceThreshold)
-    //         {
-    //             formulatedContours[lineCount].insert(formulatedContours[lineCount].begin(), contours[minIndexStart].begin(), contours[minIndexStart].end());
-    //             contours.erase(contours.begin() + minIndexStart);
-    //         }
-    //         else
-    //         {
-    //             break;
-    //         }
-    //     }
-
-    //     lineCount++;
-    //     std::cout << "line count: " << lineCount << std::endl;
-    // }
-
-    // std::cout << "number of lines: " << lineCount << std::endl;
-
-    // for (size_t i = 0; i < contours.size(); ++i)
-    // {
-    //     std::cout << "contour " << i << " has " << contours[i].size() << " points" << std::endl;
-    //     formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[i].begin(), contours[i].end());
-    //     currentPoint = contours[i].back();
-    //     nextPoint = contours[i + 1].front(); // contours[hierarchy[i][0]].front();
-
-    //     // compare their euclidean distance
-    //     distance = cv::norm(currentPoint - nextPoint); // calcualte euclidean distance between the two points
-
-    //     std::cout << "distance between points: " << distance << std::endl; // debugging
-
-    //     if (distance < distanceThreshold)
-    //     {
-    //         // add to the same row
-    //         formulatedContours[lineCount].insert(formulatedContours[lineCount].end(), contours[i + 1].begin(), contours[i + 1].end());
-    //     }
-    //     else
-    //     {
-    //         // start a new row
-    //         lineCount++;
-    //     }
-    // }
-
-    // display new image
-    cv::imshow("Image", lineImage);
-    cv::waitKey(0); // Wait indefinitely for a key press
-
-    // use the concept of momentum. If the line is being drawn in a similar direction,...
-    // ... keep it apart of the same row.
-    // need to keep track of what pixels have been visited
-
-    // each row represents a new line. keep track of the average angle of this row,
-    // if the next line creates an angle greater than some threshold, start new line
-
-    // implement Douglas-Peucker algorithm to point count on lines
-
-    return lines;
 }
 
 cv::Rect Line_detection::findImageBounds(cv::Mat &image)
@@ -553,8 +443,51 @@ cv::Rect Line_detection::expandRectanglePercentage(cv::Mat &input_image, const c
     return expandedRect;
 }
 
-// Method to display the value
-void Line_detection::displayValue() const
+std::string Line_detection::contours_to_svg(std::vector<std::vector<cv::Point>> contours_, std::string fileName_)
 {
-    std::cout << "Value: " << value << std::endl;
+    std::string svg_content;
+    std::string svg_paths;
+
+    for (size_t i = 0; i < contours_.size(); ++i)
+    {
+        std::string path = "<path d=\"M"; // Move to the starting point
+        for (size_t j = 0; j < contours_[i].size(); ++j)
+        {
+            path += std::to_string(contours_[i][j].x) + " " + std::to_string(contours_[i][j].y) + " ";
+        }
+        path += "Z\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n";
+        svg_paths += path;
+    }
+
+    svg_content = svg_header + svg_paths + svg_footer;
+
+    // save content to file
+    std::string file_name = data_path + "/" + fileName_ + ".svg";
+
+    std::ofstream file(file_name);
+    if (file.is_open())
+    {
+        file << svg_content;
+        file.close();
+    }
+    else
+    {
+        std::cout << "Unable to open file";
+    }
+
+    return svg_content;
+}
+
+std::vector<std::vector<cv::Point>> Line_detection::douglasPeuckerReduction(std::vector<std::vector<cv::Point>> &contours, double epsilon)
+{
+    std::vector<std::vector<cv::Point>> reduced_contours;
+
+    for (size_t i = 0; i < contours.size(); ++i)
+    {
+        std::vector<cv::Point> reduced_contour;
+        cv::approxPolyDP(contours[i], reduced_contour, epsilon, true);
+        reduced_contours.push_back(reduced_contour);
+    }
+
+    return reduced_contours;
 }

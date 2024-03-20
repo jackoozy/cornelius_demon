@@ -77,5 +77,10 @@
         "codecvt": "cpp",
         "*.ipp": "cpp"
     },
-    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "python.analysis.extraPaths": [
+        "/home/jackoozy/manipulator_ws/devel/lib/python3/dist-packages",
+        "/home/jackoozy/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }

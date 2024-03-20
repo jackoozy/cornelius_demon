@@ -31,7 +31,8 @@ contours = [
 svg_content = contours_to_svg(contours, stroke_width=3, stroke_color="blue")
 print(svg_content)
 
-file_name = "src/selfie_drawing_robot/src/SVG_test/contours.svg"
+# file_name = "src/selfie_drawing_robot/src/SVG_test/contours2.svg"
+file_name = "src/SVG_test/contours2.svg"
 with open(file_name, "w") as file:
     file.write(svg_content)
 print(f"SVG saved to {file_name}")
