@@ -491,3 +491,35 @@ std::vector<std::vector<cv::Point>> Line_detection::douglasPeuckerReduction(std:
 
     return reduced_contours;
 }
+
+std::vector<std::vector<cv::Point>> Line_detection::bezierCurveApprox(const std::vector<std::vector<cv::Point>> &contours_, int segmentCount_)
+{
+    double minDistance = 0.1; // !!! this is arbitrary and needs to be tested, still needs to be implemented
+
+    std::vector<std::vector<cv::Point>> bezier_contours;
+
+    for (size_t i = 0; i < contours_.size(); ++i)
+    {
+        std::vector<cv::Point> bezier_contour;
+        // Iterate through contour points
+        for (size_t j = 0; j + 2 < contours_[i].size(); j += 3)
+        {
+            cv::Point P0 = contours_[i][j];
+            cv::Point P1 = contours_[i][j + 1];
+            cv::Point P2 = contours_[i][j + 2];
+
+            std::vector<cv::Point> curveApprox(segmentCount_ + 1);
+
+            for (int k = 0; k <= segmentCount_; ++k)
+            {
+                double t = static_cast<double>(k) / segmentCount_;
+                double x = std::pow(1 - t, 2) * P0.x + 2 * (1 - t) * t * P1.x + std::pow(t, 2) * P2.x;
+                double y = std::pow(1 - t, 2) * P0.y + 2 * (1 - t) * t * P1.y + std::pow(t, 2) * P2.y;
+                bezier_contour.push_back(cv::Point(static_cast<int>(x), static_cast<int>(y)));
+            }
+        }
+        bezier_contours.push_back(bezier_contour);
+    }
+
+    return bezier_contours;
+}

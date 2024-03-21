@@ -43,6 +43,8 @@ private:
     // expects a black and white (lines are black) image that has been reduces to edges
     contourData bwImageToContours(cv::Mat &edgeImageBW);
 
+    std::vector<std::vector<cv::Point>> bezierCurveApprox(const std::vector<std::vector<cv::Point>> &contours_, int segmentCount_);
+
     // SVG stuff
     std::string svg_header = "<svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"> \n";
     std::string svg_footer = "</svg>";
