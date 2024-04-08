@@ -42,7 +42,7 @@ info
 info
 </details>
 
-### cornelius' Caress (or Cock)
+### cornelius' Caress
 <details>
 info
 </details>
