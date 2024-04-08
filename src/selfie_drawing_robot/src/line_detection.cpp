@@ -75,6 +75,9 @@ void Line_detection::begin()
     contourData contourGroup;
     contourGroup = bwImageToContours(edgeImage);
 
+    // contourGroup.contours = bezierCurveApprox(contourGroup.contours, 39);
+    
+
     // Animation of contours with ghosting
     animateContours(contourGroup);
 
