@@ -67,16 +67,59 @@ void Line_detection::begin()
         return; // Exit or handle the error appropriately
     }
 
+    // first change contrast of image
+    applyCLAHE(input_image);
+
+    // dispaly iamge
+    cv::imshow("Contrasted Image", input_image);
+    cv::waitKey(0); // Wait indefinitely for a key press
+
     // change the dimensions of the iamge
     // cv::resize(input_image, input_image, cv::Size(), 0.5, 0.5, cv::INTER_LINEAR);
-    cv::Mat edgeImage = edgeDetection(input_image);
 
-    // create contour group
     contourData contourGroup;
-    contourGroup = bwImageToContours(edgeImage);
+
+    int max_length = 8000;
+
+    int kernal = 9;
+
+    cv::Mat edgeImage;
+
+    while (contourGroup.total_arc_length < max_length)
+    {
+        cv::Mat copyInput = input_image.clone();
+
+        edgeImage = edgeDetection(copyInput, kernal);
+        contourGroup = bwImageToContours(edgeImage);
+
+        // print total arc length
+        std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl;
+
+        if (contourGroup.total_arc_length < max_length)
+        {
+            switch (kernal)
+            {
+            case 9:
+                kernal = 7; // Reduce the kernel size
+                break;
+            case 7:
+                kernal = 5; // Reduce further
+                break;
+            case 5:
+                kernal = 3; // Reduce further
+                break;
+            default:
+                kernal = 1; // Minimum kernel size
+                break;
+            }
+        }
+    }
+
+    // show final image
+    cv::imshow("Edge iamge", edgeImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
 
     // contourGroup.contours = bezierCurveApprox(contourGroup.contours, 39);
-    
 
     // Animation of contours with ghosting
     animateContours(contourGroup);
@@ -91,7 +134,7 @@ void Line_detection::begin()
         std::string fileName;
         std::cin >> fileName;
 
-        contours_to_svg(contourGroup.contours, fileName);
+        contours_to_svg(contourGroup, fileName);
     }
 }
 
@@ -125,8 +168,8 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
 
     cv::bitwise_not(contourGroup.croppedImage, contourGroup.croppedImage);
 
-    cv::imshow("Image", contourGroup.croppedImage);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    // cv::imshow("Image", contourGroup.croppedImage);
+    // cv::waitKey(0); // Wait indefinitely for a key press
 
     cv::findContours(contourGroup.croppedImage, contourGroup.contours, contourGroup.hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
@@ -164,6 +207,39 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
 
     // !!! epsilon value needs to be tested on varying faces
     contourGroup.contours = douglasPeuckerReduction(contourGroup.contours, 2);
+
+    double maxArcLength;
+    double minArcLength;
+    contourGroup.total_arc_length = 0;
+
+    for (size_t i = 0; i < contourGroup.contours.size(); ++i)
+    {
+        double arcLength = cv::arcLength(contourGroup.contours[i], false);
+        if (i == 0)
+        {
+            maxArcLength = arcLength;
+            minArcLength = arcLength;
+        }
+        else
+        {
+            if (arcLength > maxArcLength)
+            {
+                maxArcLength = arcLength;
+            }
+            if (arcLength < minArcLength)
+            {
+                minArcLength = arcLength;
+            }
+        }
+        contourGroup.total_arc_length += arcLength;
+    }
+
+    for (size_t i = 0; i < contourGroup.contours.size(); ++i)
+    {
+        double arcLength = cv::arcLength(contourGroup.contours[i], false);
+        double strokeWidth = 5 * ((arcLength - minArcLength) / (maxArcLength - minArcLength)) + 1.0;
+        contourGroup.strokeWidths.push_back(strokeWidth);
+    }
 
     // !!! look into spline fitting to polylines
 
@@ -306,7 +382,7 @@ bool Line_detection::isGrayscale(const cv::Mat &image)
 }
 
 // Method to set the value
-cv::Mat Line_detection::edgeDetection(cv::Mat &input_image)
+cv::Mat Line_detection::edgeDetection(cv::Mat &input_image, int kernal_size)
 {
     // maintain image aspect ratio
     int rows = 800;
@@ -319,12 +395,11 @@ cv::Mat Line_detection::edgeDetection(cv::Mat &input_image)
     input_image = backgroundSubtraction(input_image);
 
     // blur image
-    int kernal_size = 5;
     cv::Mat image_blurred;
     GaussianBlur(input_image, image_blurred, cv::Size(kernal_size, kernal_size), 0);
 
-    cv::imshow("Image", image_blurred);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    // cv::imshow("Blurred Image", image_blurred);
+    // cv::waitKey(0); // Wait indefinitely for a key press
 
     cv::Mat gray, edge, draw;
     cv::cvtColor(image_blurred, gray, cv::COLOR_BGR2GRAY);
@@ -398,7 +473,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
 
     if (numFaces > 1)
     {
-        std::cout << numFaces << " faces detected. Returning the first detected face." << std::endl;
+        std::cout << numFaces << " faces detected. Returning the largest detected face." << std::endl;
 
         float maxArea = 0;
         int maxAreaIndex = 0;
@@ -446,19 +521,20 @@ cv::Rect Line_detection::expandRectanglePercentage(cv::Mat &input_image, const c
     return expandedRect;
 }
 
-std::string Line_detection::contours_to_svg(std::vector<std::vector<cv::Point>> contours_, std::string fileName_)
+std::string Line_detection::contours_to_svg(contourData contourGroup_, std::string fileName_)
 {
     std::string svg_content;
     std::string svg_paths;
 
-    for (size_t i = 0; i < contours_.size(); ++i)
+    for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
     {
         std::string path = "<path d=\"M"; // Move to the starting point
-        for (size_t j = 0; j < contours_[i].size(); ++j)
+        for (size_t j = 0; j < contourGroup_.contours[i].size(); ++j)
         {
-            path += std::to_string(contours_[i][j].x) + " " + std::to_string(contours_[i][j].y) + " ";
+            path += std::to_string(contourGroup_.contours[i][j].x) + " " + std::to_string(contourGroup_.contours[i][j].y) + " ";
         }
-        path += "Z\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n";
+
+        path += "Z\" fill=\"none\" stroke=\"black\" stroke-width=\"" + std::to_string(contourGroup_.strokeWidths[i]) + "\" />\n";
         svg_paths += path;
     }
 
@@ -525,4 +601,26 @@ std::vector<std::vector<cv::Point>> Line_detection::bezierCurveApprox(const std:
     }
 
     return bezier_contours;
+}
+
+// Adaptive Histogram Equalization (CLAHE)
+void Line_detection::applyCLAHE(cv::Mat &input_image)
+{
+    cv::Mat lab_image;
+    cv::cvtColor(input_image, lab_image, cv::COLOR_BGR2Lab);
+
+    // Spli t the image into channels
+    std::vector<cv::Mat> lab_planes;
+    cv::split(lab_image, lab_planes);
+
+    // Apply CLAHE to the lightness channel
+    cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE();
+    clahe->setClipLimit(1.0);
+    clahe->apply(lab_planes[0], lab_planes[0]);
+
+    // Merge the channels back
+    cv::merge(lab_planes, lab_image);
+
+    // Convert back to RGB
+    cv::cvtColor(lab_image, input_image, cv::COLOR_Lab2BGR);
 }

@@ -11,6 +11,8 @@ struct contourData
     std::vector<int> levels;
     std::vector<cv::Vec4i> hierarchy;
     cv::Mat croppedImage;
+    std::vector<double> strokeWidths;
+    double total_arc_length;
 };
 
 class Line_detection
@@ -18,7 +20,7 @@ class Line_detection
 
 public:
     Line_detection(); // Constructor
-    cv::Mat edgeDetection(cv::Mat &input_image);
+    cv::Mat edgeDetection(cv::Mat &input_image, int kernal_size);
     void displayValue() const;
     void begin(void);
 
@@ -27,6 +29,8 @@ private:
     cv::Mat backgroundSubtraction(cv::Mat &input_image);
     cv::Rect FaceLocationDetection(cv::Mat &input_image);
     cv::Rect expandRectanglePercentage(cv::Mat &input_image, const cv::Rect &originalRect, int percentage);
+    cv::Mat changeContrast(cv::Mat &input_image, double alpha, int beta);
+    void applyCLAHE(cv::Mat &input_image);
 
     bool isBinary(const cv::Mat &image);
     bool isGrayscale(const cv::Mat &image);
@@ -49,7 +53,7 @@ private:
     std::string svg_header = "<svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"> \n";
     std::string svg_footer = "</svg>";
 
-    std::string contours_to_svg(std::vector<std::vector<cv::Point>> contours_, std::string fileName_);
+    std::string contours_to_svg(contourData contours_, std::string fileName_);
 };
 
 #endif // LINE_DETECTION_H
