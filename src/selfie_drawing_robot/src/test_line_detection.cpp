@@ -11,6 +11,9 @@
 
 #include <iostream>
 #include <memory>
+#include <ros/package.h>
+#include <filesystem>
+
 
 #include "line_detection.h"
 // #include "GUI/GUI.h"
@@ -21,7 +24,8 @@ std::unique_ptr<Line_detection> line_detection;
 std::string getImagePath()
 {
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    data_path = package_path + "/src/line_detect_data";
+    std::string data_path = package_path + "/src/line_detect_data";
+    std::string imagePath;
 
     int num_samples = std::distance(std::filesystem::directory_iterator(data_path + "/faces"), std::filesystem::directory_iterator{});
 

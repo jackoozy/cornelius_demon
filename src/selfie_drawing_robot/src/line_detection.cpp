@@ -23,6 +23,11 @@ Line_detection::Line_detection()
 void Line_detection::begin(std::string imagePath)
 {
     // account for different image formats
+    std::string package_path = ros::package::getPath("selfie_drawing_robot");
+
+    data_path = package_path + "/src/line_detect_data";
+
+
 
     // find number of files inside data->faces folder
 
