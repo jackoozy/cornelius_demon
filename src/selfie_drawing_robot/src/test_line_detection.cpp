@@ -27,7 +27,7 @@ int main()
     return 0;
 }
 
-String getImagePath()
+std::string getImagePath()
 {
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
     data_path = package_path + "/src/line_detect_data";
