@@ -18,15 +18,6 @@
 // std::unique_ptr<GUI> gui;
 std::unique_ptr<Line_detection> line_detection;
 
-int main()
-{
-    std::string imagePath = getImagePath();
-    line_detection = std::make_unique<Line_detection>();
-    line_detection->begin(imagePath);
-    std::cout << "test script finished!" << std::endl;
-    return 0;
-}
-
 std::string getImagePath()
 {
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
@@ -65,4 +56,13 @@ std::string getImagePath()
     }
 
     return imagePath;
+}
+
+int main()
+{
+    std::string imagePath = getImagePath();
+    line_detection = std::make_unique<Line_detection>();
+    line_detection->begin(imagePath);
+    std::cout << "test script finished!" << std::endl;
+    return 0;
 }
