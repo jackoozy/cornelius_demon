@@ -22,7 +22,7 @@ public:
     Line_detection(); // Constructor
     cv::Mat edgeDetection(cv::Mat &input_image, int kernal_size);
     void displayValue() const;
-    void begin(void);
+    void begin(std::string imagePath);
 
 private:
     cv::Mat input_image;

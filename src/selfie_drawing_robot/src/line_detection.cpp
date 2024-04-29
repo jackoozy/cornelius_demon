@@ -20,46 +20,13 @@ Line_detection::Line_detection()
     std::cout << "Line_detection constructor called" << std::endl;
 }
 
-void Line_detection::begin()
+void Line_detection::begin(std::string imagePath)
 {
     // account for different image formats
 
     // find number of files inside data->faces folder
 
-    std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    data_path = package_path + "/src/line_detect_data";
-
-    int num_faces = std::distance(std::filesystem::directory_iterator(data_path + "/faces"), std::filesystem::directory_iterator{});
-
-    int selected_face = 0;
-
-    std::cout << "choose a value from 0 - " << (num_faces - 1) << " to select a face: ";
-    std::cin >> selected_face;
-
-    switch (selected_face)
-    {
-    case 0:
-        input_image = cv::imread(data_path + "/faces/elon_portrait.jpg", cv::IMREAD_COLOR);
-        break;
-    case 1:
-        input_image = cv::imread(data_path + "/faces/huberman.jpg", cv::IMREAD_COLOR);
-        break;
-    case 2:
-        input_image = cv::imread(data_path + "/faces/lex.jpg", cv::IMREAD_COLOR);
-        break;
-    case 3:
-        input_image = cv::imread(data_path + "/faces/reeves.jpg", cv::IMREAD_COLOR);
-        break;
-    case 4:
-        input_image = cv::imread(data_path + "/faces/zuck_HD.webp", cv::IMREAD_COLOR);
-        break;
-    case 5:
-        input_image = cv::imread(data_path + "/faces/group.webp", cv::IMREAD_COLOR);
-        break;
-    default:
-        std::cout << "Invalid input" << std::endl;
-        break;
-    }
+    input_image = cv::imread(imagePath, cv::IMREAD_COLOR);
 
     if (input_image.empty())
     {
@@ -79,7 +46,7 @@ void Line_detection::begin()
 
     contourData contourGroup;
 
-    int max_length = 8000;
+    int max_length = 8000; // can still be adjusted but this value worked well with the sample images
 
     int kernal = 9;
 
