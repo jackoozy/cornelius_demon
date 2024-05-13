@@ -27,8 +27,6 @@ void Line_detection::begin(std::string imagePath)
 
     data_path = package_path + "/src/line_detect_data";
 
-
-
     // find number of files inside data->faces folder
 
     input_image = cv::imread(imagePath, cv::IMREAD_COLOR);

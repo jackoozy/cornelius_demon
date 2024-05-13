@@ -13,10 +13,9 @@
 #include <memory>
 #include <ros/package.h>
 #include <filesystem>
-#include <chrono> // For timestamp
+#include <chrono>  // For timestamp
 #include <sstream> // For string stream
 #include <opencv2/opencv.hpp>
-
 
 #include "line_detection.h"
 // #include "GUI/GUI.h"
@@ -65,15 +64,16 @@ std::string getTestImagePath()
     return imagePath;
 }
 
-
-std::string capturePhoto() {
+std::string capturePhoto()
+{
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
     std::string data_path = package_path + "/src/line_detect_data/faces/webcam/";
     std::string path;
 
-    cv::VideoCapture cap(0);  // Open the default video camera
+    cv::VideoCapture cap(0); // Open the default video camera
 
-    if (!cap.isOpened()) {  // Check if the camera opened successfully
+    if (!cap.isOpened())
+    { // Check if the camera opened successfully
         std::cerr << "Error opening the camera" << std::endl;
         return "";
     }
@@ -82,10 +82,12 @@ std::string capturePhoto() {
 
     cv::Mat frame;
     cv::namedWindow("Capture", cv::WINDOW_AUTOSIZE); // Create a window
-    while (true) {
+    while (true)
+    {
         cap >> frame; // Get a new frame from the camera
 
-        if (frame.empty()) {
+        if (frame.empty())
+        {
             std::cerr << "Failed to capture an image" << std::endl;
             break;
         }
@@ -93,10 +95,12 @@ std::string capturePhoto() {
         cv::imshow("Capture", frame); // Show the frame in the created window
 
         int key = cv::waitKey(30); // Wait for a key press for 30 milliseconds
-        if (key >= 0) break; // If a key is pressed, break out of the loop
+        if (key >= 0)
+            break; // If a key is pressed, break out of the loop
     }
 
-    if (!frame.empty()) {
+    if (!frame.empty())
+    {
         auto now = std::chrono::system_clock::now();
         auto in_time_t = std::chrono::system_clock::to_time_t(now);
         std::stringstream ss;
@@ -106,12 +110,27 @@ std::string capturePhoto() {
         std::cout << "Photo saved as " << path << std::endl;
     }
 
-    cap.release(); // Release the video camera
+    cap.release();           // Release the video camera
     cv::destroyAllWindows(); // Close all OpenCV windows
 
     return path;
 }
 
+std::string getImagePath(int sample_num)
+{
+    std::string package_path = ros::package::getPath("selfie_drawing_robot");
+    std::string data_path = package_path + "/src/line_detect_data/faces/samples";
+    std::string imagePath = data_path + sample_num + ".jpg";
+    return imagePath;
+}
+
+int getNumImages()
+{
+    std::string package_path = ros::package::getPath("selfie_drawing_robot");
+    std::string data_path = package_path + "/src/line_detect_data/faces/samples";
+    int num_samples = std::distance(std::filesystem::directory_iterator(data_path), std::filesystem::directory_iterator{});
+    return num_samples;
+}
 
 int main()
 {
@@ -122,4 +141,13 @@ int main()
     // line_detection->begin(imagePath);
     // std::cout << "test script finished!" << std::endl;
     // return 0;
+
+    int numImages = getNumImages();
+
+    for (int i = 0; i <= numImages; i++)
+    {
+        std::string imagePath = getImagePath();
+        line_detection = std::make_unique<Line_detection>();
+        line_detection->begin(imagePath);
+    }
 }
