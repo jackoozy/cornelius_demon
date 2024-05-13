@@ -40,22 +40,22 @@ std::string getTestImagePath()
     switch (selected_face)
     {
     case 0:
-        imagePath = data_path + "/faces/elon_portrait.jpg";
+        imagePath = data_path + "/faces/samples/elon_portrait.jpg";
         break;
     case 1:
-        imagePath = data_path + "/faces/huberman.jpg";
+        imagePath = data_path + "/faces/samples/huberman.jpg";
         break;
     case 2:
-        imagePath = data_path + "/faces/lex.jpg";
+        imagePath = data_path + "/faces/samples/lex.jpg";
         break;
     case 3:
-        imagePath = data_path + "/faces/reeves.jpg";
+        imagePath = data_path + "/faces/samples/reeves.jpg";
         break;
     case 4:
-        imagePath = data_path + "/faces/zuck_HD.webp";
+        imagePath = data_path + "/faces/samples/zuck_HD.webp";
         break;
     case 5:
-        imagePath = data_path + "/faces/group.webp";
+        imagePath = data_path + "/faces/samples/group.webp";
         break;
     default:
         std::cout << "Invalid input" << std::endl;
@@ -116,9 +116,10 @@ std::string capturePhoto() {
 int main()
 {
     // std::string imagePath = getTestImagePath();
-    std::string imagePath = capturePhoto();
-    line_detection = std::make_unique<Line_detection>();
-    line_detection->begin(imagePath);
-    std::cout << "test script finished!" << std::endl;
-    return 0;
+    // std::string imagePath = capturePhoto();
+
+    // line_detection = std::make_unique<Line_detection>();
+    // line_detection->begin(imagePath);
+    // std::cout << "test script finished!" << std::endl;
+    // return 0;
 }
