@@ -1,3 +1,16 @@
+<!-- <launch>
+    <node pkg="selfie_drawing_robot" type="motion_planning_tutorial" name="motion_planning_tutorial" output="screen"/>
+</launch> -->
+
 <launch>
-    <node pkg="selfie_drawing_robot" type="test_script" name="operations" output="screen"/>
+  <!-- <arg name="arm_id" default="ur3e_robot"/> -->
+
+  <node name="motion_planning_api_tutorial" pkg="selfie_drawing_robot" type="motion_planning_tutorial" respawn="false" output="screen">
+    <rosparam command="load" file="$(find ur3e_moveit_config)/config/kinematics.yaml" subst_value="true"/>
+    <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/>
+    <rosparam command="load" file="$(find ur3e_moveit_config)/config/ompl_planning.yaml"/>
+    <rosparam command="load" file="$(find ur3e_moveit_config)/config/joint_names.yaml" subst_value="true"/>
+  </node>
+
 </launch>
+
