@@ -119,8 +119,8 @@ std::string capturePhoto()
 std::string getImagePath(int sample_num)
 {
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    std::string data_path = package_path + "/src/line_detect_data/faces/samples";
-    std::string imagePath = data_path + sample_num + ".jpg";
+    std::string data_path = package_path + "/src/line_detect_data/faces/samples/";
+    std::string imagePath = data_path + std::to_string(sample_num) + ".jpg";
     return imagePath;
 }
 
@@ -146,7 +146,8 @@ int main()
 
     for (int i = 0; i <= numImages; i++)
     {
-        std::string imagePath = getImagePath();
+        std::string imagePath = getImagePath(i);
+        std::cout << imagePath << std::endl;
         line_detection = std::make_unique<Line_detection>();
         line_detection->begin(imagePath);
     }

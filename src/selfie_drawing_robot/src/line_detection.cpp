@@ -92,20 +92,32 @@ void Line_detection::begin(std::string imagePath)
     // contourGroup.contours = bezierCurveApprox(contourGroup.contours, 39);
 
     // Animation of contours with ghosting
-    animateContours(contourGroup);
 
-    std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
-    int response;
-    std::cin >> response;
+    // animateContours(contourGroup);                                           // !!! temporarily disabling
 
-    if (response == 1)
+    // std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
+    // int response;
+    // std::cin >> response;
+
+    // if (response == 1)
+    // {
+        // std::cout << "select name" << std::endl;
+
+    size_t pos = imagePath.find_last_of('/');
+
+    std::string fileName = imagePath;
+
+
+    // If found, extract and return the filename part
+    if (pos != std::string::npos)
     {
-        std::cout << "select name" << std::endl;
-        std::string fileName;
-        std::cin >> fileName;
-
-        contours_to_svg(contourGroup, fileName);
+        fileName.substr(pos + 1);
     }
+
+    // std::cin >> fileName;
+
+    contours_to_svg(contourGroup, fileName);
+    // }
 }
 
 contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
