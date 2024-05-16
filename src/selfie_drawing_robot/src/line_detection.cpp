@@ -49,13 +49,15 @@ void Line_detection::begin(std::string imagePath)
 
     contourData contourGroup;
 
-    int max_length = 8000; // can still be adjusted but this value worked well with the sample images
+    int arc_thresh = 8000; // can be adjusted but this value works well with the sampled images
 
     int kernal = 9;
 
     cv::Mat edgeImage;
 
-    while (contourGroup.total_arc_length < max_length)
+    // recursively reduce the kernel size to increase detail until the total arc length is greater than the threshold
+
+    while (contourGroup.total_arc_length < arc_thresh)
     {
         cv::Mat copyInput = input_image.clone();
 
@@ -65,7 +67,7 @@ void Line_detection::begin(std::string imagePath)
         // print total arc length
         std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl;
 
-        if (contourGroup.total_arc_length < max_length)
+        if (contourGroup.total_arc_length < arc_thresh)
         {
             switch (kernal)
             {
@@ -93,31 +95,62 @@ void Line_detection::begin(std::string imagePath)
 
     // Animation of contours with ghosting
 
-    // animateContours(contourGroup);                                           // !!! temporarily disabling
+    animateContours(contourGroup);
 
-    // std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
-    // int response;
-    // std::cin >> response;
+    // add shaded regions to the contours
+    addFillRegions(contourGroup);
 
-    // if (response == 1)
-    // {
-        // std::cout << "select name" << std::endl;
+    std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
+    int response;
+    std::cin >> response;
 
-    size_t pos = imagePath.find_last_of('/');
-
-    std::string fileName = imagePath;
-
-
-    // If found, extract and return the filename part
-    if (pos != std::string::npos)
+    if (response == 1)
     {
-        fileName.substr(pos + 1);
+        std::cout << "select name" << std::endl;
+        std::string fileName;
+        std::cin >> fileName;
+
+        contours_to_svg(contourGroup, fileName);
+    }
+}
+
+void Line_detection::addFillRegions(contourData &contourGroup_)
+{
+    // Create an image to draw the filled regions
+    cv::Mat filledImage = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3);
+
+    // Define colours with different opacities based on the levels
+    std::vector<cv::Scalar> fillColours;
+    fillColours.push_back(cv::Scalar(0, 0, 255));   // Red, level 0, least opaque
+    fillColours.push_back(cv::Scalar(0, 255, 0));   // Green, level 1
+    fillColours.push_back(cv::Scalar(255, 0, 0));   // Blue, level 2
+    fillColours.push_back(cv::Scalar(0, 255, 255)); // Cyan, level 3, most opaque
+
+    // Clear any existing fill regions
+    contourGroup_.fillRegions.clear();
+
+    for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
+    {
+        int level = contourGroup_.levels[i];
+        // Use modulus operator to cycle through fill colours if there are more levels than colours
+        cv::Scalar fillColour = fillColours[level % fillColours.size()];
+
+        // Ensure the contour is closed
+        if (contourGroup_.contours[i].front() != contourGroup_.contours[i].back())
+        {
+            contourGroup_.contours[i].push_back(contourGroup_.contours[i].front());
+        }
+
+        // Draw filled contour with the corresponding colour
+        cv::drawContours(filledImage, contourGroup_.contours, static_cast<int>(i), fillColour, cv::FILLED, cv::LINE_8, contourGroup_.hierarchy, 0);
+
+        // Add the filled contour points to fillRegions
+        contourGroup_.fillRegions.push_back(contourGroup_.contours[i]);
     }
 
-    // std::cin >> fileName;
-
-    contours_to_svg(contourGroup, fileName);
-    // }
+    // Display the filled image
+    cv::imshow("Filled Contours", filledImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
 }
 
 contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
@@ -230,7 +263,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
 
 void Line_detection::animateContours(contourData &contourGroup_)
 {
-    const int iterationPeriod = 5; // Number of frames to display
+    const int iterationPeriod = 3; // Number of frames to display
     const int n = 10;              // Number of contours to ghost
     const double fadeFactor = 0.9; // Factor to fade previous contours by, closer to 0 makes them fade faster
 
@@ -276,6 +309,8 @@ void Line_detection::animateContours(contourData &contourGroup_)
                 break; // Exit if any key is pressed
         }
     }
+    // close the window
+    cv::destroyWindow("Contours Animation with Ghosting");
 }
 
 cv::Rect Line_detection::findImageBounds(cv::Mat &image)
@@ -508,6 +543,7 @@ std::string Line_detection::contours_to_svg(contourData contourGroup_, std::stri
     std::string svg_content;
     std::string svg_paths;
 
+    // Create paths for the contours
     for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
     {
         std::string path = "<path d=\"M"; // Move to the starting point
@@ -520,9 +556,27 @@ std::string Line_detection::contours_to_svg(contourData contourGroup_, std::stri
         svg_paths += path;
     }
 
+    // Create paths for the filled regions
+    for (size_t i = 0; i < contourGroup_.fillRegions.size(); ++i)
+    {
+        std::string fill_path = "<path d=\"M"; // Move to the starting point
+        for (size_t j = 0; j < contourGroup_.fillRegions[i].size(); ++j)
+        {
+            fill_path += std::to_string(contourGroup_.fillRegions[i][j].x) + " " + std::to_string(contourGroup_.fillRegions[i][j].y) + " ";
+        }
+
+        // Assign a fill color based on the level (assuming level-based color scheme used earlier)
+        int level = contourGroup_.levels[i];
+        std::vector<std::string> fillColours = {"black"};
+        std::string fillColour = fillColours[level % fillColours.size()];
+
+        fill_path += "Z\" fill=\"" + fillColour + "\" stroke=\"none\" />\n";
+        svg_paths += fill_path;
+    }
+
     svg_content = svg_header + svg_paths + svg_footer;
 
-    // save content to file
+    // Save content to file
     std::string file_name = data_path + "/" + fileName_ + ".svg";
 
     std::ofstream file(file_name);

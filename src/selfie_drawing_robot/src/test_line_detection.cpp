@@ -2,7 +2,7 @@
 
 // - dynamically adjust parameters for a desired level of detail
 // - supply multiple faces for some test cases
-// - supply images of differnt lighting to see adaptive contrasting and brightness
+// - supply images of differnt li1ting to see adaptive contrasting and brightness
 // - test aginst images of people with different facial features (eg; hair type, beard, skin tone, etc)
 // - how many lines are produced, how smooth are they?
 // - are the shaded regions accurate?
@@ -26,40 +26,17 @@ std::unique_ptr<Line_detection> line_detection;
 std::string getTestImagePath()
 {
     std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    std::string data_path = package_path + "/src/line_detect_data";
+    std::string data_path = package_path + "/src/line_detect_data/faces/samples";
     std::string imagePath;
 
-    int num_samples = std::distance(std::filesystem::directory_iterator(data_path + "/faces"), std::filesystem::directory_iterator{});
+    int num_samples = std::distance(std::filesystem::directory_iterator(data_path), std::filesystem::directory_iterator{});
 
     int selected_face = 0;
 
     std::cout << "choose a value from 0 - " << (num_samples - 1) << " to select a face: ";
     std::cin >> selected_face;
 
-    switch (selected_face)
-    {
-    case 0:
-        imagePath = data_path + "/faces/samples/elon_portrait.jpg";
-        break;
-    case 1:
-        imagePath = data_path + "/faces/samples/huberman.jpg";
-        break;
-    case 2:
-        imagePath = data_path + "/faces/samples/lex.jpg";
-        break;
-    case 3:
-        imagePath = data_path + "/faces/samples/reeves.jpg";
-        break;
-    case 4:
-        imagePath = data_path + "/faces/samples/zuck_HD.webp";
-        break;
-    case 5:
-        imagePath = data_path + "/faces/samples/group.webp";
-        break;
-    default:
-        std::cout << "Invalid input" << std::endl;
-        break;
-    }
+    imagePath = data_path + "/" + std::to_string(selected_face) + ".jpg";
 
     return imagePath;
 }
@@ -134,21 +111,21 @@ int getNumImages()
 
 int main()
 {
-    // std::string imagePath = getTestImagePath();
+    std::string imagePath = getTestImagePath();
     // std::string imagePath = capturePhoto();
 
-    // line_detection = std::make_unique<Line_detection>();
-    // line_detection->begin(imagePath);
-    // std::cout << "test script finished!" << std::endl;
-    // return 0;
+    line_detection = std::make_unique<Line_detection>();
+    line_detection->begin(imagePath);
+    std::cout << "test script finished!" << std::endl;
+    return 0;
 
-    int numImages = getNumImages();
+    // int numImages = getNumImages();
 
-    for (int i = 0; i <= numImages; i++)
-    {
-        std::string imagePath = getImagePath(i);
-        std::cout << imagePath << std::endl;
-        line_detection = std::make_unique<Line_detection>();
-        line_detection->begin(imagePath);
-    }
+    // for (int i = 0; i <= numImages; i++)
+    // {
+    //     std::string imagePath = getImagePath(i);
+    //     std::cout << imagePath << std::endl;
+    //     line_detection = std::make_unique<Line_detection>();
+    //     line_detection->begin(imagePath);
+    // }
 }
