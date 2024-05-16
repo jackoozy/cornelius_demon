@@ -41,12 +41,12 @@
 
 
   <!-- custom shieetttt -->
-  <rosparam command="load" file="$(find ur3e_moveit_config)/config/kinematics.yaml"/>
-  <!-- <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/> -->
+  <!-- <rosparam command="load" file="$(find ur3e_moveit_config)/config/kinematics.yaml"/>
+ <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/> 
   <param name="/move_group/planning_plugin" value="pilz_industrial_motion_planner::CommandPlanner"/>
   <rosparam command="load" file="$(find ur3e_moveit_config)/config/ompl_planning.yaml"/>
   <rosparam command="load" file="$(find ur3e_moveit_config)/config/cartesian_limits.yaml" ns="robot_description_planning"/>
-  <rosparam command="load" file="$(find ur3e_moveit_config)/config/joint_names.yaml"/>
+  <rosparam command="load" file="$(find ur3e_moveit_config)/config/joint_names.yaml"/> -->
 
 
   <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->

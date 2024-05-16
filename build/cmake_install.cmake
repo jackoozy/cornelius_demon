@@ -132,13 +132,13 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/jackoozy/cornelius_demon/build/gtest/cmake_install.cmake")
   include("/home/jackoozy/cornelius_demon/build/pilz_industrial_motion/pilz_industrial_motion/cmake_install.cmake")
-  include("/home/jackoozy/cornelius_demon/build/universal_robot/universal_robots/cmake_install.cmake")
+  include("/home/jackoozy/cornelius_demon/build/robot/universal_robots/cmake_install.cmake")
   include("/home/jackoozy/cornelius_demon/build/pilz_industrial_motion/pilz_robot_programming/cmake_install.cmake")
-  include("/home/jackoozy/cornelius_demon/build/universal_robot/ur3e_moveit_config/cmake_install.cmake")
-  include("/home/jackoozy/cornelius_demon/build/universal_robot/ur_description/cmake_install.cmake")
-  include("/home/jackoozy/cornelius_demon/build/universal_robot/ur_gazebo/cmake_install.cmake")
+  include("/home/jackoozy/cornelius_demon/build/robot/ur3e_moveit_config/cmake_install.cmake")
+  include("/home/jackoozy/cornelius_demon/build/robot/ur_description/cmake_install.cmake")
+  include("/home/jackoozy/cornelius_demon/build/robot/ur_gazebo/cmake_install.cmake")
   include("/home/jackoozy/cornelius_demon/build/selfie_drawing_robot/cmake_install.cmake")
-  include("/home/jackoozy/cornelius_demon/build/universal_robot/ur_kinematics/cmake_install.cmake")
+  include("/home/jackoozy/cornelius_demon/build/robot/ur_kinematics/cmake_install.cmake")
 
 endif()
 
