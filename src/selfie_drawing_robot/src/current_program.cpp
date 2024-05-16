@@ -145,15 +145,15 @@ int main(int argc, char** argv)
   pose.pose.position.y = 0.2;
   pose.pose.position.z = 0.1;
   // pose.pose.orientation.w = 1.0;
-  const Eigen::Affine3d eeTransform = robot_state->getFrameTransform("tool0");
-  Eigen::Matrix3d eeRot = eeTransform.rotation();
-  Eigen::Quaterniond eeOrientation(eeRot);
-  pose.pose.orientation.x = eeOrientation.coeffs()[0];
-  pose.pose.orientation.y = eeOrientation.coeffs()[1];
-  pose.pose.orientation.z = eeOrientation.coeffs()[2];
-  pose.pose.orientation.w = eeOrientation.coeffs()[3];
-  // pose.pose.orientation.y = std::pow(2,0.5);
-  // pose.pose.orientation.z = std::pow(2,0.5);
+  // const Eigen::Affine3d eeTransform = robot_state->getFrameTransform("tool0");
+  // Eigen::Matrix3d eeRot = eeTransform.rotation();
+  // Eigen::Quaterniond eeOrientation(eeRot);
+  // pose.pose.orientation.x = eeOrientation.coeffs()[0];
+  // pose.pose.orientation.y = eeOrientation.coeffs()[1];
+  // pose.pose.orientation.z = eeOrientation.coeffs()[2];
+  // pose.pose.orientation.w = eeOrientation.coeffs()[3];
+  pose.pose.orientation.y = std::pow(2,0.5);
+  pose.pose.orientation.z = std::pow(2,0.5);
 
   // A tolerance of 0.01 m is specified in position
   // and 0.01 radians in orientation
