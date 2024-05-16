@@ -1,4 +1,4 @@
-prefix=/home/jackoozy/cornelius_demon_ws/devel
+prefix=/home/jackoozy/cornelius_demon/devel
 
 Name: selfie_drawing_robot
 Description: Description of selfie_drawing_robot

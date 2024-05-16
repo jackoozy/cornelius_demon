@@ -1,4 +1,4 @@
-prefix=/home/jackoozy/cornelius_demon_ws/install
+prefix=/home/jackoozy/cornelius_demon/install
 
 Name: pilz_robot_programming
 Description: Description of pilz_robot_programming

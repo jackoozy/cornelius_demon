@@ -1,2 +1,2 @@
-selfie_drawing_robot:test_ur3e_moveit_config
--DCATKIN_DEVEL_PREFIX=/home/lucas/cornelius_ws/src/cornelius_demon/devel -DCMAKE_INSTALL_PREFIX=/home/lucas/cornelius_ws/src/cornelius_demon/install -G Unix Makefiles
+pilz_industrial_motion/pilz_industrial_motion:pilz_industrial_motion/pilz_robot_programming:selfie_drawing_robot:universal_robot/universal_robots:universal_robot/ur3e_moveit_config:universal_robot/ur_description:universal_robot/ur_gazebo:universal_robot/ur_kinematics
+-DCATKIN_DEVEL_PREFIX=/home/jackoozy/cornelius_demon/devel -DCMAKE_INSTALL_PREFIX=/home/jackoozy/cornelius_demon/install -G Unix Makefiles

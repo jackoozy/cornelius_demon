@@ -24,6 +24,7 @@ find_package(catkin REQUIRED
     tf2_geometry_msgs
     roscpp
     rospy
+    pilz_industrial_motion_planner
 )
 
 find_package(Eigen3 REQUIRED)
@@ -52,19 +53,20 @@ include_directories(
 # Motion planning
 add_executable(test_script src/test_script.cpp)
 add_executable(operations src/operations.cpp src/Robot.cpp)
-# catkin_install_python(PROGRAMS
-#   src/motion_planning_tutorial.py
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  src/demo_program.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
-add_executable(motion_planning_tutorial src/motion_planning_tutorial.cpp)
+add_executable(current_program src/current_program.cpp)
 
 target_link_libraries(test_script
   ${catkin_LIBRARIES})
 target_link_libraries(operations
   ${catkin_LIBRARIES})
-target_link_libraries(motion_planning_tutorial
-  ${catkin_LIBRARIES})
+target_link_libraries(current_program
+  ${catkin_LIBRARIES}
+  ${moveit_core_LIBRARIES})
 
 
 # Line detection

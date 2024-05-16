@@ -67,14 +67,14 @@ set(pilz_robot_programming_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(pilz_robot_programming_SOURCE_PREFIX /home/jackoozy/cornelius_demon_ws/src/pilz_industrial_motion/pilz_robot_programming)
-  set(pilz_robot_programming_DEVEL_PREFIX /home/jackoozy/cornelius_demon_ws/devel)
+  set(pilz_robot_programming_SOURCE_PREFIX /home/jackoozy/cornelius_demon/src/pilz_industrial_motion/pilz_robot_programming)
+  set(pilz_robot_programming_DEVEL_PREFIX /home/jackoozy/cornelius_demon/devel)
   set(pilz_robot_programming_INSTALL_PREFIX "")
   set(pilz_robot_programming_PREFIX ${pilz_robot_programming_DEVEL_PREFIX})
 else()
   set(pilz_robot_programming_SOURCE_PREFIX "")
   set(pilz_robot_programming_DEVEL_PREFIX "")
-  set(pilz_robot_programming_INSTALL_PREFIX /home/jackoozy/cornelius_demon_ws/install)
+  set(pilz_robot_programming_INSTALL_PREFIX /home/jackoozy/cornelius_demon/install)
   set(pilz_robot_programming_PREFIX ${pilz_robot_programming_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/jackoozy/cornelius_demon_ws/install/lib;/home/jackoozy/manipulator_ws/devel/lib;/home/jackoozy/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jackoozy/cornelius_demon/install/lib;/home/jackoozy/cornelius_demon/devel/lib;/home/jackoozy/manipulator_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

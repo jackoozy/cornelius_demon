@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jackoozy/cornelius_demon_ws/src
+CMAKE_SOURCE_DIR = /home/jackoozy/cornelius_demon/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jackoozy/cornelius_demon_ws/build
+CMAKE_BINARY_DIR = /home/jackoozy/cornelius_demon/build
 
 # Utility rule file for visualization_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_gene
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/build
 
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/jackoozy/cornelius_demon_ws/build/pilz_industrial_motion/pilz_robot_programming && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/jackoozy/cornelius_demon/build/pilz_industrial_motion/pilz_robot_programming && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/clean
 
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/jackoozy/cornelius_demon_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/cornelius_demon_ws/src /home/jackoozy/cornelius_demon_ws/src/pilz_industrial_motion/pilz_robot_programming /home/jackoozy/cornelius_demon_ws/build /home/jackoozy/cornelius_demon_ws/build/pilz_industrial_motion/pilz_robot_programming /home/jackoozy/cornelius_demon_ws/build/pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jackoozy/cornelius_demon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/cornelius_demon/src /home/jackoozy/cornelius_demon/src/pilz_industrial_motion/pilz_robot_programming /home/jackoozy/cornelius_demon/build /home/jackoozy/cornelius_demon/build/pilz_industrial_motion/pilz_robot_programming /home/jackoozy/cornelius_demon/build/pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/depend
 
