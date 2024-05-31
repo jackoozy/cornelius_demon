@@ -10,10 +10,12 @@ struct contourData
     std::vector<std::vector<cv::Point>> contours;
     std::vector<int> levels;
     std::vector<cv::Vec4i> hierarchy;
-    cv::Mat croppedImage;
+    cv::Mat croppedImageBW;
+    cv::Mat croppedImageGray;
     std::vector<double> strokeWidths;
     std::vector<std::vector<cv::Point>> fillRegions;
     double total_arc_length;
+    std::vector<std::string> fillColour;
 };
 
 class Line_detection
@@ -21,7 +23,7 @@ class Line_detection
 
 public:
     Line_detection(); // Constructor
-    cv::Mat edgeDetection(cv::Mat &input_image, int kernal_size);
+    cv::Mat edgeDetection(cv::Mat &input_image, cv::Mat &input_gray_image, int kernal_size);
     void displayValue() const;
     void begin(std::string imagePath);
 
@@ -43,14 +45,16 @@ private:
 
     // contour stuff
 
+    std::string generateGreyscaleColor(int greyValue, float opacity);
+
     void animateContours(contourData &contourGroup_);
     std::vector<std::vector<cv::Point>> douglasPeuckerReduction(std::vector<std::vector<cv::Point>> &contours, double epsilon);
     // expects a black and white (lines are black) image that has been reduces to edges
-    contourData bwImageToContours(cv::Mat &edgeImageBW);
+    contourData bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &imageGray);
 
     std::vector<std::vector<cv::Point>> bezierCurveApprox(const std::vector<std::vector<cv::Point>> &contours_, int segmentCount_);
 
-    void addFillRegions(contourData &contourGroup_, cv::Mat copyInput, int numGrids1D, double similarityThreshold);
+    void addFillRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold);
 
     // SVG stuff
     std::string svg_header = "<svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"> \n";
