@@ -140,7 +140,7 @@ void Line_detection::begin(std::string imagePath)
 void Line_detection::addFillRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold)
 {
     double scaleX = 1;
-    double scaleY = 1;
+    double scaleY = 0.65;
     // Pixelate the image by resizing down and then up
     cv::Mat smallImage, pixelatedImage;
     cv::Size smallSize(numGrids1D, numGrids1D); // Define the small size for pixelation
