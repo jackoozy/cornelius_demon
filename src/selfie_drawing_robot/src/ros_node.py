@@ -4,11 +4,12 @@ import rospy
 from std_msgs.msg import String
 import threading
 import socket
+import subprocess
 
 class ROSNode:
     def __init__(self):
         self.node_name = "cornelius_node"
-        self.publisher = rospy.Publisher('chatter', String, queue_size=10)
+        self.publisher = rospy.Publisher('gui_com', String, queue_size=10)
 
     def start(self):
         rospy.init_node(self.node_name, anonymous=True)
@@ -23,9 +24,24 @@ class ROSNode:
         rospy.loginfo(message)
         self.publisher.publish(String(data=message))
 
+    def kill_process_using_port(self, port):
+        try:
+            result = subprocess.run(['sudo', 'lsof', '-t', f'-i:{port}'], capture_output=True, text=True)
+            pids = result.stdout.split()
+            for pid in pids:
+                subprocess.run(['sudo', 'kill', '-9', pid])
+            if pids:
+                print(f"Killed process(es) using port {port}: {', '.join(pids)}")
+        except Exception as e:
+            print(f"Failed to kill process using port {port}: {e}")
+
     def socket_server(self):
         host = '127.0.0.1'
         port = 65432
+
+        # Ensure the port is free before binding
+        self.kill_process_using_port(port)
+
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind((host, port))
             s.listen()

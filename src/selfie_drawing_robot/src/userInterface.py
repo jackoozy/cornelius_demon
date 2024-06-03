@@ -81,12 +81,12 @@ class CalibrationPage(BasePage):
 
     def record_value(self):
         if self.current_image_index == 0:
-            print("recording top left")
+            print("calibrate top left")
         elif self.current_image_index == 1:
-            print("recording top right")
+            print("calibrate top right")
         elif self.current_image_index == 2:
-            print("recording bottom left")
-        self.send_socket_message(f"recording {self.current_image_index}")
+            print("calibrate bottom left")
+        self.send_socket_message(f"calibrate {self.current_image_index}")
 
     def send_socket_message(self, message):
         host = '127.0.0.1'
@@ -197,6 +197,7 @@ class CapturePage(BasePage):
 
     def send_input(self):
         user_input = self.user_input.text()
+        self.user_input.clear()
         self.console_output.append(f"Sending input: {user_input}")
         self.command_runner.send_input(user_input)
 
