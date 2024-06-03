@@ -1,14 +1,14 @@
 #!/home/lucas/cornEnv/bin/python
 
-import sys
-import os
 from PySide6.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QPushButton, QStackedWidget, QHBoxLayout, QSizePolicy, QSpacerItem, QTextEdit, QLineEdit
 from PySide6.QtGui import QIcon, QPixmap, QPainter, QColor
 from PySide6.QtCore import Qt, QThread, Signal, Slot, QTimer
+
+import sys
+import os
 import subprocess
 import select
-import threading
-import rospy
+import socket
 
 class BackgroundWidget(QWidget):
     def __init__(self, image_path, background_color=None, parent=None):
@@ -86,6 +86,14 @@ class CalibrationPage(BasePage):
             print("recording top right")
         elif self.current_image_index == 2:
             print("recording bottom left")
+        self.send_socket_message(f"recording {self.current_image_index}")
+
+    def send_socket_message(self, message):
+        host = '127.0.0.1'
+        port = 65432
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((host, port))
+            s.sendall(message.encode('utf-8'))
 
 class CommandRunner(QThread):
     command_output = Signal(str)
@@ -99,7 +107,7 @@ class CommandRunner(QThread):
     def run(self):
         print("CommandRunner thread started")
         try:
-            script_path = os.path.join(os.path.dirname(__file__), 'run_ros_command.sh')
+            script_path = os.path.join(os.path.dirname(__file__), 'run_line_script.sh')
             self.process = subprocess.Popen(
                 [script_path],
                 shell=True,
@@ -143,9 +151,8 @@ class CommandRunner(QThread):
             self.process.stdin.flush()
 
 class CapturePage(BasePage):
-    def __init__(self, ros_node, image_path, background_color=None, parent=None):
+    def __init__(self, image_path, background_color=None, parent=None):
         super().__init__("Cornelius Capture", image_path, background_color, parent)
-        self.ros_node = ros_node
         capture_label = QLabel("Capture content goes here")
         capture_label.setStyleSheet("color: white;")
         self.layout.addWidget(capture_label)
@@ -195,8 +202,16 @@ class CapturePage(BasePage):
 
     def record_data(self):
         message = f"Recording data from page: {self.image_stack.currentIndex() + 1}"
-        self.ros_node.publish_message(message)
+        print(message)  # Log the message instead of sending it to ROS
         self.console_output.append(message)
+        self.send_socket_message(message)
+
+    def send_socket_message(self, message):
+        host = '127.0.0.1'
+        port = 65432
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((host, port))
+            s.sendall(message.encode('utf-8'))
 
 class ContourPage(BasePage):
     def __init__(self, image_path, background_color=None, parent=None):
@@ -206,9 +221,8 @@ class ContourPage(BasePage):
         self.layout.addWidget(contour_label)
 
 class MainWindow(QWidget):
-    def __init__(self, ros_node):
+    def __init__(self):
         super().__init__()
-        self.ros_node = ros_node
         self.setWindowTitle("Cornelius Demon Interface")
         self.setGeometry(100, 100, 800, 600)
         self.layout = QVBoxLayout()
@@ -218,7 +232,7 @@ class MainWindow(QWidget):
         background_path = os.path.join(script_dir, "UI_files/background.png")
         background_color = "#141414"
         self.stack.addWidget(CalibrationPage(background_path, background_color))
-        self.stack.addWidget(CapturePage(self.ros_node, background_path, background_color))
+        self.stack.addWidget(CapturePage(background_path, background_color))
         self.stack.addWidget(ContourPage(background_path, background_color))
         self.button_layout = QHBoxLayout()
         self.back_button = QPushButton("Back")
@@ -240,37 +254,8 @@ class MainWindow(QWidget):
         if current_index > 0:
             self.stack.setCurrentIndex(current_index - 1)
 
-class ROSNode:
-    def __init__(self):
-        self.node_name = "cornelius_node"
-        self.publisher = rospy.Publisher('chatter', rospy.msg.String, queue_size=10)
-
-    def start(self):
-        rospy.init_node(self.node_name, anonymous=True)
-        self.keep_alive_timer = rospy.Timer(rospy.Duration(1), self.keep_alive)
-
-    def keep_alive(self, event):
-        pass
-
-    def publish_message(self, message):
-        rospy.loginfo(message)
-        self.publisher.publish(message)
-
-def ros_spin_thread():
-    rospy.spin()
-
 def main():
     print("Starting main function")
-    rospy.init_node('cornelius_node', anonymous=True)
-    print("line 265")
-    ros_node = ROSNode()
-    print("line 267")
-    ros_node.start()
-    print("line 269")
-
-    ros_spin = threading.Thread(target=ros_spin_thread)
-    ros_spin.start()
-
     app = QApplication(sys.argv)
     app.setApplicationDisplayName("Cornelius Demon Interface")
     app.setApplicationName("Cornelius Demon Interface")
@@ -280,13 +265,8 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     icon = QIcon(script_dir + "/UI_files/devil_face.png")
     app.setWindowIcon(icon)
-    main_window = MainWindow(ros_node)
+    main_window = MainWindow()
     main_window.show()
-
-    # Process ROS callbacks periodically
-    timer = QTimer()
-    timer.timeout.connect(rospy.spin_once)
-    timer.start(100)
 
     sys.exit(app.exec())
 
