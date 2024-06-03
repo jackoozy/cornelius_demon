@@ -51,11 +51,12 @@ std::string capturePhoto()
 
     if (!cap.isOpened())
     { // Check if the camera opened successfully
-        std::cerr << "Error opening the camera" << std::endl;
+        std::cerr << "Error opening the camera" << std::endl << std::flush;
         return "";
     }
 
-    std::cout << "Press any key to capture the photo..." << std::endl;
+
+    std::cout << "Press any key in the image window to capture..." << std::endl << std::flush;
 
     cv::Mat frame;
     cv::namedWindow("Capture", cv::WINDOW_AUTOSIZE); // Create a window
@@ -65,7 +66,7 @@ std::string capturePhoto()
 
         if (frame.empty())
         {
-            std::cerr << "Failed to capture an image" << std::endl;
+            std::cerr << "Failed to capture an image" << std::endl << std::flush;
             break;
         }
 
@@ -84,7 +85,7 @@ std::string capturePhoto()
         ss << std::put_time(std::localtime(&in_time_t), "%Y%m%d%H%M%S");
         path = data_path + ss.str() + ".jpg";
         cv::imwrite(path, frame);
-        std::cout << "Photo saved as " << path << std::endl;
+        std::cout << "Photo saved as " << path << std::endl << std::flush;
     }
 
     cap.release();           // Release the video camera
@@ -111,12 +112,12 @@ int getNumImages()
 
 int main()
 {
-    std::string imagePath = getTestImagePath();
-    // std::string imagePath = capturePhoto();
+    // std::string imagePath = getTestImagePath();
+    std::string imagePath = capturePhoto();
 
     line_detection = std::make_unique<Line_detection>();
     line_detection->begin(imagePath);
-    std::cout << "test script finished!" << std::endl;
+    std::cout << "test script finished!" << std::endl << std::flush;
     return 0;
 
     // int numImages = getNumImages();
@@ -124,7 +125,7 @@ int main()
     // for (int i = 0; i <= numImages; i++)
     // {
     //     std::string imagePath = getImagePath(i);
-    //     std::cout << imagePath << std::endl;
+    //     std::cout << imagePath << std::endl << std::flush;
     //     line_detection = std::make_unique<Line_detection>();
     //     line_detection->begin(imagePath);
     // }

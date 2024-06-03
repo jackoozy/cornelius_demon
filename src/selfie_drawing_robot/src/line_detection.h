@@ -54,7 +54,7 @@ private:
 
     std::vector<std::vector<cv::Point>> bezierCurveApprox(const std::vector<std::vector<cv::Point>> &contours_, int segmentCount_);
 
-    void addFillRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold);
+    void addShadeRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold);
 
     // SVG stuff
     std::string svg_header = "<svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"> \n";

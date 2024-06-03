@@ -17,7 +17,7 @@ Ideas/improvements:
 // Constructor implementation
 Line_detection::Line_detection()
 {
-    std::cout << "Line_detection constructor called" << std::endl;
+    std::cout << "Line_detection constructor called" << std::endl << std::flush;
 }
 
 void Line_detection::begin(std::string imagePath)
@@ -33,7 +33,7 @@ void Line_detection::begin(std::string imagePath)
 
     if (input_image.empty())
     {
-        std::cerr << "Could not open or find the image" << std::endl;
+        std::cerr << "Could not open or find the image" << std::endl << std::flush;
         return; // Exit or handle the error appropriately
     }
 
@@ -42,7 +42,8 @@ void Line_detection::begin(std::string imagePath)
 
     // dispaly iamge
     cv::imshow("Contrasted Image", input_image);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
+    cv::destroyWindow("Contrasted Image"); // Close the window
 
     // change the dimensions of the iamge
     // cv::resize(input_image, input_image, cv::Size(), 0.5, 0.5, cv::INTER_LINEAR);
@@ -67,9 +68,6 @@ void Line_detection::begin(std::string imagePath)
     // finds face and removes background
     copyInput = backgroundSubtraction(copyInput);
 
-    cv::imshow("Should be RGB", copyInput);
-    cv::waitKey(0); // Wait indefinitely for a key press
-
     // recursively reduce the kernel size to increase detail until the total arc length is greater than the threshold
 
     while (contourGroup.total_arc_length < arc_thresh)
@@ -83,7 +81,7 @@ void Line_detection::begin(std::string imagePath)
         contourGroup = bwImageToContours(edgeImage, gray_image);
 
         // print total arc length
-        std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl;
+        std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl << std::flush;
 
         if (kernal == 1)
         {
@@ -111,25 +109,26 @@ void Line_detection::begin(std::string imagePath)
     }
 
     // show final image
-    cv::imshow("Edge iamge", edgeImage);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    cv::imshow("Edge", edgeImage);
+    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
+    cv::destroyWindow("Edge"); // Close the window
 
     // contourGroup.contours = bezierCurveApprox(contourGroup.contours, 39);
 
     // Animation of contours with ghosting
 
-    // animateContours(contourGroup); // !!! add back
+    animateContours(contourGroup); // !!! add back
 
     // add shaded regions to the contours
-    addFillRegions(contourGroup, 20, 10); // !!! Still messing with
+    addShadeRegions(contourGroup, 20, 10); // !!! Still messing with
 
-    std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
+    std::cout << "save file? (1 = yes | 0 = no)" << std::endl << std::flush;
     int response;
     std::cin >> response;
 
     if (response == 1)
     {
-        std::cout << "select name" << std::endl;
+        std::cout << "select name" << std::endl << std::flush;
         std::string fileName;
         std::cin >> fileName;
 
@@ -137,7 +136,7 @@ void Line_detection::begin(std::string imagePath)
     }
 }
 
-void Line_detection::addFillRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold)
+void Line_detection::addShadeRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold)
 {
     double scaleX = 1;
     double scaleY = 0.65;
@@ -152,18 +151,19 @@ void Line_detection::addFillRegions(contourData &contourGroup_, int numGrids1D, 
 
     // Display the pixelated image for debugging
     cv::imshow("Pixelated Image", pixelatedImage);
-    cv::waitKey(0); // Wait indefinitely for a key press
+    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
+    cv::destroyWindow("Pixelated Image"); // Close the window
 
-    std::cout << "filled image cols: " << contourGroup_.croppedImageGray.cols << std::endl;
-    std::cout << "filled image rows: " << contourGroup_.croppedImageGray.rows << std::endl;
+    std::cout << "filled image cols: " << contourGroup_.croppedImageGray.cols << std::endl << std::flush;
+    std::cout << "filled image rows: " << contourGroup_.croppedImageGray.rows << std::endl << std::flush;
 
     // Calculate grid dimensions based on the original filled image size
     int gridWidth = contourGroup_.croppedImageGray.cols / numGrids1D;
     int gridHeight = contourGroup_.croppedImageGray.rows / numGrids1D;
 
     // Debugging statements to check grid dimensions
-    std::cout << "Filled Image Size: " << contourGroup_.croppedImageGray.size() << std::endl;
-    std::cout << "Grid Dimensions: " << gridWidth << " x " << gridHeight << std::endl;
+    std::cout << "Filled Image Size: " << contourGroup_.croppedImageGray.size() << std::endl << std::flush;
+    std::cout << "Grid Dimensions: " << gridWidth << " x " << gridHeight << std::endl << std::flush;
 
     // Clear any existing fill regions
     contourGroup_.fillRegions.clear();
@@ -221,7 +221,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
     // first check if it is black and white
     if (!isBinary(edgeImageBW))
     {
-        std::cout << "Input is not black and white" << std::endl;
+        std::cout << "Input is not black and white" << std::endl << std::flush;
         return contourGroup;
     }
 
@@ -232,7 +232,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
     if (blackPixels > whitePixels)
     {
-        std::cout << "more black pixels than white" << std::endl;
+        std::cout << "more black pixels than white" << std::endl << std::flush;
         return contourGroup;
     }
 
@@ -246,7 +246,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
     contourGroup.croppedImageGray = imageGray(boundaryBox); // !!! error here
 
-    std::cout << "line 245" << std::endl;
+    std::cout << "line 245" << std::endl << std::flush;
 
     cv::bitwise_not(contourGroup.croppedImageBW, contourGroup.croppedImageBW);
 
@@ -285,7 +285,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
         }
     }
 
-    std::cout << "number of contours: " << contourGroup.contours.size() << std::endl;
+    std::cout << "number of contours: " << contourGroup.contours.size() << std::endl << std::flush;
 
     // !!! epsilon value needs to be tested on varying faces
     contourGroup.contours = douglasPeuckerReduction(contourGroup.contours, 2);
@@ -330,7 +330,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
 void Line_detection::animateContours(contourData &contourGroup_)
 {
-    const int iterationPeriod = 3; // Number of frames to display
+    const int iterationPeriod = 2; // Number of frames to display
     const int n = 10;              // Number of contours to ghost
     const double fadeFactor = 0.9; // Factor to fade previous contours by, closer to 0 makes them fade faster
 
@@ -441,7 +441,7 @@ bool Line_detection::isBinary(const cv::Mat &image)
     // Ensure it's grayscale first
     if (!isGrayscale(image))
     {
-        std::cout << "image is not grayscale" << std::endl;
+        std::cout << "image is not grayscale" << std::endl << std::flush;
         return false;
     }
 
@@ -541,7 +541,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
     // Check if the Haar Cascade file is loaded
     if (faceCascade.empty())
     {
-        std::cout << "Failed to load Haar Cascade file." << std::endl;
+        std::cout << "Failed to load Haar Cascade file." << std::endl << std::flush;
         return cv::Rect(); // Return an empty rectangle
     }
 
@@ -556,7 +556,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
 
     if (numFaces > 1)
     {
-        std::cout << numFaces << " faces detected. Returning the largest detected face." << std::endl;
+        std::cout << numFaces << " faces detected. Returning the largest detected face." << std::endl << std::flush;
 
         float maxArea = 0;
         int maxAreaIndex = 0;
