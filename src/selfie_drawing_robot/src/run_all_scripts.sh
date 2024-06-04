@@ -23,7 +23,7 @@ roscore &
 ROSCORE_PID=$!
 
 # Give roscore some time to start
-sleep 5
+sleep 2
 
 # Activate the first virtual environment and run userInterface.py
 source ~/cornEnv/bin/activate

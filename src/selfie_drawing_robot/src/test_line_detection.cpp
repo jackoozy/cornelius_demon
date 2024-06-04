@@ -117,7 +117,7 @@ int main()
 
     line_detection = std::make_unique<Line_detection>();
     line_detection->begin(imagePath);
-    std::cout << "test script finished!" << std::endl << std::flush;
+    std::cout << "line script finished!" << std::endl << std::flush;
     return 0;
 
     // int numImages = getNumImages();

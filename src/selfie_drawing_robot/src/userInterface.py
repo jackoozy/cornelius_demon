@@ -10,6 +10,26 @@ import subprocess
 import select
 import socket
 
+class MessageReceiver(QThread):
+    message_received = Signal(str)
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.host = '127.0.0.1'
+        self.port = 65433  # Same port as in the ROS node
+
+    def run(self):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind((self.host, self.port))
+            s.listen()
+            while True:
+                conn, addr = s.accept()
+                with conn:
+                    data = conn.recv(1024)
+                    if data:
+                        message = data.decode('utf-8')
+                        self.message_received.emit(message)
+
 class BackgroundWidget(QWidget):
     def __init__(self, image_path, background_color=None, parent=None):
         super().__init__(parent)
@@ -39,7 +59,8 @@ class CalibrationPage(BasePage):
         self.image_paths = [
             os.path.join(os.path.dirname(__file__), 'UI_files/canvas_top_left.png'),
             os.path.join(os.path.dirname(__file__), 'UI_files/canvas_top_right.png'),
-            os.path.join(os.path.dirname(__file__), 'UI_files/canvas_bottom_left.png')
+            os.path.join(os.path.dirname(__file__), 'UI_files/canvas_bottom_left.png'),
+            os.path.join(os.path.dirname(__file__), 'UI_files/canvas_bottom_right.png')
         ]
         self.current_image_index = 0
         self.recorded_values = []
@@ -104,7 +125,7 @@ class CommandRunner(QThread):
         super().__init__(parent)
         self.process = None
 
-    def run(self):
+    def run(self, command):
         print("CommandRunner thread started")
         try:
             script_path = os.path.join(os.path.dirname(__file__), 'run_line_script.sh')
@@ -152,10 +173,8 @@ class CommandRunner(QThread):
 
 class CapturePage(BasePage):
     def __init__(self, image_path, background_color=None, parent=None):
-        super().__init__("Cornelius Capture", image_path, background_color, parent)
-        capture_label = QLabel("Capture content goes here")
-        capture_label.setStyleSheet("color: white;")
-        self.layout.addWidget(capture_label)
+        super().__init__("Cornelius Capture | Contour", image_path, background_color, parent)
+        self.svgName = ""
         self.console_output = QTextEdit()
         self.console_output.setReadOnly(True)
         self.console_output.setStyleSheet("background-color: black; color: white;")
@@ -174,7 +193,7 @@ class CapturePage(BasePage):
         self.layout.addWidget(record_button)
         run_command_button.clicked.connect(self.run_ros_command)
         send_input_button.clicked.connect(self.send_input)
-        record_button.clicked.connect(self.record_data)
+        record_button.clicked.connect(self.record_contour)
 
     def run_ros_command(self):
         self.console_output.append("Running ROS command...")
@@ -198,6 +217,10 @@ class CapturePage(BasePage):
     def send_input(self):
         user_input = self.user_input.text()
         self.user_input.clear()
+
+        if user_input != "0" or user_input != "1":
+            self.svgName = user_input
+
         self.console_output.append(f"Sending input: {user_input}")
         self.command_runner.send_input(user_input)
 
@@ -206,6 +229,16 @@ class CapturePage(BasePage):
         print(message)  # Log the message instead of sending it to ROS
         self.console_output.append(message)
         self.send_socket_message(message)
+
+    def record_contour(self):
+        if self.svgName == "":
+            message = "Please save a contour before recording"
+            print(message)
+        else:
+            message = "contour filename: " + self.svgName + ".svg"
+            print(message)  # Log the message instead of sending it to ROS
+            self.console_output.append(message)
+            self.send_socket_message(message)
 
     def send_socket_message(self, message):
         host = '127.0.0.1'
@@ -216,14 +249,20 @@ class CapturePage(BasePage):
 
 class ContourPage(BasePage):
     def __init__(self, image_path, background_color=None, parent=None):
-        super().__init__("Cornelius Contour", image_path, background_color, parent)
-        contour_label = QLabel("Contour content goes here")
+        super().__init__("Cornelius Caress", image_path, background_color, parent)
+        contour_label = QLabel("words")
         contour_label.setStyleSheet("color: white;")
         self.layout.addWidget(contour_label)
 
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
+
+        self.calibrated_0 = False
+        self.calibrated_1 = False
+        self.calibrated_2 = False
+        self.calibrated_3 = False
+
         self.setWindowTitle("Cornelius Demon Interface")
         self.setGeometry(100, 100, 800, 600)
         self.layout = QVBoxLayout()
@@ -245,10 +284,41 @@ class MainWindow(QWidget):
         self.layout.addLayout(self.button_layout)
         self.setLayout(self.layout)
 
+        self.message_receiver = MessageReceiver()
+        self.message_receiver.message_received.connect(self.recieve_msg)
+        self.message_receiver.start()
+
+    @Slot(str)
+    def recieve_msg(self, message):
+        # Logic to display the message in the UI
+        print(f"Received message: {message}")
+        self.last_message = message
+
+        if message == "calibrated 0":
+            self.calibrated_0 = True
+        
+        if message == "calibrated 1":
+            self.calibrated_1 = True
+        
+        if message == "calibrated 2":
+            self.calibrated_2 = True
+        
+        if message == "calibrated 3":
+            self.calibrated_3 = True
+
     def go_next(self):
         current_index = self.stack.currentIndex()
+
+        # if current_index == 0:
+        #     if self.calibrated_0 and self.calibrated_1 and self.calibrated_2 and self.calibrated_3:
+        #         self.stack.setCurrentIndex(current_index + 1)
+
+        # else:
+        #     if current_index < self.stack.count() - 1:
+        #         self.stack.setCurrentIndex(current_index + 1)
+        
         if current_index < self.stack.count() - 1:
-            self.stack.setCurrentIndex(current_index + 1)
+                self.stack.setCurrentIndex(current_index + 1)
 
     def go_back(self):
         current_index = self.stack.currentIndex()
