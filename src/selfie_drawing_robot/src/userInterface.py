@@ -257,12 +257,6 @@ class ContourPage(BasePage):
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-
-        self.calibrated_0 = False
-        self.calibrated_1 = False
-        self.calibrated_2 = False
-        self.calibrated_3 = False
-
         self.setWindowTitle("Cornelius Demon Interface")
         self.setGeometry(100, 100, 800, 600)
         self.layout = QVBoxLayout()
@@ -285,40 +279,18 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
 
         self.message_receiver = MessageReceiver()
-        self.message_receiver.message_received.connect(self.recieve_msg)
+        self.message_receiver.message_received.connect(self.display_message)
         self.message_receiver.start()
 
     @Slot(str)
-    def recieve_msg(self, message):
+    def display_message(self, message):
         # Logic to display the message in the UI
-        print(f"Received message: {message}")
-        self.last_message = message
-
-        if message == "calibrated 0":
-            self.calibrated_0 = True
-        
-        if message == "calibrated 1":
-            self.calibrated_1 = True
-        
-        if message == "calibrated 2":
-            self.calibrated_2 = True
-        
-        if message == "calibrated 3":
-            self.calibrated_3 = True
+        self.console_output.append(f"Received message: {message}")
 
     def go_next(self):
         current_index = self.stack.currentIndex()
-
-        # if current_index == 0:
-        #     if self.calibrated_0 and self.calibrated_1 and self.calibrated_2 and self.calibrated_3:
-        #         self.stack.setCurrentIndex(current_index + 1)
-
-        # else:
-        #     if current_index < self.stack.count() - 1:
-        #         self.stack.setCurrentIndex(current_index + 1)
-        
         if current_index < self.stack.count() - 1:
-                self.stack.setCurrentIndex(current_index + 1)
+            self.stack.setCurrentIndex(current_index + 1)
 
     def go_back(self):
         current_index = self.stack.currentIndex()
