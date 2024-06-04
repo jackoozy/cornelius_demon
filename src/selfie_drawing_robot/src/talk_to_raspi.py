@@ -36,7 +36,7 @@ class RobotController:
         self.control_publisher.publish(roslibpy.Message(joint_trajectory_msg))
 
 if __name__ == "__main__":
-    # Replace with your Raspberry Pi IP address and port
+    # Replace with Raspberry Pi IP address and port
     host = '192.168.27.1'
     port = 9090
     

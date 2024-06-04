@@ -84,7 +84,8 @@
         "cfenv": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "filesystem": "cpp"
     },
     "python.analysis.extraPaths": [
         "/home/jackoozy/manipulator_ws/devel/lib/python3/dist-packages",
