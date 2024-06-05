@@ -10,6 +10,9 @@ import subprocess
 import select
 import socket
 
+from stroke_planning import StrokePlanner
+
+
 class MessageReceiver(QThread):
     message_received = Signal(str)
 
@@ -125,7 +128,7 @@ class CommandRunner(QThread):
         super().__init__(parent)
         self.process = None
 
-    def run(self, command):
+    def run(self):
         print("CommandRunner thread started")
         try:
             script_path = os.path.join(os.path.dirname(__file__), 'run_line_script.sh')
@@ -235,10 +238,10 @@ class CapturePage(BasePage):
             message = "Please save a contour before recording"
             print(message)
         else:
-            message = "contour filename: " + self.svgName + ".svg"
-            print(message)  # Log the message instead of sending it to ROS
-            self.console_output.append(message)
-            self.send_socket_message(message)
+            self.svgPath = "contour filename: " + self.svgName + ".svg"
+            print(self.svgPath)  # Log the message instead of sending it to ROS
+            self.console_output.append(self.svgPath)
+            self.send_socket_message(self.svgPath)
 
     def send_socket_message(self, message):
         host = '127.0.0.1'
@@ -249,10 +252,18 @@ class CapturePage(BasePage):
 
 class ContourPage(BasePage):
     def __init__(self, image_path, background_color=None, parent=None):
-        super().__init__("Cornelius Caress", image_path, background_color, parent)
-        contour_label = QLabel("words")
-        contour_label.setStyleSheet("color: white;")
-        self.layout.addWidget(contour_label)
+        super().__init__("Cornelius TSP", image_path, background_color, parent)
+        
+        self.planner = None
+        self.button = QPushButton("Plan Stroke")
+        self.button.setStyleSheet("color: white; background-color: #32a852; padding: 10px;")
+        self.button.clicked.connect(self.plan_stroke)
+        self.layout.addWidget(self.button)
+
+    @Slot()
+    def plan_stroke(self):
+        self.planner = StrokePlanner("test.svg")
+        print("StrokePlanner instance created")
 
 class MainWindow(QWidget):
     def __init__(self):
