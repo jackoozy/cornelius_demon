@@ -250,8 +250,9 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
     cv::bitwise_not(contourGroup.croppedImageBW, contourGroup.croppedImageBW);
 
-    // cv::imshow("Image", contourGroup.croppedImageBW);
-    // cv::waitKey(0); // Wait indefinitely for a key press
+    cv::imshow("Image", contourGroup.croppedImageBW);
+    cv::waitKey(500); // Wait
+    cv::destroyWindow("Image"); // Close the window
 
     cv::findContours(contourGroup.croppedImageBW, contourGroup.contours, contourGroup.hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
