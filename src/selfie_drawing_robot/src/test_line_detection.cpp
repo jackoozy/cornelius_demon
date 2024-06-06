@@ -1,26 +1,14 @@
-// Test plan for my module:
-
-// - dynamically adjust parameters for a desired level of detail
-// - supply multiple faces for some test cases
-// - supply images of differnt li1ting to see adaptive contrasting and brightness
-// - test aginst images of people with different facial features (eg; hair type, beard, skin tone, etc)
-// - how many lines are produced, how smooth are they?
-// - are the shaded regions accurate?
-
-// main.cpp
-
 #include <iostream>
 #include <memory>
 #include <ros/package.h>
+#include <ros/ros.h>
 #include <filesystem>
 #include <chrono>  // For timestamp
 #include <sstream> // For string stream
 #include <opencv2/opencv.hpp>
 
 #include "line_detection.h"
-// #include "GUI/GUI.h"
 
-// std::unique_ptr<GUI> gui;
 std::unique_ptr<Line_detection> line_detection;
 
 std::string getTestImagePath()
@@ -54,7 +42,6 @@ std::string capturePhoto()
         std::cerr << "Error opening the camera" << std::endl << std::flush;
         return "";
     }
-
 
     std::cout << "Press any key in the image window to capture..." << std::endl << std::flush;
 
@@ -94,39 +81,43 @@ std::string capturePhoto()
     return path;
 }
 
-std::string getImagePath(int sample_num)
+int main(int argc, char **argv)
 {
-    std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    std::string data_path = package_path + "/src/line_detect_data/faces/samples/";
-    std::string imagePath = data_path + std::to_string(sample_num) + ".jpg";
-    return imagePath;
-}
+    ros::init(argc, argv, "test_line_detection");
 
-int getNumImages()
-{
-    std::string package_path = ros::package::getPath("selfie_drawing_robot");
-    std::string data_path = package_path + "/src/line_detect_data/faces/samples";
-    int num_samples = std::distance(std::filesystem::directory_iterator(data_path), std::filesystem::directory_iterator{});
-    return num_samples;
-}
+    if (argc != 2)
+    {
+        std::cerr << "Usage: rosrun selfie_drawing_robot test_line_detection <mode>" << std::endl;
+        std::cerr << "<mode> can be 'image' or 'camera'" << std::endl;
+        return -1;
+    }
 
-int main()
-{
-    // std::string imagePath = getTestImagePath();
-    std::string imagePath = capturePhoto();
+    std::string mode = argv[1];
+    std::string imagePath;
+
+    if (mode == "image")
+    {
+        imagePath = getTestImagePath();
+    }
+    else if (mode == "camera")
+    {
+        imagePath = capturePhoto();
+    }
+    else
+    {
+        std::cerr << "Invalid mode. Please use 'image' or 'camera'" << std::endl;
+        return -1;
+    }
+
+    if (imagePath.empty())
+    {
+        std::cerr << "No image path obtained. Exiting." << std::endl;
+        return -1;
+    }
 
     line_detection = std::make_unique<Line_detection>();
     line_detection->begin(imagePath);
+
     std::cout << "line script finished!" << std::endl << std::flush;
     return 0;
-
-    // int numImages = getNumImages();
-
-    // for (int i = 0; i <= numImages; i++)
-    // {
-    //     std::string imagePath = getImagePath(i);
-    //     std::cout << imagePath << std::endl << std::flush;
-    //     line_detection = std::make_unique<Line_detection>();
-    //     line_detection->begin(imagePath);
-    // }
 }

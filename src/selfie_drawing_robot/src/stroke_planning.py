@@ -50,6 +50,7 @@ class StrokePlanner:
 
     def parse_svg_file_and_generate_commands(self):
         print("Current working directory:", os.getcwd())
+        self.svg_file_path = "./line_detect_data/" + self.svg_file_path
         print("Full path to SVG file:", os.path.abspath(self.svg_file_path))
         
         with open(self.svg_file_path, 'r') as file:
@@ -107,7 +108,5 @@ class StrokePlanner:
 
         return binary_output
 
-if __name__ == "__main__":
-    path = "line_detect_data/test.svg"
-    planner = StrokePlanner(path)
-    planner.generate_and_plot_commands()
+    def begin(self):
+        return self.generate_and_plot_commands()

@@ -221,15 +221,15 @@ class CapturePage(BasePage):
         user_input = self.user_input.text()
         self.user_input.clear()
 
-        if user_input != "0" or user_input != "1":
-            self.svgName = user_input
+        if user_input != "0" and user_input != "1":
+            self.svgName = user_input + ".svg"
 
         self.console_output.append(f"Sending input: {user_input}")
         self.command_runner.send_input(user_input)
 
     def record_data(self):
         message = f"Recording data from page: {self.image_stack.currentIndex() + 1}"
-        print(message)  # Log the message instead of sending it to ROS
+        print(message)  # Log the message
         self.console_output.append(message)
         self.send_socket_message(message)
 
@@ -238,8 +238,8 @@ class CapturePage(BasePage):
             message = "Please save a contour before recording"
             print(message)
         else:
-            self.svgPath = "contour filename: " + self.svgName + ".svg"
-            print(self.svgPath)  # Log the message instead of sending it to ROS
+            self.svgPath = "contour filename: " + self.svgName
+            print(self.svgPath)  # Log the message
             self.console_output.append(self.svgPath)
             self.send_socket_message(self.svgPath)
 
@@ -251,10 +251,10 @@ class CapturePage(BasePage):
             s.sendall(message.encode('utf-8'))
 
 class ContourPage(BasePage):
-    def __init__(self, image_path, background_color=None, parent=None):
-        super().__init__("Cornelius TSP", image_path, background_color, parent)
+    def __init__(self, image_path, capture_page, background_color=None, parent=None):
+        super().__init__("Cornelius Stroke Planner", image_path, background_color, parent)
         
-        self.planner = None
+        self.capture_page = capture_page
         self.button = QPushButton("Plan Stroke")
         self.button.setStyleSheet("color: white; background-color: #32a852; padding: 10px;")
         self.button.clicked.connect(self.plan_stroke)
@@ -262,8 +262,13 @@ class ContourPage(BasePage):
 
     @Slot()
     def plan_stroke(self):
-        self.planner = StrokePlanner("test.svg")
-        print("StrokePlanner instance created")
+        self.svgName = self.capture_page.svgName
+        if self.svgName:
+            self.planner = StrokePlanner(self.svgName)
+            print(f"StrokePlanner instance created with {self.svgName}")
+            self.planner.begin()
+        else:
+            print("No svgName found in CapturePage")
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -276,9 +281,12 @@ class MainWindow(QWidget):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         background_path = os.path.join(script_dir, "UI_files/background.png")
         background_color = "#141414"
-        self.stack.addWidget(CalibrationPage(background_path, background_color))
-        self.stack.addWidget(CapturePage(background_path, background_color))
-        self.stack.addWidget(ContourPage(background_path, background_color))
+        self.calibration_page = CalibrationPage(background_path, background_color)
+        self.capture_page = CapturePage(background_path, background_color)
+        self.contour_page = ContourPage(background_path, self.capture_page, background_color)
+        self.stack.addWidget(self.calibration_page)
+        self.stack.addWidget(self.capture_page)
+        self.stack.addWidget(self.contour_page)
         self.button_layout = QHBoxLayout()
         self.back_button = QPushButton("Back")
         self.next_button = QPushButton("Next")

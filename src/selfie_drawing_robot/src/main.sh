@@ -25,12 +25,12 @@ ROSCORE_PID=$!
 # Give roscore some time to start
 sleep 2
 
-# Activate the first virtual environment and run userInterface.py
+# Activate the first virtual environment and run userInterface.py, needs python 3.12.2
 source ~/cornEnv/bin/activate
 ./userInterface.py &
 USER_INTERFACE_PID=$!
 
-# Activate the second virtual environment and run ros_node.py
+# Activate the second virtual environment and run ros_node.py, needs python 3.8.10
 source ~/cornEnvStable/bin/activate
 ./ros_node.py &
 ROS_NODE_PID=$!
