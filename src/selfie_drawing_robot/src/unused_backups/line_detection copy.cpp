@@ -17,7 +17,7 @@ Ideas/improvements:
 // Constructor implementation
 Line_detection::Line_detection()
 {
-    std::cout << "Line_detection constructor called" << std::endl << std::flush;
+    std::cout << "Line_detection constructor called" << std::endl;
 }
 
 void Line_detection::begin(std::string imagePath)
@@ -33,28 +33,29 @@ void Line_detection::begin(std::string imagePath)
 
     if (input_image.empty())
     {
-        std::cerr << "Could not open or find the image" << std::endl << std::flush;
+        std::cerr << "Could not open or find the image" << std::endl;
         return; // Exit or handle the error appropriately
     }
 
     // first change contrast of image
     applyCLAHE(input_image);
 
-    // dispaly iamge
+    // dispaly image
     cv::imshow("Contrasted Image", input_image);
-    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
-    cv::destroyWindow("Contrasted Image"); // Close the window
+    cv::waitKey(0); // Wait indefinitely for a key press
 
     // change the dimensions of the iamge
     // cv::resize(input_image, input_image, cv::Size(), 0.5, 0.5, cv::INTER_LINEAR);
 
     contourData contourGroup;
 
-    int arc_thresh = 8000; // can be adjusted but this value works well with the sampled images
+    int arc_thresh = 10000; // can be adjusted but this value works well with the sampled images
 
     int kernal = 9;
 
     cv::Mat edgeImage;
+
+    // recursively reduce the kernel size to increase detail until the total arc length is greater than the threshold
 
     cv::Mat copyInput = input_image.clone();
 
@@ -68,20 +69,18 @@ void Line_detection::begin(std::string imagePath)
     // finds face and removes background
     copyInput = backgroundSubtraction(copyInput);
 
-    // recursively reduce the kernel size to increase detail until the total arc length is greater than the threshold
+    cv::imshow("Should be RGB", copyInput);
+    cv::waitKey(0); // Wait indefinitely for a key press
 
-    while (contourGroup.total_arc_length < arc_thresh)
+
+    while ((contourGroup.total_arc_length < arc_thresh))
     {
-        cv::Mat copyInput = input_image.clone();
 
-        cv::Mat gray_image;
-
-        edgeImage = edgeDetection(copyInput, gray_image, kernal);
-
-        contourGroup = bwImageToContours(edgeImage, gray_image);
+        edgeImage = edgeDetection(copyInput, kernal);
+        contourGroup = bwImageToContours(edgeImage);
 
         // print total arc length
-        std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl << std::flush;
+        std::cout << "total arc length: " << contourGroup.total_arc_length << " Kernal size: " << kernal << std::endl;
 
         if (kernal == 1)
         {
@@ -109,26 +108,26 @@ void Line_detection::begin(std::string imagePath)
     }
 
     // show final image
-    cv::imshow("Edge", edgeImage);
-    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
-    cv::destroyWindow("Edge"); // Close the window
+    cv::imshow("Edge iamge", edgeImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
 
     // contourGroup.contours = bezierCurveApprox(contourGroup.contours, 39);
 
     // Animation of contours with ghosting
 
-    animateContours(contourGroup); // !!! add back
+    animateContours(contourGroup);
 
     // add shaded regions to the contours
-    addShadeRegions(contourGroup, 20, 10); // !!! Still messing with
+    addFillRegions(contourGroup, copyInput, 10, 10);
 
-    std::cout << "save file? (1 = yes | 0 = no)" << std::endl << std::flush;
+
+    std::cout << "save file? (1 = yes | 0 = no)" << std::endl;
     int response;
     std::cin >> response;
 
     if (response == 1)
     {
-        std::cout << "select name" << std::endl << std::flush;
+        std::cout << "select name" << std::endl;
         std::string fileName;
         std::cin >> fileName;
 
@@ -136,92 +135,121 @@ void Line_detection::begin(std::string imagePath)
     }
 }
 
-void Line_detection::addShadeRegions(contourData &contourGroup_, int numGrids1D, double similarityThreshold)
+// void Line_detection::addFillRegions(contourData &contourGroup_)
+// {
+//     // Create an image to draw the filled regions
+//     cv::Mat filledImage = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3);
+
+//     // Define colours with different opacities based on the levels
+//     std::vector<cv::Scalar> fillColours;
+//     fillColours.push_back(cv::Scalar(0, 0, 255));   // Red, level 0, least opaque
+//     fillColours.push_back(cv::Scalar(0, 255, 0));   // Green, level 1
+//     fillColours.push_back(cv::Scalar(255, 0, 0));   // Blue, level 2
+//     fillColours.push_back(cv::Scalar(0, 255, 255)); // Cyan, level 3, most opaque
+
+//     // Clear any existing fill regions
+//     contourGroup_.fillRegions.clear();
+
+//     for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
+//     {
+//         int level = contourGroup_.levels[i];
+//         // Use modulus operator to cycle through fill colours if there are more levels than colours
+//         cv::Scalar fillColour = fillColours[level % fillColours.size()];
+
+//         // Ensure the contour is closed
+//         if (contourGroup_.contours[i].front() != contourGroup_.contours[i].back())
+//         {
+//             contourGroup_.contours[i].push_back(contourGroup_.contours[i].front());
+//         }
+
+//         // Draw filled contour with the corresponding colour
+//         cv::drawContours(filledImage, contourGroup_.contours, static_cast<int>(i), fillColour, cv::FILLED, cv::LINE_8, contourGroup_.hierarchy, 0);
+
+//         // Add the filled contour points to fillRegions
+//         contourGroup_.fillRegions.push_back(contourGroup_.contours[i]);
+//     }
+
+//     // Display the filled image
+//     cv::imshow("Filled Contours", filledImage);
+//     cv::waitKey(0); // Wait indefinitely for a key press
+// }
+
+
+void Line_detection::addFillRegions(contourData &contourGroup_, cv::Mat rgbCroppedInput, int numGrids1D, double similarityThreshold)
 {
-    double scaleX = 1;
-    double scaleY = 0.65;
-    // Pixelate the image by resizing down and then up
-    cv::Mat smallImage, pixelatedImage;
-    cv::Size smallSize(numGrids1D, numGrids1D); // Define the small size for pixelation
 
-    // Resize to small size
-    cv::resize(contourGroup_.croppedImageGray, smallImage, smallSize, 0, 0, cv::INTER_LINEAR);
-    // Resize back to original size using nearest neighbor interpolation
-    cv::resize(smallImage, pixelatedImage, contourGroup_.croppedImageGray.size(), 0, 0, cv::INTER_NEAREST);
+    // Create an image to draw the filled regions
+    cv::Mat filledImage = contourGroup_.croppedImage.clone();
 
-    // Display the pixelated image for debugging
-    cv::imshow("Pixelated Image", pixelatedImage);
-    cv::waitKey(1000); // Wait for 1000 milliseconds (1 second)
-    cv::destroyWindow("Pixelated Image"); // Close the window
+    int gridWidth = filledImage.cols / numGrids1D;
+    int gridHeight = filledImage.rows / numGrids1D;
 
-    std::cout << "filled image cols: " << contourGroup_.croppedImageGray.cols << std::endl << std::flush;
-    std::cout << "filled image rows: " << contourGroup_.croppedImageGray.rows << std::endl << std::flush;
+    std::vector<std::vector<cv::Scalar>> gridAvgColors(numGrids1D, std::vector<cv::Scalar>(numGrids1D));
 
-    // Calculate grid dimensions based on the original filled image size
-    int gridWidth = contourGroup_.croppedImageGray.cols / numGrids1D;
-    int gridHeight = contourGroup_.croppedImageGray.rows / numGrids1D;
+    // Calculate average color for each grid
+    for (int y = 0; y < numGrids1D; ++y) {
+        for (int x = 0; x < numGrids1D; ++x) {
+            cv::Rect gridRect(x * gridWidth, y * gridHeight, gridWidth, gridHeight);
+            cv::Mat grid = filledImage(gridRect);
 
-    // Debugging statements to check grid dimensions
-    std::cout << "Filled Image Size: " << contourGroup_.croppedImageGray.size() << std::endl << std::flush;
-    std::cout << "Grid Dimensions: " << gridWidth << " x " << gridHeight << std::endl << std::flush;
-
-    // Clear any existing fill regions
-    contourGroup_.fillRegions.clear();
-    contourGroup_.fillColour.clear();
-
-    // The image is already grayscale, no need to convert
-    cv::Mat grayPixelatedImage = pixelatedImage;
-
-    // Define contours based on the pixelated image
-    for (int y = 0; y < numGrids1D; ++y)
-    {
-        for (int x = 0; x < numGrids1D; ++x)
-        {
-            std::vector<cv::Point> contour;
-            contour.push_back(cv::Point(static_cast<int>(x * gridWidth / scaleX), static_cast<int>(y * gridHeight / scaleY)));
-            contour.push_back(cv::Point(static_cast<int>((x + 1) * gridWidth / scaleX), static_cast<int>(y * gridHeight / scaleY)));
-            contour.push_back(cv::Point(static_cast<int>((x + 1) * gridWidth / scaleX), static_cast<int>((y + 1) * gridHeight / scaleY)));
-            contour.push_back(cv::Point(static_cast<int>(x * gridWidth / scaleX), static_cast<int>((y + 1) * gridHeight / scaleY)));
-            contour.push_back(cv::Point(static_cast<int>(x * gridWidth / scaleX), static_cast<int>(y * gridHeight / scaleY)));
-
-            contourGroup_.fillRegions.push_back(contour);
-
-            // Ensure the rectangle is within image bounds
-            int rectX = x * gridWidth;
-            int rectY = y * gridHeight;
-            int rectWidth = std::min(gridWidth, contourGroup_.croppedImageGray.cols - rectX);
-            int rectHeight = std::min(gridHeight, contourGroup_.croppedImageGray.rows - rectY);
-
-            // Calculate the average color in grayscale for the grid
-            cv::Scalar color = cv::mean(grayPixelatedImage(cv::Rect(rectX, rectY, rectWidth, rectHeight)));
-            int greyValue = static_cast<int>(color[0]); // Since color[0] is already the grayscale value
-
-            std::string fillColor = generateGreyscaleColor(greyValue, 0.5);
-            contourGroup_.fillColour.push_back(fillColor);
+            cv::Scalar avgColor = cv::mean(grid);
+            gridAvgColors[y][x] = avgColor;
         }
     }
 
-    // Optionally display the filled image for debugging
-    // cv::imshow("Filled Contours", filledImage);
-    // cv::waitKey(0); // Wait indefinitely for a key press
+    // Clear any existing fill regions
+    contourGroup_.fillRegions.clear();
+
+    // Compare average colors and create contours based on similarity
+    for (int y = 0; y < numGrids1D; ++y) {
+        for (int x = 0; x < numGrids1D; ++x) {
+            bool createNewContour = false;
+
+            if (x > 0) {
+                // Compare with left neighbor
+                if (cv::norm(gridAvgColors[y][x] - gridAvgColors[y][x - 1]) > similarityThreshold) {
+                    createNewContour = true;
+                }
+            }
+            if (y > 0) {
+                // Compare with top neighbor
+                if (cv::norm(gridAvgColors[y][x] - gridAvgColors[y - 1][x]) > similarityThreshold) {
+                    createNewContour = true;
+                }
+            }
+
+            if (createNewContour || (x == 0 && y == 0)) {
+                std::vector<cv::Point> contour;
+                contour.push_back(cv::Point(x * gridWidth, y * gridHeight));
+                contour.push_back(cv::Point((x + 1) * gridWidth, y * gridHeight));
+                contour.push_back(cv::Point((x + 1) * gridWidth, (y + 1) * gridHeight));
+                contour.push_back(cv::Point(x * gridWidth, (y + 1) * gridHeight));
+                contour.push_back(cv::Point(x * gridWidth, y * gridHeight));
+
+                contourGroup_.contours.push_back(contour);
+                contourGroup_.fillRegions.push_back(contour);
+            }
+        }
+    }
+
+    // Draw filled contours
+    for (size_t i = 0; i < contourGroup_.contours.size(); ++i) {
+        cv::drawContours(filledImage, contourGroup_.contours, static_cast<int>(i), cv::Scalar(0, 255, 0), cv::FILLED, cv::LINE_8);
+    }
+
+    // Display the filled image
+    cv::imshow("Filled Contours", filledImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
 }
 
-// Function to generate greyscale color string
-std::string Line_detection::generateGreyscaleColor(int greyValue, float opacity)
-{
-    std::ostringstream oss;
-    oss << "rgba(" << greyValue << "," << greyValue << "," << greyValue << "," << opacity << ")";
-    return oss.str();
-}
-
-contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &imageGray)
+contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW)
 {
     contourData contourGroup;
 
     // first check if it is black and white
     if (!isBinary(edgeImageBW))
     {
-        std::cout << "Input is not black and white" << std::endl << std::flush;
+        std::cout << "Input is not black and white" << std::endl;
         return contourGroup;
     }
 
@@ -232,7 +260,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
     if (blackPixels > whitePixels)
     {
-        std::cout << "more black pixels than white" << std::endl << std::flush;
+        std::cout << "more black pixels than white" << std::endl;
         return contourGroup;
     }
 
@@ -240,21 +268,14 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
     // then resize it to some universal value
     cv::Rect boundaryBox = findImageBounds(edgeImageBW);
 
-    contourGroup.croppedImageBW = edgeImageBW(boundaryBox);
+    contourGroup.croppedImage = edgeImageBW(boundaryBox);
 
-    boundaryBox = findImageBounds(imageGray);
+    cv::bitwise_not(contourGroup.croppedImage, contourGroup.croppedImage);
 
-    contourGroup.croppedImageGray = imageGray(boundaryBox); // !!! error here
+    cv::imshow("Image", contourGroup.croppedImage);
+    cv::waitKey(0); // Wait indefinitely for a key press
 
-    std::cout << "line 245" << std::endl << std::flush;
-
-    cv::bitwise_not(contourGroup.croppedImageBW, contourGroup.croppedImageBW);
-
-    cv::imshow("Image", contourGroup.croppedImageBW);
-    cv::waitKey(500); // Wait
-    cv::destroyWindow("Image"); // Close the window
-
-    cv::findContours(contourGroup.croppedImageBW, contourGroup.contours, contourGroup.hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+    cv::findContours(contourGroup.croppedImage, contourGroup.contours, contourGroup.hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
     // A vector to hold the level of each contour
     contourGroup.levels = std::vector<int>(contourGroup.contours.size(), 0);
@@ -286,7 +307,7 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
         }
     }
 
-    std::cout << "number of contours: " << contourGroup.contours.size() << std::endl << std::flush;
+    std::cout << "number of contours: " << contourGroup.contours.size() << std::endl;
 
     // !!! epsilon value needs to be tested on varying faces
     contourGroup.contours = douglasPeuckerReduction(contourGroup.contours, 2);
@@ -331,17 +352,17 @@ contourData Line_detection::bwImageToContours(cv::Mat &edgeImageBW, cv::Mat &ima
 
 void Line_detection::animateContours(contourData &contourGroup_)
 {
-    const int iterationPeriod = 2; // Number of frames to display
+    const int iterationPeriod = 3; // Number of frames to display
     const int n = 10;              // Number of contours to ghost
     const double fadeFactor = 0.9; // Factor to fade previous contours by, closer to 0 makes them fade faster
 
-    cv::Mat background = cv::Mat::zeros(contourGroup_.croppedImageBW.size(), CV_8UC3); // Initial background
+    cv::Mat background = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3); // Initial background
 
     for (int iteration = 0; iteration < iterationPeriod; ++iteration)
     {
         for (size_t i = 0; i < contourGroup_.contours.size(); ++i)
         {
-            cv::Mat lineImage = cv::Mat::zeros(contourGroup_.croppedImageBW.size(), CV_8UC3); // Image for the current contour
+            cv::Mat lineImage = cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3); // Image for the current contour
 
             int level = contourGroup_.levels[i];
             cv::Scalar color;
@@ -365,7 +386,7 @@ void Line_detection::animateContours(contourData &contourGroup_)
             cv::drawContours(lineImage, contourGroup_.contours, static_cast<int>(i), color, 2, cv::LINE_8, contourGroup_.hierarchy, 0);
 
             // Fade the background by blending it with a black image
-            background = (1 - fadeFactor) * cv::Mat::zeros(contourGroup_.croppedImageBW.size(), CV_8UC3) + fadeFactor * background;
+            background = (1 - fadeFactor) * cv::Mat::zeros(contourGroup_.croppedImage.size(), CV_8UC3) + fadeFactor * background;
 
             // Add the current contour onto the background
             cv::addWeighted(background, 1.0, lineImage, 1.0, 0, background);
@@ -442,7 +463,7 @@ bool Line_detection::isBinary(const cv::Mat &image)
     // Ensure it's grayscale first
     if (!isGrayscale(image))
     {
-        std::cout << "image is not grayscale" << std::endl << std::flush;
+        std::cout << "image is not grayscale" << std::endl;
         return false;
     }
 
@@ -467,40 +488,30 @@ bool Line_detection::isGrayscale(const cv::Mat &image)
 }
 
 // Method to set the value
-cv::Mat Line_detection::edgeDetection(cv::Mat &input_image, cv::Mat &input_gray_image, int kernal_size)
+cv::Mat Line_detection::edgeDetection(cv::Mat &input_image, int kernal_size)
 {
-    // maintain image aspect ratio
-    int rows = 800;
-    int cols = static_cast<int>((static_cast<double>(input_image.cols) / input_image.rows) * rows);
-
-    // Resize the image to the new dimensions
-    cv::resize(input_image, input_image, cv::Size(cols, rows), 0, 0, cv::INTER_LINEAR);
-
-    // finds face and removes background
-    input_image = backgroundSubtraction(input_image);
-
     // blur image
     cv::Mat image_blurred;
     GaussianBlur(input_image, image_blurred, cv::Size(kernal_size, kernal_size), 0);
 
+    // cv::imshow("Blurred Image", image_blurred);
+    // cv::waitKey(0); // Wait indefinitely for a key press
+
     cv::Mat gray, edge, draw;
     cv::cvtColor(image_blurred, gray, cv::COLOR_BGR2GRAY);
-
-    input_gray_image = gray.clone();
 
     cv::Canny(gray, edge, 50, 150, 3);
     edge.convertTo(draw, CV_8U);
 
-    // maintain image aspect ratio
-    rows = 500;
-    cols = static_cast<int>((static_cast<double>(input_image.cols) / input_image.rows) * rows);
+    // // maintain image aspect ratio
+    // rows = 500;
+    // cols = static_cast<int>((static_cast<double>(input_image.cols) / input_image.rows) * rows);
 
-    // Resize the image to the new dimensions
-    cv::resize(draw, draw, cv::Size(cols, rows), 0, 0, cv::INTER_LINEAR);
+    // // Resize the image to the new dimensions
+    // cv::resize(draw, draw, cv::Size(cols, rows), 0, 0, cv::INTER_LINEAR);
 
     cv::bitwise_not(draw, draw); // inverting the binary image and storing it in inverted_binary_image matrix//
 
-    // ensure it is a black and white image
     cv::threshold(draw, draw, 200, 255, cv::THRESH_BINARY);
 
     return draw;
@@ -512,25 +523,46 @@ cv::Mat Line_detection::backgroundSubtraction(cv::Mat &input_image)
     mask.create(input_image.size(), CV_8UC1);
     mask.setTo(cv::GC_BGD); // Background label
 
-    // cv::Rect rectangle(100, 50, input_image.cols-200, input_image.rows-100);
+    // Define the initial rectangle
     cv::Rect rectangle = FaceLocationDetection(input_image);
 
-    // Apply GrabCut
+    // Apply GrabCut with initial rectangle
     cv::Mat bgdModel, fgdModel;
     cv::grabCut(input_image, mask, rectangle, bgdModel, fgdModel, 5, cv::GC_INIT_WITH_RECT);
 
-    // Modify the mask to create a binary mask of the foreground
-    cv::compare(mask, cv::GC_PR_FGD, mask, cv::CMP_EQ);
+    // Convert mask to binary foreground/background
+    cv::Mat binaryMask;
+    cv::compare(mask, cv::GC_PR_FGD, binaryMask, cv::CMP_EQ);
 
-    // Extract the foreground
+    // Use morphological operations to fill gaps in the mask
+    int morphIterations = 15; // Number of times to apply dilation and erosion
+
+    // Perform dilation
+    cv::dilate(binaryMask, binaryMask, cv::Mat(), cv::Point(-1, -1), morphIterations);
+
+    // Perform erosion
+    cv::erode(binaryMask, binaryMask, cv::Mat(), cv::Point(-1, -1), morphIterations);
+
+    // Visualize the refined mask
+    cv::imshow("Refined Mask", binaryMask);
+    cv::waitKey(0);
+
+    // Extract the foreground using the refined mask
     cv::Mat foreground(input_image.size(), CV_8UC3, cv::Scalar(0, 0, 0));
-    input_image.copyTo(foreground, mask); // Copies only where mask is non-zero
+    input_image.copyTo(foreground, binaryMask); // Copies only where mask is non-zero
 
     // Crop the image to the bounding box of the foreground
     cv::Rect boundedROI = rectangle & cv::Rect(0, 0, foreground.cols, foreground.rows);
-    cv::Mat croppedImageBW = foreground(boundedROI).clone();
+    cv::Mat croppedImage = foreground(boundedROI).clone();
 
-    return croppedImageBW;
+    // maintain image aspect ratio
+    int rows = 600;
+    int cols = static_cast<int>((static_cast<double>(croppedImage.cols) / croppedImage.rows) * rows);
+
+    // Resize the image to the new dimensions
+    cv::resize(croppedImage, croppedImage, cv::Size(cols, rows), 0, 0, cv::INTER_LINEAR);
+
+    return croppedImage;
 }
 
 cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
@@ -542,7 +574,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
     // Check if the Haar Cascade file is loaded
     if (faceCascade.empty())
     {
-        std::cout << "Failed to load Haar Cascade file." << std::endl << std::flush;
+        std::cout << "Failed to load Haar Cascade file." << std::endl;
         return cv::Rect(); // Return an empty rectangle
     }
 
@@ -557,7 +589,7 @@ cv::Rect Line_detection::FaceLocationDetection(cv::Mat &input_image)
 
     if (numFaces > 1)
     {
-        std::cout << numFaces << " faces detected. Returning the largest detected face." << std::endl << std::flush;
+        std::cout << numFaces << " faces detected. Returning the largest detected face." << std::endl;
 
         float maxArea = 0;
         int maxAreaIndex = 0;
@@ -623,8 +655,6 @@ std::string Line_detection::contours_to_svg(contourData contourGroup_, std::stri
         svg_paths += path;
     }
 
-    svg_paths += "\n";
-
     // Create paths for the filled regions
     for (size_t i = 0; i < contourGroup_.fillRegions.size(); ++i)
     {
@@ -634,7 +664,12 @@ std::string Line_detection::contours_to_svg(contourData contourGroup_, std::stri
             fill_path += std::to_string(contourGroup_.fillRegions[i][j].x) + " " + std::to_string(contourGroup_.fillRegions[i][j].y) + " ";
         }
 
-        fill_path += "Z\" fill=\"" + contourGroup_.fillColour[i] + "\" stroke=\"none\" />\n";
+        // Assign a fill color based on the level (assuming level-based color scheme used earlier)
+        int level = contourGroup_.levels[i];
+        std::vector<std::string> fillColours = {"black"};
+        std::string fillColour = fillColours[level % fillColours.size()];
+
+        fill_path += "Z\" fill=\"" + fillColour + "\" stroke=\"none\" />\n";
         svg_paths += fill_path;
     }
 

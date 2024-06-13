@@ -1,0 +1,802 @@
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"> 
+<path d="M0 0 12 0 12 12 0 12 0 0 Z" fill="none" stroke="black" stroke-width="1.264825" />
+<path d="M12 0 24 0 24 12 12 12 12 0 Z" fill="none" stroke="black" stroke-width="1.163861" />
+<path d="M24 0 36 0 36 12 24 12 24 0 Z" fill="none" stroke="black" stroke-width="1.877455" />
+<path d="M36 0 48 0 48 12 36 12 36 0 Z" fill="none" stroke="black" stroke-width="1.608455" />
+<path d="M48 0 60 0 60 12 48 12 48 0 Z" fill="none" stroke="black" stroke-width="2.419044" />
+<path d="M60 0 72 0 72 12 60 12 60 0 Z" fill="none" stroke="black" stroke-width="1.122754" />
+<path d="M72 0 84 0 84 12 72 12 72 0 Z" fill="none" stroke="black" stroke-width="2.319445" />
+<path d="M84 0 96 0 96 12 84 12 84 0 Z" fill="none" stroke="black" stroke-width="1.140753" />
+<path d="M96 0 108 0 108 12 96 12 96 0 Z" fill="none" stroke="black" stroke-width="1.358710" />
+<path d="M108 0 120 0 120 12 108 12 108 0 Z" fill="none" stroke="black" stroke-width="2.179783" />
+<path d="M120 0 132 0 132 12 120 12 120 0 Z" fill="none" stroke="black" stroke-width="3.739375" />
+<path d="M132 0 144 0 144 12 132 12 132 0 Z" fill="none" stroke="black" stroke-width="1.523992" />
+<path d="M144 0 156 0 156 12 144 12 144 0 Z" fill="none" stroke="black" stroke-width="3.071957" />
+<path d="M156 0 168 0 168 12 156 12 156 0 Z" fill="none" stroke="black" stroke-width="1.429384" />
+<path d="M168 0 180 0 180 12 168 12 168 0 Z" fill="none" stroke="black" stroke-width="2.539256" />
+<path d="M180 0 192 0 192 12 180 12 180 0 Z" fill="none" stroke="black" stroke-width="1.197055" />
+<path d="M192 0 204 0 204 12 192 12 192 0 Z" fill="none" stroke="black" stroke-width="1.302106" />
+<path d="M204 0 216 0 216 12 204 12 204 0 Z" fill="none" stroke="black" stroke-width="2.795363" />
+<path d="M216 0 228 0 228 12 216 12 216 0 Z" fill="none" stroke="black" stroke-width="2.126890" />
+<path d="M228 0 240 0 240 12 228 12 228 0 Z" fill="none" stroke="black" stroke-width="2.000429" />
+<path d="M0 12 12 12 12 24 0 24 0 12 Z" fill="none" stroke="black" stroke-width="5.335289" />
+<path d="M12 12 24 12 24 24 12 24 12 12 Z" fill="none" stroke="black" stroke-width="3.070411" />
+<path d="M24 12 36 12 36 24 24 24 24 12 Z" fill="none" stroke="black" stroke-width="1.846879" />
+<path d="M36 12 48 12 48 24 36 24 36 12 Z" fill="none" stroke="black" stroke-width="1.138743" />
+<path d="M48 12 60 12 60 24 48 24 48 12 Z" fill="none" stroke="black" stroke-width="1.107063" />
+<path d="M60 12 72 12 72 24 60 24 60 12 Z" fill="none" stroke="black" stroke-width="2.147212" />
+<path d="M72 12 84 12 84 24 72 24 72 12 Z" fill="none" stroke="black" stroke-width="2.785113" />
+<path d="M84 12 96 12 96 24 84 24 84 12 Z" fill="none" stroke="black" stroke-width="4.182310" />
+<path d="M96 12 108 12 108 24 96 24 96 12 Z" fill="none" stroke="black" stroke-width="1.773688" />
+<path d="M108 12 120 12 120 24 108 24 108 12 Z" fill="none" stroke="black" stroke-width="1.136328" />
+<path d="M120 12 132 12 132 24 120 24 120 12 Z" fill="none" stroke="black" stroke-width="1.423344" />
+<path d="M132 12 144 12 144 24 132 24 132 12 Z" fill="none" stroke="black" stroke-width="1.613495" />
+<path d="M144 12 156 12 156 24 144 24 144 12 Z" fill="none" stroke="black" stroke-width="1.102371" />
+<path d="M156 12 168 12 168 24 156 24 156 12 Z" fill="none" stroke="black" stroke-width="1.548556" />
+<path d="M168 12 180 12 180 24 168 24 168 12 Z" fill="none" stroke="black" stroke-width="1.088070" />
+<path d="M180 12 192 12 192 24 180 24 180 12 Z" fill="none" stroke="black" stroke-width="1.754151" />
+<path d="M192 12 204 12 204 24 192 24 192 12 Z" fill="none" stroke="black" stroke-width="1.181616" />
+<path d="M204 12 216 12 216 24 204 24 204 12 Z" fill="none" stroke="black" stroke-width="2.761830" />
+<path d="M216 12 228 12 228 24 216 24 216 12 Z" fill="none" stroke="black" stroke-width="1.393711" />
+<path d="M228 12 240 12 240 24 228 24 228 12 Z" fill="none" stroke="black" stroke-width="1.635270" />
+<path d="M0 24 12 24 12 36 0 36 0 24 Z" fill="none" stroke="black" stroke-width="1.124661" />
+<path d="M12 24 24 24 24 36 12 36 12 24 Z" fill="none" stroke="black" stroke-width="1.877144" />
+<path d="M24 24 36 24 36 36 24 36 24 24 Z" fill="none" stroke="black" stroke-width="1.180224" />
+<path d="M36 24 48 24 48 36 36 36 36 24 Z" fill="none" stroke="black" stroke-width="1.382372" />
+<path d="M48 24 60 24 60 36 48 36 48 24 Z" fill="none" stroke="black" stroke-width="2.753147" />
+<path d="M60 24 72 24 72 36 60 36 60 24 Z" fill="none" stroke="black" stroke-width="1.000000" />
+<path d="M72 24 84 24 84 36 72 36 72 24 Z" fill="none" stroke="black" stroke-width="1.315379" />
+<path d="M84 24 96 24 96 36 84 36 84 24 Z" fill="none" stroke="black" stroke-width="1.978241" />
+<path d="M96 24 108 24 108 36 96 36 96 24 Z" fill="none" stroke="black" stroke-width="1.468884" />
+<path d="M108 24 120 24 120 36 108 36 108 24 Z" fill="none" stroke="black" stroke-width="3.970652" />
+<path d="M120 24 132 24 132 36 120 36 120 24 Z" fill="none" stroke="black" stroke-width="1.446077" />
+<path d="M132 24 144 24 144 36 132 36 132 24 Z" fill="none" stroke="black" stroke-width="1.626898" />
+<path d="M144 24 156 24 156 36 144 36 144 24 Z" fill="none" stroke="black" stroke-width="1.229126" />
+<path d="M156 24 168 24 168 36 156 36 156 24 Z" fill="none" stroke="black" stroke-width="6.000000" />
+<path d="M168 24 180 24 180 36 168 36 168 24 Z" fill="none" stroke="black" stroke-width="0.065436" />
+<path d="M180 24 192 24 192 36 180 36 180 24 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 24 204 24 204 36 192 36 192 24 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 24 216 24 216 36 204 36 204 24 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 24 228 24 228 36 216 36 216 24 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 24 240 24 240 36 228 36 228 24 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 36 12 36 12 48 0 48 0 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 36 24 36 24 48 12 48 12 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 36 36 36 36 48 24 48 24 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 36 48 36 48 48 36 48 36 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 36 60 36 60 48 48 48 48 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 36 72 36 72 48 60 48 60 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 36 84 36 84 48 72 48 72 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 36 96 36 96 48 84 48 84 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 36 108 36 108 48 96 48 96 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 36 120 36 120 48 108 48 108 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 36 132 36 132 48 120 48 120 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 36 144 36 144 48 132 48 132 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 36 156 36 156 48 144 48 144 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 36 168 36 168 48 156 48 156 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 36 180 36 180 48 168 48 168 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 36 192 36 192 48 180 48 180 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 36 204 36 204 48 192 48 192 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 36 216 36 216 48 204 48 204 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 36 228 36 228 48 216 48 216 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 36 240 36 240 48 228 48 228 36 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 48 12 48 12 60 0 60 0 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 48 24 48 24 60 12 60 12 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 48 36 48 36 60 24 60 24 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 48 48 48 48 60 36 60 36 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 48 60 48 60 60 48 60 48 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 48 72 48 72 60 60 60 60 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 48 84 48 84 60 72 60 72 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 48 96 48 96 60 84 60 84 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 48 108 48 108 60 96 60 96 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 48 120 48 120 60 108 60 108 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 48 132 48 132 60 120 60 120 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 48 144 48 144 60 132 60 132 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 48 156 48 156 60 144 60 144 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 48 168 48 168 60 156 60 156 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 48 180 48 180 60 168 60 168 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 48 192 48 192 60 180 60 180 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 48 204 48 204 60 192 60 192 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 48 216 48 216 60 204 60 204 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 48 228 48 228 60 216 60 216 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 48 240 48 240 60 228 60 228 48 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 60 12 60 12 72 0 72 0 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 60 24 60 24 72 12 72 12 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 60 36 60 36 72 24 72 24 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 60 48 60 48 72 36 72 36 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 60 60 60 60 72 48 72 48 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 60 72 60 72 72 60 72 60 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 60 84 60 84 72 72 72 72 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 60 96 60 96 72 84 72 84 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 60 108 60 108 72 96 72 96 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 60 120 60 120 72 108 72 108 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 60 132 60 132 72 120 72 120 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 60 144 60 144 72 132 72 132 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 60 156 60 156 72 144 72 144 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 60 168 60 168 72 156 72 156 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 60 180 60 180 72 168 72 168 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 60 192 60 192 72 180 72 180 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 60 204 60 204 72 192 72 192 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 60 216 60 216 72 204 72 204 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 60 228 60 228 72 216 72 216 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 60 240 60 240 72 228 72 228 60 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 72 12 72 12 84 0 84 0 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 72 24 72 24 84 12 84 12 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 72 36 72 36 84 24 84 24 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 72 48 72 48 84 36 84 36 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 72 60 72 60 84 48 84 48 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 72 72 72 72 84 60 84 60 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 72 84 72 84 84 72 84 72 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 72 96 72 96 84 84 84 84 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 72 108 72 108 84 96 84 96 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 72 120 72 120 84 108 84 108 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 72 132 72 132 84 120 84 120 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 72 144 72 144 84 132 84 132 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 72 156 72 156 84 144 84 144 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 72 168 72 168 84 156 84 156 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 72 180 72 180 84 168 84 168 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 72 192 72 192 84 180 84 180 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 72 204 72 204 84 192 84 192 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 72 216 72 216 84 204 84 204 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 72 228 72 228 84 216 84 216 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 72 240 72 240 84 228 84 228 72 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 84 12 84 12 96 0 96 0 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 84 24 84 24 96 12 96 12 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 84 36 84 36 96 24 96 24 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 84 48 84 48 96 36 96 36 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 84 60 84 60 96 48 96 48 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 84 72 84 72 96 60 96 60 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 84 84 84 84 96 72 96 72 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 84 96 84 96 96 84 96 84 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 84 108 84 108 96 96 96 96 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 84 120 84 120 96 108 96 108 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 84 132 84 132 96 120 96 120 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 84 144 84 144 96 132 96 132 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 84 156 84 156 96 144 96 144 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 84 168 84 168 96 156 96 156 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 84 180 84 180 96 168 96 168 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 84 192 84 192 96 180 96 180 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 84 204 84 204 96 192 96 192 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 84 216 84 216 96 204 96 204 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 84 228 84 228 96 216 96 216 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 84 240 84 240 96 228 96 228 84 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 96 12 96 12 108 0 108 0 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 96 24 96 24 108 12 108 12 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 96 36 96 36 108 24 108 24 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 96 48 96 48 108 36 108 36 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 96 60 96 60 108 48 108 48 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 96 72 96 72 108 60 108 60 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 96 84 96 84 108 72 108 72 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 96 96 96 96 108 84 108 84 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 96 108 96 108 108 96 108 96 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 96 120 96 120 108 108 108 108 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 96 132 96 132 108 120 108 120 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 96 144 96 144 108 132 108 132 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 96 156 96 156 108 144 108 144 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 96 168 96 168 108 156 108 156 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 96 180 96 180 108 168 108 168 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 96 192 96 192 108 180 108 180 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 96 204 96 204 108 192 108 192 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 96 216 96 216 108 204 108 204 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 96 228 96 228 108 216 108 216 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 96 240 96 240 108 228 108 228 96 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 108 12 108 12 120 0 120 0 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 108 24 108 24 120 12 120 12 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 108 36 108 36 120 24 120 24 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 108 48 108 48 120 36 120 36 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 108 60 108 60 120 48 120 48 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 108 72 108 72 120 60 120 60 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 108 84 108 84 120 72 120 72 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 108 96 108 96 120 84 120 84 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 108 108 108 108 120 96 120 96 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 108 120 108 120 120 108 120 108 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 108 132 108 132 120 120 120 120 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 108 144 108 144 120 132 120 132 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 108 156 108 156 120 144 120 144 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 108 168 108 168 120 156 120 156 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 108 180 108 180 120 168 120 168 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 108 192 108 192 120 180 120 180 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 108 204 108 204 120 192 120 192 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 108 216 108 216 120 204 120 204 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 108 228 108 228 120 216 120 216 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 108 240 108 240 120 228 120 228 108 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 120 12 120 12 132 0 132 0 120 Z" fill="none" stroke="black" stroke-width="11178712441761042780474939748130845728254865880826067492672048721336384394246829136689040088284294312930320482429695278132100130274791143549520867792918767538306531749782282756981137034339134112034940231345835935381992415250362618340627686813177225412608.000000" />
+<path d="M12 120 24 120 24 132 12 132 12 120 Z" fill="none" stroke="black" stroke-width="1962554014025122820442719169572712484229580212333074420904368584862491831843751606868001492093914717336498599296758028555712373623444321492838655092112263263946531839843860709033308855969647868135868479295044859867143640119784379819248226140160.000000" />
+<path d="M24 120 36 120 36 132 24 132 24 120 Z" fill="none" stroke="black" stroke-width="1141153878725812039577068871981119431156707201603358113111709881286072136080839692305623671674540192063552553193923442590855988481237184734569090530001300311586949794710945948991681378931260192850507683015868240042949175962206900878363081048064.000000" />
+<path d="M36 120 48 120 48 132 36 132 36 120 Z" fill="none" stroke="black" stroke-width="21133062371708048198271643741587128612913060800350862467162801765257397696383525423855406273733319233721156546575800492763505353633496590305323882752584220350519000052352203212542616839067968954165880237897465987072.000000" />
+<path d="M48 120 60 120 60 132 48 132 48 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 120 72 120 72 132 60 132 60 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 120 84 120 84 132 72 132 72 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 120 96 120 96 132 84 132 84 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 120 108 120 108 132 96 132 96 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 120 120 120 120 132 108 132 108 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 120 132 120 132 132 120 132 120 120 Z" fill="none" stroke="black" stroke-width="6969650804020080608112986869043032084909968498242502098070901356594998723075820244699920381082894276773905032838973898808546031511193920898959919933010368654518798605025008774430907072905628147825022773204821558385781271905173504.000000" />
+<path d="M132 120 144 120 144 132 132 132 132 120 Z" fill="none" stroke="black" stroke-width="60173487751583644083315164336364204378019366018993227226232740213492855094861366846508294398590819657277764848286544940053803841905062523311404791071842835590163524400596385792.000000" />
+<path d="M144 120 156 120 156 132 144 132 144 120 Z" fill="none" stroke="black" stroke-width="21173068722590059497988560073665096703540904994803520197692666084347992169412394894204896691109558210264395736523225911675983503373449288635019830759549707060331045780915651141244899899652565055640179836442831224832.000000" />
+<path d="M156 120 168 120 168 132 156 132 156 120 Z" fill="none" stroke="black" stroke-width="231271053045598417778732251117850447302345195481948516202734132647409364755371116424304573094162154334507324395492587344302178835748147133481994853996221366796288.000000" />
+<path d="M168 120 180 120 180 132 168 132 168 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 120 192 120 192 132 180 132 180 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 120 204 120 204 132 192 132 192 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 120 216 120 216 132 204 132 204 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 120 228 120 228 132 216 132 216 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 120 240 120 240 132 228 132 228 120 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 132 12 132 12 144 0 144 0 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 132 24 132 24 144 12 144 12 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 132 36 132 36 144 24 144 24 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 132 48 132 48 144 36 144 36 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 132 60 132 60 144 48 144 48 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 132 72 132 72 144 60 144 60 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 132 84 132 84 144 72 144 72 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 132 96 132 96 144 84 144 84 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 132 108 132 108 144 96 144 96 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 132 120 132 120 144 108 144 108 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 132 132 132 132 144 120 144 120 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 132 144 132 144 144 132 144 132 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 132 156 132 156 144 144 144 144 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 132 168 132 168 144 156 144 156 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 132 180 132 180 144 168 144 168 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 132 192 132 192 144 180 144 180 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 132 204 132 204 144 192 144 192 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 132 216 132 216 144 204 144 204 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 132 228 132 228 144 216 144 216 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 132 240 132 240 144 228 144 228 132 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 144 12 144 12 156 0 156 0 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 144 24 144 24 156 12 156 12 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 144 36 144 36 156 24 156 24 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 144 48 144 48 156 36 156 36 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 144 60 144 60 156 48 156 48 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 144 72 144 72 156 60 156 60 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 144 84 144 84 156 72 156 72 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 144 96 144 96 156 84 156 84 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 144 108 144 108 156 96 156 96 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 144 120 144 120 156 108 156 108 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 144 132 144 132 156 120 156 120 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 144 144 144 144 156 132 156 132 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 144 156 144 156 156 144 156 144 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 144 168 144 168 156 156 156 156 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 144 180 144 180 156 168 156 168 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 144 192 144 192 156 180 156 180 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 144 204 144 204 156 192 156 192 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 144 216 144 216 156 204 156 204 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 144 228 144 228 156 216 156 216 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 144 240 144 240 156 228 156 228 144 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 156 12 156 12 168 0 168 0 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 156 24 156 24 168 12 168 12 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 156 36 156 36 168 24 168 24 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 156 48 156 48 168 36 168 36 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 156 60 156 60 168 48 168 48 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 156 72 156 72 168 60 168 60 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 156 84 156 84 168 72 168 72 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 156 96 156 96 168 84 168 84 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 156 108 156 108 168 96 168 96 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 156 120 156 120 168 108 168 108 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 156 132 156 132 168 120 168 120 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 156 144 156 144 168 132 168 132 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 156 156 156 156 168 144 168 144 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 156 168 156 168 168 156 168 156 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 156 180 156 180 168 168 168 168 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 156 192 156 192 168 180 168 180 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 156 204 156 204 168 192 168 192 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 156 216 156 216 168 204 168 204 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 156 228 156 228 168 216 168 216 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 156 240 156 240 168 228 168 228 156 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 168 12 168 12 180 0 180 0 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 168 24 168 24 180 12 180 12 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 168 36 168 36 180 24 180 24 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 168 48 168 48 180 36 180 36 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 168 60 168 60 180 48 180 48 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 168 72 168 72 180 60 180 60 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 168 84 168 84 180 72 180 72 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 168 96 168 96 180 84 180 84 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 168 108 168 108 180 96 180 96 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 168 120 168 120 180 108 180 108 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 168 132 168 132 180 120 180 120 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 168 144 168 144 180 132 180 132 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 168 156 168 156 180 144 180 144 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 168 168 168 168 180 156 180 156 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 168 180 168 180 180 168 180 168 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 168 192 168 192 180 180 180 180 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 168 204 168 204 180 192 180 192 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 168 216 168 216 180 204 180 204 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 168 228 168 228 180 216 180 216 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 168 240 168 240 180 228 180 228 168 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 180 12 180 12 192 0 192 0 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 180 24 180 24 192 12 192 12 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 180 36 180 36 192 24 192 24 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 180 48 180 48 192 36 192 36 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 180 60 180 60 192 48 192 48 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 180 72 180 72 192 60 192 60 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 180 84 180 84 192 72 192 72 180 Z" fill="none" stroke="black" stroke-width="1464155459671893733221533477750455374975148518294677192328168543081136756870284680892501848956870026604320239441668062809566396933770387811453083986351645164992566804546645005322961950528622671488620552481956267874303114404496837073954282668032.000000" />
+<path d="M84 180 96 180 96 192 84 192 84 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 180 108 180 108 192 96 192 96 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 180 120 180 120 192 108 192 108 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 180 132 180 132 192 120 192 120 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 180 144 180 144 192 132 192 132 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 180 156 180 156 192 144 192 144 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 180 168 180 168 192 156 192 156 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 180 180 180 180 192 168 192 168 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 180 192 180 192 192 180 192 180 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 180 204 180 204 192 192 192 192 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 180 216 180 216 192 204 192 204 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 180 228 180 228 192 216 192 216 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 180 240 180 240 192 228 192 228 180 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 192 12 192 12 204 0 204 0 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 192 24 192 24 204 12 204 12 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 192 36 192 36 204 24 204 24 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 192 48 192 48 204 36 204 36 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 192 60 192 60 204 48 204 48 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 192 72 192 72 204 60 204 60 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 192 84 192 84 204 72 204 72 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 192 96 192 96 204 84 204 84 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 192 108 192 108 204 96 204 96 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 192 120 192 120 204 108 204 108 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 192 132 192 132 204 120 204 120 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 192 144 192 144 204 132 204 132 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 192 156 192 156 204 144 204 144 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 192 168 192 168 204 156 204 156 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 192 180 192 180 204 168 204 168 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 192 192 192 192 204 180 204 180 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 192 204 192 204 204 192 204 192 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 192 216 192 216 204 204 204 204 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 192 228 192 228 204 216 204 216 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 192 240 192 240 204 228 204 228 192 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 204 12 204 12 216 0 216 0 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 204 24 204 24 216 12 216 12 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 204 36 204 36 216 24 216 24 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 204 48 204 48 216 36 216 36 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 204 60 204 60 216 48 216 48 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 204 72 204 72 216 60 216 60 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 204 84 204 84 216 72 216 72 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 204 96 204 96 216 84 216 84 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 204 108 204 108 216 96 216 96 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 204 120 204 120 216 108 216 108 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 204 132 204 132 216 120 216 120 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 204 144 204 144 216 132 216 132 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 204 156 204 156 216 144 216 144 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 204 168 204 168 216 156 216 156 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 204 180 204 180 216 168 216 168 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 204 192 204 192 216 180 216 180 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 204 204 204 204 216 192 216 192 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 204 216 204 216 216 204 216 204 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 204 228 204 228 216 216 216 216 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 204 240 204 240 216 228 216 228 204 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 216 12 216 12 228 0 228 0 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 216 24 216 24 228 12 228 12 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 216 36 216 36 228 24 228 24 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 216 48 216 48 228 36 228 36 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 216 60 216 60 228 48 228 48 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 216 72 216 72 228 60 228 60 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 216 84 216 84 228 72 228 72 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 216 96 216 96 228 84 228 84 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 216 108 216 108 228 96 228 96 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 216 120 216 120 228 108 228 108 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 216 132 216 132 228 120 228 120 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 216 144 216 144 228 132 228 132 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 216 156 216 156 228 144 228 144 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 216 168 216 168 228 156 228 156 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 216 180 216 180 228 168 228 168 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 216 192 216 192 228 180 228 180 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 216 204 216 204 228 192 228 192 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 216 216 216 216 228 204 228 204 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 216 228 216 228 228 216 228 216 216 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 216 240 216 240 228 228 228 228 216 Z" fill="none" stroke="black" stroke-width="-64604597173415828843857683713178901223881146343812399838790460309565327293190759876800625939016608823839563497098353113054391900416742219956208165556026530013860704939188898519557413873707635074073779641228073410981318993477500911625630974424234108455335828107575010606936210070644538802788059842843764588544.000000" />
+<path d="M0 228 12 228 12 240 0 240 0 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M12 228 24 228 24 240 12 240 12 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M24 228 36 228 36 240 24 240 24 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M36 228 48 228 48 240 36 240 36 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M48 228 60 228 60 240 48 240 48 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M60 228 72 228 72 240 60 240 60 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M72 228 84 228 84 240 72 240 72 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M84 228 96 228 96 240 84 240 84 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M96 228 108 228 108 240 96 240 96 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M108 228 120 228 120 240 108 240 108 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M120 228 132 228 132 240 120 240 120 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M132 228 144 228 144 240 132 240 132 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M144 228 156 228 156 240 144 240 144 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M156 228 168 228 168 240 156 240 156 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M168 228 180 228 180 240 168 240 168 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M180 228 192 228 192 240 180 240 180 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M192 228 204 228 204 240 192 240 192 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M204 228 216 228 216 240 204 240 204 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M216 228 228 228 228 240 216 240 216 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M228 228 240 228 240 240 228 240 228 228 Z" fill="none" stroke="black" stroke-width="0.000000" />
+<path d="M0 0 12 0 12 12 0 12 0 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 0 24 0 24 12 12 12 12 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 0 36 0 36 12 24 12 24 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 0 48 0 48 12 36 12 36 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 0 60 0 60 12 48 12 48 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 0 72 0 72 12 60 12 60 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M72 0 84 0 84 12 72 12 72 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M84 0 96 0 96 12 84 12 84 0 Z" fill="rgb(88,88,88)" stroke="none" />
+<path d="M96 0 108 0 108 12 96 12 96 0 Z" fill="rgb(109,109,109)" stroke="none" />
+<path d="M108 0 120 0 120 12 108 12 108 0 Z" fill="rgb(54,54,54)" stroke="none" />
+<path d="M120 0 132 0 132 12 120 12 120 0 Z" fill="rgb(39,39,39)" stroke="none" />
+<path d="M132 0 144 0 144 12 132 12 132 0 Z" fill="rgb(92,92,92)" stroke="none" />
+<path d="M144 0 156 0 156 12 144 12 144 0 Z" fill="rgb(90,90,90)" stroke="none" />
+<path d="M156 0 168 0 168 12 156 12 156 0 Z" fill="rgb(91,91,91)" stroke="none" />
+<path d="M168 0 180 0 180 12 168 12 168 0 Z" fill="rgb(50,50,50)" stroke="none" />
+<path d="M180 0 192 0 192 12 180 12 180 0 Z" fill="rgb(6,6,6)" stroke="none" />
+<path d="M192 0 204 0 204 12 192 12 192 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 0 216 0 216 12 204 12 204 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 0 228 0 228 12 216 12 216 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 0 240 0 240 12 228 12 228 0 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 12 12 12 12 24 0 24 0 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 12 24 12 24 24 12 24 12 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 12 36 12 36 24 24 24 24 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 12 48 12 48 24 36 24 36 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 12 60 12 60 24 48 24 48 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 12 72 12 72 24 60 24 60 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M72 12 84 12 84 24 72 24 72 12 Z" fill="rgb(33,33,33)" stroke="none" />
+<path d="M84 12 96 12 96 24 84 24 84 12 Z" fill="rgb(95,95,95)" stroke="none" />
+<path d="M96 12 108 12 108 24 96 24 96 12 Z" fill="rgb(98,98,98)" stroke="none" />
+<path d="M108 12 120 12 120 24 108 24 108 12 Z" fill="rgb(54,54,54)" stroke="none" />
+<path d="M120 12 132 12 132 24 120 24 120 12 Z" fill="rgb(34,34,34)" stroke="none" />
+<path d="M132 12 144 12 144 24 132 24 132 12 Z" fill="rgb(107,107,107)" stroke="none" />
+<path d="M144 12 156 12 156 24 144 24 144 12 Z" fill="rgb(95,95,95)" stroke="none" />
+<path d="M156 12 168 12 168 24 156 24 156 12 Z" fill="rgb(48,48,48)" stroke="none" />
+<path d="M168 12 180 12 180 24 168 24 168 12 Z" fill="rgb(36,36,36)" stroke="none" />
+<path d="M180 12 192 12 192 24 180 24 180 12 Z" fill="rgb(17,17,17)" stroke="none" />
+<path d="M192 12 204 12 204 24 192 24 192 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 12 216 12 216 24 204 24 204 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 12 228 12 228 24 216 24 216 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 12 240 12 240 24 228 24 228 12 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 24 12 24 12 36 0 36 0 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 24 24 24 24 36 12 36 12 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 24 36 24 36 36 24 36 24 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 24 48 24 48 36 36 36 36 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 24 60 24 60 36 48 36 48 24 Z" fill="rgb(1,1,1)" stroke="none" />
+<path d="M60 24 72 24 72 36 60 36 60 24 Z" fill="rgb(37,37,37)" stroke="none" />
+<path d="M72 24 84 24 84 36 72 36 72 24 Z" fill="rgb(54,54,54)" stroke="none" />
+<path d="M84 24 96 24 96 36 84 36 84 24 Z" fill="rgb(119,119,119)" stroke="none" />
+<path d="M96 24 108 24 108 36 96 36 96 24 Z" fill="rgb(128,128,128)" stroke="none" />
+<path d="M108 24 120 24 120 36 108 36 108 24 Z" fill="rgb(141,141,141)" stroke="none" />
+<path d="M120 24 132 24 132 36 120 36 120 24 Z" fill="rgb(112,112,112)" stroke="none" />
+<path d="M132 24 144 24 144 36 132 36 132 24 Z" fill="rgb(65,65,65)" stroke="none" />
+<path d="M144 24 156 24 156 36 144 36 144 24 Z" fill="rgb(46,46,46)" stroke="none" />
+<path d="M156 24 168 24 168 36 156 36 156 24 Z" fill="rgb(61,61,61)" stroke="none" />
+<path d="M168 24 180 24 180 36 168 36 168 24 Z" fill="rgb(76,76,76)" stroke="none" />
+<path d="M180 24 192 24 192 36 180 36 180 24 Z" fill="rgb(60,60,60)" stroke="none" />
+<path d="M192 24 204 24 204 36 192 36 192 24 Z" fill="rgb(22,22,22)" stroke="none" />
+<path d="M204 24 216 24 216 36 204 36 204 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 24 228 24 228 36 216 36 216 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 24 240 24 240 36 228 36 228 24 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 36 12 36 12 48 0 48 0 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 36 24 36 24 48 12 48 12 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 36 36 36 36 48 24 48 24 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 36 48 36 48 48 36 48 36 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 36 60 36 60 48 48 48 48 36 Z" fill="rgb(60,60,60)" stroke="none" />
+<path d="M60 36 72 36 72 48 60 48 60 36 Z" fill="rgb(103,103,103)" stroke="none" />
+<path d="M72 36 84 36 84 48 72 48 72 36 Z" fill="rgb(135,135,135)" stroke="none" />
+<path d="M84 36 96 36 96 48 84 48 84 36 Z" fill="rgb(170,170,170)" stroke="none" />
+<path d="M96 36 108 36 108 48 96 48 96 36 Z" fill="rgb(183,183,183)" stroke="none" />
+<path d="M108 36 120 36 120 48 108 48 108 36 Z" fill="rgb(194,194,194)" stroke="none" />
+<path d="M120 36 132 36 132 48 120 48 120 36 Z" fill="rgb(194,194,194)" stroke="none" />
+<path d="M132 36 144 36 144 48 132 48 132 36 Z" fill="rgb(183,183,183)" stroke="none" />
+<path d="M144 36 156 36 156 48 144 48 144 36 Z" fill="rgb(172,172,172)" stroke="none" />
+<path d="M156 36 168 36 168 48 156 48 156 36 Z" fill="rgb(140,140,140)" stroke="none" />
+<path d="M168 36 180 36 180 48 168 48 168 36 Z" fill="rgb(81,81,81)" stroke="none" />
+<path d="M180 36 192 36 192 48 180 48 180 36 Z" fill="rgb(46,46,46)" stroke="none" />
+<path d="M192 36 204 36 204 48 192 48 192 36 Z" fill="rgb(19,19,19)" stroke="none" />
+<path d="M204 36 216 36 216 48 204 48 204 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 36 228 36 228 48 216 48 216 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 36 240 36 240 48 228 48 228 36 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 48 12 48 12 60 0 60 0 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 48 24 48 24 60 12 60 12 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 48 36 48 36 60 24 60 24 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 48 48 48 48 60 36 60 36 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 48 60 48 60 60 48 60 48 48 Z" fill="rgb(57,57,57)" stroke="none" />
+<path d="M60 48 72 48 72 60 60 60 60 48 Z" fill="rgb(131,131,131)" stroke="none" />
+<path d="M72 48 84 48 84 60 72 60 72 48 Z" fill="rgb(164,164,164)" stroke="none" />
+<path d="M84 48 96 48 96 60 84 60 84 48 Z" fill="rgb(193,193,193)" stroke="none" />
+<path d="M96 48 108 48 108 60 96 60 96 48 Z" fill="rgb(206,206,206)" stroke="none" />
+<path d="M108 48 120 48 120 60 108 60 108 48 Z" fill="rgb(210,210,210)" stroke="none" />
+<path d="M120 48 132 48 132 60 120 60 120 48 Z" fill="rgb(209,209,209)" stroke="none" />
+<path d="M132 48 144 48 144 60 132 60 132 48 Z" fill="rgb(209,209,209)" stroke="none" />
+<path d="M144 48 156 48 156 60 144 60 144 48 Z" fill="rgb(201,201,201)" stroke="none" />
+<path d="M156 48 168 48 168 60 156 60 156 48 Z" fill="rgb(175,175,175)" stroke="none" />
+<path d="M168 48 180 48 180 60 168 60 168 48 Z" fill="rgb(128,128,128)" stroke="none" />
+<path d="M180 48 192 48 192 60 180 60 180 48 Z" fill="rgb(67,67,67)" stroke="none" />
+<path d="M192 48 204 48 204 60 192 60 192 48 Z" fill="rgb(14,14,14)" stroke="none" />
+<path d="M204 48 216 48 216 60 204 60 204 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 48 228 48 228 60 216 60 216 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 48 240 48 240 60 228 60 228 48 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 60 12 60 12 72 0 72 0 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 60 24 60 24 72 12 72 12 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 60 36 60 36 72 24 72 24 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 60 48 60 48 72 36 72 36 60 Z" fill="rgb(40,40,40)" stroke="none" />
+<path d="M48 60 60 60 60 72 48 72 48 60 Z" fill="rgb(65,65,65)" stroke="none" />
+<path d="M60 60 72 60 72 72 60 72 60 60 Z" fill="rgb(129,129,129)" stroke="none" />
+<path d="M72 60 84 60 84 72 72 72 72 60 Z" fill="rgb(167,167,167)" stroke="none" />
+<path d="M84 60 96 60 96 72 84 72 84 60 Z" fill="rgb(198,198,198)" stroke="none" />
+<path d="M96 60 108 60 108 72 96 72 96 60 Z" fill="rgb(214,214,214)" stroke="none" />
+<path d="M108 60 120 60 120 72 108 72 108 60 Z" fill="rgb(217,217,217)" stroke="none" />
+<path d="M120 60 132 60 132 72 120 72 120 60 Z" fill="rgb(215,215,215)" stroke="none" />
+<path d="M132 60 144 60 144 72 132 72 132 60 Z" fill="rgb(214,214,214)" stroke="none" />
+<path d="M144 60 156 60 156 72 144 72 144 60 Z" fill="rgb(206,206,206)" stroke="none" />
+<path d="M156 60 168 60 168 72 156 72 156 60 Z" fill="rgb(180,180,180)" stroke="none" />
+<path d="M168 60 180 60 180 72 168 72 168 60 Z" fill="rgb(143,143,143)" stroke="none" />
+<path d="M180 60 192 60 192 72 180 72 180 60 Z" fill="rgb(85,85,85)" stroke="none" />
+<path d="M192 60 204 60 204 72 192 72 192 60 Z" fill="rgb(22,22,22)" stroke="none" />
+<path d="M204 60 216 60 216 72 204 72 204 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 60 228 60 228 72 216 72 216 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 60 240 60 240 72 228 72 228 60 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 72 12 72 12 84 0 84 0 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 72 24 72 24 84 12 84 12 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 72 36 72 36 84 24 84 24 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 72 48 72 48 84 36 84 36 72 Z" fill="rgb(37,37,37)" stroke="none" />
+<path d="M48 72 60 72 60 84 48 84 48 72 Z" fill="rgb(64,64,64)" stroke="none" />
+<path d="M60 72 72 72 72 84 60 84 60 72 Z" fill="rgb(121,121,121)" stroke="none" />
+<path d="M72 72 84 72 84 84 72 84 72 72 Z" fill="rgb(168,168,168)" stroke="none" />
+<path d="M84 72 96 72 96 84 84 84 84 72 Z" fill="rgb(198,198,198)" stroke="none" />
+<path d="M96 72 108 72 108 84 96 84 96 72 Z" fill="rgb(218,218,218)" stroke="none" />
+<path d="M108 72 120 72 120 84 108 84 108 72 Z" fill="rgb(228,228,228)" stroke="none" />
+<path d="M120 72 132 72 132 84 120 84 120 72 Z" fill="rgb(230,230,230)" stroke="none" />
+<path d="M132 72 144 72 144 84 132 84 132 72 Z" fill="rgb(223,223,223)" stroke="none" />
+<path d="M144 72 156 72 156 84 144 84 144 72 Z" fill="rgb(214,214,214)" stroke="none" />
+<path d="M156 72 168 72 168 84 156 84 156 72 Z" fill="rgb(189,189,189)" stroke="none" />
+<path d="M168 72 180 72 180 84 168 84 168 72 Z" fill="rgb(145,145,145)" stroke="none" />
+<path d="M180 72 192 72 192 84 180 84 180 72 Z" fill="rgb(96,96,96)" stroke="none" />
+<path d="M192 72 204 72 204 84 192 84 192 72 Z" fill="rgb(34,34,34)" stroke="none" />
+<path d="M204 72 216 72 216 84 204 84 204 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 72 228 72 228 84 216 84 216 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 72 240 72 240 84 228 84 228 72 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 84 12 84 12 96 0 96 0 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 84 24 84 24 96 12 96 12 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 84 36 84 36 96 24 96 24 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 84 48 84 48 96 36 96 36 84 Z" fill="rgb(32,32,32)" stroke="none" />
+<path d="M48 84 60 84 60 96 48 96 48 84 Z" fill="rgb(71,71,71)" stroke="none" />
+<path d="M60 84 72 84 72 96 60 96 60 84 Z" fill="rgb(74,74,74)" stroke="none" />
+<path d="M72 84 84 84 84 96 72 96 72 84 Z" fill="rgb(116,116,116)" stroke="none" />
+<path d="M84 84 96 84 96 96 84 96 84 84 Z" fill="rgb(106,106,106)" stroke="none" />
+<path d="M96 84 108 84 108 96 96 96 96 84 Z" fill="rgb(127,127,127)" stroke="none" />
+<path d="M108 84 120 84 120 96 108 96 108 84 Z" fill="rgb(176,176,176)" stroke="none" />
+<path d="M120 84 132 84 132 96 120 96 120 84 Z" fill="rgb(188,188,188)" stroke="none" />
+<path d="M132 84 144 84 144 96 132 96 132 84 Z" fill="rgb(135,135,135)" stroke="none" />
+<path d="M144 84 156 84 156 96 144 96 144 84 Z" fill="rgb(101,101,101)" stroke="none" />
+<path d="M156 84 168 84 168 96 156 96 156 84 Z" fill="rgb(98,98,98)" stroke="none" />
+<path d="M168 84 180 84 180 96 168 96 168 84 Z" fill="rgb(95,95,95)" stroke="none" />
+<path d="M180 84 192 84 192 96 180 96 180 84 Z" fill="rgb(77,77,77)" stroke="none" />
+<path d="M192 84 204 84 204 96 192 96 192 84 Z" fill="rgb(31,31,31)" stroke="none" />
+<path d="M204 84 216 84 216 96 204 96 204 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 84 228 84 228 96 216 96 216 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 84 240 84 240 96 228 96 228 84 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 96 12 96 12 108 0 108 0 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 96 24 96 24 108 12 108 12 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 96 36 96 36 108 24 108 24 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 96 48 96 48 108 36 108 36 96 Z" fill="rgb(31,31,31)" stroke="none" />
+<path d="M48 96 60 96 60 108 48 108 48 96 Z" fill="rgb(77,77,77)" stroke="none" />
+<path d="M60 96 72 96 72 108 60 108 60 96 Z" fill="rgb(94,94,94)" stroke="none" />
+<path d="M72 96 84 96 84 108 72 108 72 96 Z" fill="rgb(118,118,118)" stroke="none" />
+<path d="M84 96 96 96 96 108 84 108 84 96 Z" fill="rgb(65,65,65)" stroke="none" />
+<path d="M96 96 108 96 108 108 96 108 96 96 Z" fill="rgb(131,131,131)" stroke="none" />
+<path d="M108 96 120 96 120 108 108 108 108 96 Z" fill="rgb(169,169,169)" stroke="none" />
+<path d="M120 96 132 96 132 108 120 108 120 96 Z" fill="rgb(166,166,166)" stroke="none" />
+<path d="M132 96 144 96 144 108 132 108 132 96 Z" fill="rgb(155,155,155)" stroke="none" />
+<path d="M144 96 156 96 156 108 144 108 144 96 Z" fill="rgb(112,112,112)" stroke="none" />
+<path d="M156 96 168 96 168 108 156 108 156 96 Z" fill="rgb(92,92,92)" stroke="none" />
+<path d="M168 96 180 96 180 108 168 108 168 96 Z" fill="rgb(83,83,83)" stroke="none" />
+<path d="M180 96 192 96 192 108 180 108 180 96 Z" fill="rgb(60,60,60)" stroke="none" />
+<path d="M192 96 204 96 204 108 192 108 192 96 Z" fill="rgb(23,23,23)" stroke="none" />
+<path d="M204 96 216 96 216 108 204 108 204 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 96 228 96 228 108 216 108 216 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 96 240 96 240 108 228 108 228 96 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 108 12 108 12 120 0 120 0 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 108 24 108 24 120 12 120 12 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 108 36 108 36 120 24 120 24 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 108 48 108 48 120 36 120 36 108 Z" fill="rgb(10,10,10)" stroke="none" />
+<path d="M48 108 60 108 60 120 48 120 48 108 Z" fill="rgb(93,93,93)" stroke="none" />
+<path d="M60 108 72 108 72 120 60 120 60 108 Z" fill="rgb(133,133,133)" stroke="none" />
+<path d="M72 108 84 108 84 120 72 120 72 108 Z" fill="rgb(134,134,134)" stroke="none" />
+<path d="M84 108 96 108 96 120 84 120 84 108 Z" fill="rgb(137,137,137)" stroke="none" />
+<path d="M96 108 108 108 108 120 96 120 96 108 Z" fill="rgb(168,168,168)" stroke="none" />
+<path d="M108 108 120 108 120 120 108 120 108 108 Z" fill="rgb(168,168,168)" stroke="none" />
+<path d="M120 108 132 108 132 120 120 120 120 108 Z" fill="rgb(163,163,163)" stroke="none" />
+<path d="M132 108 144 108 144 120 132 120 132 108 Z" fill="rgb(174,174,174)" stroke="none" />
+<path d="M144 108 156 108 156 120 144 120 144 108 Z" fill="rgb(158,158,158)" stroke="none" />
+<path d="M156 108 168 108 168 120 156 120 156 108 Z" fill="rgb(132,132,132)" stroke="none" />
+<path d="M168 108 180 108 180 120 168 120 168 108 Z" fill="rgb(125,125,125)" stroke="none" />
+<path d="M180 108 192 108 192 120 180 120 180 108 Z" fill="rgb(84,84,84)" stroke="none" />
+<path d="M192 108 204 108 204 120 192 120 192 108 Z" fill="rgb(21,21,21)" stroke="none" />
+<path d="M204 108 216 108 216 120 204 120 204 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 108 228 108 228 120 216 120 216 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 108 240 108 240 120 228 120 228 108 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 120 12 120 12 132 0 132 0 120 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 120 24 120 24 132 12 132 12 120 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 120 36 120 36 132 24 132 24 120 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 120 48 120 48 132 36 132 36 120 Z" fill="rgb(25,25,25)" stroke="none" />
+<path d="M48 120 60 120 60 132 48 132 48 120 Z" fill="rgb(100,100,100)" stroke="none" />
+<path d="M60 120 72 120 72 132 60 132 60 120 Z" fill="rgb(162,162,162)" stroke="none" />
+<path d="M72 120 84 120 84 132 72 132 72 120 Z" fill="rgb(179,179,179)" stroke="none" />
+<path d="M84 120 96 120 96 132 84 132 84 120 Z" fill="rgb(195,195,195)" stroke="none" />
+<path d="M96 120 108 120 108 132 96 132 96 120 Z" fill="rgb(177,177,177)" stroke="none" />
+<path d="M108 120 120 120 120 132 108 132 108 120 Z" fill="rgb(165,165,165)" stroke="none" />
+<path d="M120 120 132 120 132 132 120 132 120 120 Z" fill="rgb(181,181,181)" stroke="none" />
+<path d="M132 120 144 120 144 132 132 132 132 120 Z" fill="rgb(183,183,183)" stroke="none" />
+<path d="M144 120 156 120 156 132 144 132 144 120 Z" fill="rgb(189,189,189)" stroke="none" />
+<path d="M156 120 168 120 168 132 156 132 156 120 Z" fill="rgb(186,186,186)" stroke="none" />
+<path d="M168 120 180 120 180 132 168 132 168 120 Z" fill="rgb(173,173,173)" stroke="none" />
+<path d="M180 120 192 120 192 132 180 132 180 120 Z" fill="rgb(106,106,106)" stroke="none" />
+<path d="M192 120 204 120 204 132 192 132 192 120 Z" fill="rgb(65,65,65)" stroke="none" />
+<path d="M204 120 216 120 216 132 204 132 204 120 Z" fill="rgb(42,42,42)" stroke="none" />
+<path d="M216 120 228 120 228 132 216 132 216 120 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 120 240 120 240 132 228 132 228 120 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 132 12 132 12 144 0 144 0 132 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 132 24 132 24 144 12 144 12 132 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 132 36 132 36 144 24 144 24 132 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 132 48 132 48 144 36 144 36 132 Z" fill="rgb(102,102,102)" stroke="none" />
+<path d="M48 132 60 132 60 144 48 144 48 132 Z" fill="rgb(91,91,91)" stroke="none" />
+<path d="M60 132 72 132 72 144 60 144 60 132 Z" fill="rgb(161,161,161)" stroke="none" />
+<path d="M72 132 84 132 84 144 72 144 72 132 Z" fill="rgb(201,201,201)" stroke="none" />
+<path d="M84 132 96 132 96 144 84 144 84 132 Z" fill="rgb(212,212,212)" stroke="none" />
+<path d="M96 132 108 132 108 144 96 144 96 132 Z" fill="rgb(170,170,170)" stroke="none" />
+<path d="M108 132 120 132 120 144 108 144 108 132 Z" fill="rgb(136,136,136)" stroke="none" />
+<path d="M120 132 132 132 132 144 120 144 120 132 Z" fill="rgb(150,150,150)" stroke="none" />
+<path d="M132 132 144 132 144 144 132 144 132 132 Z" fill="rgb(172,172,172)" stroke="none" />
+<path d="M144 132 156 132 156 144 144 144 144 132 Z" fill="rgb(199,199,199)" stroke="none" />
+<path d="M156 132 168 132 168 144 156 144 156 132 Z" fill="rgb(209,209,209)" stroke="none" />
+<path d="M168 132 180 132 180 144 168 144 168 132 Z" fill="rgb(174,174,174)" stroke="none" />
+<path d="M180 132 192 132 192 144 180 144 180 132 Z" fill="rgb(104,104,104)" stroke="none" />
+<path d="M192 132 204 132 204 144 192 144 192 132 Z" fill="rgb(52,52,52)" stroke="none" />
+<path d="M204 132 216 132 216 144 204 144 204 132 Z" fill="rgb(24,24,24)" stroke="none" />
+<path d="M216 132 228 132 228 144 216 144 216 132 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 132 240 132 240 144 228 144 228 132 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 144 12 144 12 156 0 156 0 144 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 144 24 144 24 156 12 156 12 144 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 144 36 144 36 156 24 156 24 144 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 144 48 144 48 156 36 156 36 144 Z" fill="rgb(130,130,130)" stroke="none" />
+<path d="M48 144 60 144 60 156 48 156 48 144 Z" fill="rgb(82,82,82)" stroke="none" />
+<path d="M60 144 72 144 72 156 60 156 60 144 Z" fill="rgb(142,142,142)" stroke="none" />
+<path d="M72 144 84 144 84 156 72 156 72 144 Z" fill="rgb(194,194,194)" stroke="none" />
+<path d="M84 144 96 144 96 156 84 156 84 144 Z" fill="rgb(212,212,212)" stroke="none" />
+<path d="M96 144 108 144 108 156 96 156 96 144 Z" fill="rgb(173,173,173)" stroke="none" />
+<path d="M108 144 120 144 120 156 108 156 108 144 Z" fill="rgb(144,144,144)" stroke="none" />
+<path d="M120 144 132 144 132 156 120 156 120 144 Z" fill="rgb(140,140,140)" stroke="none" />
+<path d="M132 144 144 144 144 156 132 156 132 144 Z" fill="rgb(161,161,161)" stroke="none" />
+<path d="M144 144 156 144 156 156 144 156 144 144 Z" fill="rgb(195,195,195)" stroke="none" />
+<path d="M156 144 168 144 168 156 156 156 156 144 Z" fill="rgb(207,207,207)" stroke="none" />
+<path d="M168 144 180 144 180 156 168 156 168 144 Z" fill="rgb(160,160,160)" stroke="none" />
+<path d="M180 144 192 144 192 156 180 156 180 144 Z" fill="rgb(103,103,103)" stroke="none" />
+<path d="M192 144 204 144 204 156 192 156 192 144 Z" fill="rgb(40,40,40)" stroke="none" />
+<path d="M204 144 216 144 216 156 204 156 204 144 Z" fill="rgb(2,2,2)" stroke="none" />
+<path d="M216 144 228 144 228 156 216 156 216 144 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 144 240 144 240 156 228 156 228 144 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 156 12 156 12 168 0 168 0 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 156 24 156 24 168 12 168 12 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 156 36 156 36 168 24 168 24 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 156 48 156 48 168 36 168 36 156 Z" fill="rgb(53,53,53)" stroke="none" />
+<path d="M48 156 60 156 60 168 48 168 48 156 Z" fill="rgb(45,45,45)" stroke="none" />
+<path d="M60 156 72 156 72 168 60 168 60 156 Z" fill="rgb(112,112,112)" stroke="none" />
+<path d="M72 156 84 156 84 168 72 168 72 156 Z" fill="rgb(174,174,174)" stroke="none" />
+<path d="M84 156 96 156 96 168 84 168 84 156 Z" fill="rgb(187,187,187)" stroke="none" />
+<path d="M96 156 108 156 108 168 96 168 96 156 Z" fill="rgb(167,167,167)" stroke="none" />
+<path d="M108 156 120 156 120 168 108 168 108 156 Z" fill="rgb(175,175,175)" stroke="none" />
+<path d="M120 156 132 156 132 168 120 168 120 156 Z" fill="rgb(176,176,176)" stroke="none" />
+<path d="M132 156 144 156 144 168 132 168 132 156 Z" fill="rgb(170,170,170)" stroke="none" />
+<path d="M144 156 156 156 156 168 144 168 144 156 Z" fill="rgb(177,177,177)" stroke="none" />
+<path d="M156 156 168 156 168 168 156 168 156 156 Z" fill="rgb(186,186,186)" stroke="none" />
+<path d="M168 156 180 156 180 168 168 168 168 156 Z" fill="rgb(137,137,137)" stroke="none" />
+<path d="M180 156 192 156 192 168 180 168 180 156 Z" fill="rgb(102,102,102)" stroke="none" />
+<path d="M192 156 204 156 204 168 192 168 192 156 Z" fill="rgb(52,52,52)" stroke="none" />
+<path d="M204 156 216 156 216 168 204 168 204 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 156 228 156 228 168 216 168 216 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 156 240 156 240 168 228 168 228 156 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 168 12 168 12 180 0 180 0 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 168 24 168 24 180 12 180 12 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 168 36 168 36 180 24 180 24 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 168 48 168 48 180 36 180 36 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 168 60 168 60 180 48 180 48 168 Z" fill="rgb(9,9,9)" stroke="none" />
+<path d="M60 168 72 168 72 180 60 180 60 168 Z" fill="rgb(84,84,84)" stroke="none" />
+<path d="M72 168 84 168 84 180 72 180 72 168 Z" fill="rgb(155,155,155)" stroke="none" />
+<path d="M84 168 96 168 96 180 84 180 84 168 Z" fill="rgb(166,166,166)" stroke="none" />
+<path d="M96 168 108 168 108 180 96 180 96 168 Z" fill="rgb(150,150,150)" stroke="none" />
+<path d="M108 168 120 168 120 180 108 180 108 168 Z" fill="rgb(172,172,172)" stroke="none" />
+<path d="M120 168 132 168 132 180 120 180 120 168 Z" fill="rgb(187,187,187)" stroke="none" />
+<path d="M132 168 144 168 144 180 132 180 132 168 Z" fill="rgb(162,162,162)" stroke="none" />
+<path d="M144 168 156 168 156 180 144 180 144 168 Z" fill="rgb(162,162,162)" stroke="none" />
+<path d="M156 168 168 168 168 180 156 180 156 168 Z" fill="rgb(161,161,161)" stroke="none" />
+<path d="M168 168 180 168 180 180 168 180 168 168 Z" fill="rgb(113,113,113)" stroke="none" />
+<path d="M180 168 192 168 192 180 180 180 180 168 Z" fill="rgb(66,66,66)" stroke="none" />
+<path d="M192 168 204 168 204 180 192 180 192 168 Z" fill="rgb(23,23,23)" stroke="none" />
+<path d="M204 168 216 168 216 180 204 180 204 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 168 228 168 228 180 216 180 216 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 168 240 168 240 180 228 180 228 168 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 180 12 180 12 192 0 192 0 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 180 24 180 24 192 12 192 12 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 180 36 180 36 192 24 192 24 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 180 48 180 48 192 36 192 36 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 180 60 180 60 192 48 192 48 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 180 72 180 72 192 60 192 60 180 Z" fill="rgb(56,56,56)" stroke="none" />
+<path d="M72 180 84 180 84 192 72 192 72 180 Z" fill="rgb(123,123,123)" stroke="none" />
+<path d="M84 180 96 180 96 192 84 192 84 180 Z" fill="rgb(167,167,167)" stroke="none" />
+<path d="M96 180 108 180 108 192 96 192 96 180 Z" fill="rgb(156,156,156)" stroke="none" />
+<path d="M108 180 120 180 120 192 108 192 108 180 Z" fill="rgb(154,154,154)" stroke="none" />
+<path d="M120 180 132 180 132 192 120 192 120 180 Z" fill="rgb(160,160,160)" stroke="none" />
+<path d="M132 180 144 180 144 192 132 192 132 180 Z" fill="rgb(153,153,153)" stroke="none" />
+<path d="M144 180 156 180 156 192 144 192 144 180 Z" fill="rgb(163,163,163)" stroke="none" />
+<path d="M156 180 168 180 168 192 156 192 156 180 Z" fill="rgb(151,151,151)" stroke="none" />
+<path d="M168 180 180 180 180 192 168 192 168 180 Z" fill="rgb(91,91,91)" stroke="none" />
+<path d="M180 180 192 180 192 192 180 192 180 180 Z" fill="rgb(29,29,29)" stroke="none" />
+<path d="M192 180 204 180 204 192 192 192 192 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 180 216 180 216 192 204 192 204 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 180 228 180 228 192 216 192 216 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 180 240 180 240 192 228 192 228 180 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 192 12 192 12 204 0 204 0 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 192 24 192 24 204 12 204 12 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 192 36 192 36 204 24 204 24 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 192 48 192 48 204 36 204 36 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 192 60 192 60 204 48 204 48 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 192 72 192 72 204 60 204 60 192 Z" fill="rgb(19,19,19)" stroke="none" />
+<path d="M72 192 84 192 84 204 72 204 72 192 Z" fill="rgb(81,81,81)" stroke="none" />
+<path d="M84 192 96 192 96 204 84 204 84 192 Z" fill="rgb(143,143,143)" stroke="none" />
+<path d="M96 192 108 192 108 204 96 204 96 192 Z" fill="rgb(175,175,175)" stroke="none" />
+<path d="M108 192 120 192 120 204 108 204 108 192 Z" fill="rgb(166,166,166)" stroke="none" />
+<path d="M120 192 132 192 132 204 120 204 120 192 Z" fill="rgb(158,158,158)" stroke="none" />
+<path d="M132 192 144 192 144 204 132 204 132 192 Z" fill="rgb(174,174,174)" stroke="none" />
+<path d="M144 192 156 192 156 204 144 204 144 192 Z" fill="rgb(150,150,150)" stroke="none" />
+<path d="M156 192 168 192 168 204 156 204 156 192 Z" fill="rgb(106,106,106)" stroke="none" />
+<path d="M168 192 180 192 180 204 168 204 168 192 Z" fill="rgb(48,48,48)" stroke="none" />
+<path d="M180 192 192 192 192 204 180 204 180 192 Z" fill="rgb(9,9,9)" stroke="none" />
+<path d="M192 192 204 192 204 204 192 204 192 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 192 216 192 216 204 204 204 204 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 192 228 192 228 204 216 204 216 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 192 240 192 240 204 228 204 228 192 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 204 12 204 12 216 0 216 0 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 204 24 204 24 216 12 216 12 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 204 36 204 36 216 24 216 24 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 204 48 204 48 216 36 216 36 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 204 60 204 60 216 48 216 48 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 204 72 204 72 216 60 216 60 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M72 204 84 204 84 216 72 216 72 204 Z" fill="rgb(43,43,43)" stroke="none" />
+<path d="M84 204 96 204 96 216 84 216 84 204 Z" fill="rgb(71,71,71)" stroke="none" />
+<path d="M96 204 108 204 108 216 96 216 96 204 Z" fill="rgb(133,133,133)" stroke="none" />
+<path d="M108 204 120 204 120 216 108 216 108 204 Z" fill="rgb(145,145,145)" stroke="none" />
+<path d="M120 204 132 204 132 216 120 216 120 204 Z" fill="rgb(145,145,145)" stroke="none" />
+<path d="M132 204 144 204 144 216 132 216 132 204 Z" fill="rgb(153,153,153)" stroke="none" />
+<path d="M144 204 156 204 156 216 144 216 144 204 Z" fill="rgb(103,103,103)" stroke="none" />
+<path d="M156 204 168 204 168 216 156 216 156 204 Z" fill="rgb(48,48,48)" stroke="none" />
+<path d="M168 204 180 204 180 216 168 216 168 204 Z" fill="rgb(15,15,15)" stroke="none" />
+<path d="M180 204 192 204 192 216 180 216 180 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M192 204 204 204 204 216 192 216 192 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 204 216 204 216 216 204 216 204 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 204 228 204 228 216 216 216 216 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 204 240 204 240 216 228 216 228 204 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 216 12 216 12 228 0 228 0 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 216 24 216 24 228 12 228 12 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 216 36 216 36 228 24 228 24 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 216 48 216 48 228 36 228 36 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 216 60 216 60 228 48 228 48 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 216 72 216 72 228 60 228 60 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M72 216 84 216 84 228 72 228 72 216 Z" fill="rgb(40,40,40)" stroke="none" />
+<path d="M84 216 96 216 96 228 84 228 84 216 Z" fill="rgb(39,39,39)" stroke="none" />
+<path d="M96 216 108 216 108 228 96 228 96 216 Z" fill="rgb(64,64,64)" stroke="none" />
+<path d="M108 216 120 216 120 228 108 228 108 216 Z" fill="rgb(74,74,74)" stroke="none" />
+<path d="M120 216 132 216 132 228 120 228 120 216 Z" fill="rgb(83,83,83)" stroke="none" />
+<path d="M132 216 144 216 144 228 132 228 132 216 Z" fill="rgb(80,80,80)" stroke="none" />
+<path d="M144 216 156 216 156 228 144 228 144 216 Z" fill="rgb(56,56,56)" stroke="none" />
+<path d="M156 216 168 216 168 228 156 228 156 216 Z" fill="rgb(51,51,51)" stroke="none" />
+<path d="M168 216 180 216 180 228 168 228 168 216 Z" fill="rgb(24,24,24)" stroke="none" />
+<path d="M180 216 192 216 192 228 180 228 180 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M192 216 204 216 204 228 192 228 192 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 216 216 216 216 228 204 228 204 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 216 228 216 228 228 216 228 216 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 216 240 216 240 228 228 228 228 216 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M0 228 12 228 12 240 0 240 0 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M12 228 24 228 24 240 12 240 12 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M24 228 36 228 36 240 24 240 24 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M36 228 48 228 48 240 36 240 36 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M48 228 60 228 60 240 48 240 48 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M60 228 72 228 72 240 60 240 60 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M72 228 84 228 84 240 72 240 72 228 Z" fill="rgb(75,75,75)" stroke="none" />
+<path d="M84 228 96 228 96 240 84 240 84 228 Z" fill="rgb(69,69,69)" stroke="none" />
+<path d="M96 228 108 228 108 240 96 240 96 228 Z" fill="rgb(46,46,46)" stroke="none" />
+<path d="M108 228 120 228 120 240 108 240 108 228 Z" fill="rgb(40,40,40)" stroke="none" />
+<path d="M120 228 132 228 132 240 120 240 120 228 Z" fill="rgb(42,42,42)" stroke="none" />
+<path d="M132 228 144 228 144 240 132 240 132 228 Z" fill="rgb(39,39,39)" stroke="none" />
+<path d="M144 228 156 228 156 240 144 240 144 228 Z" fill="rgb(48,48,48)" stroke="none" />
+<path d="M156 228 168 228 168 240 156 240 156 228 Z" fill="rgb(88,88,88)" stroke="none" />
+<path d="M168 228 180 228 180 240 168 240 168 228 Z" fill="rgb(46,46,46)" stroke="none" />
+<path d="M180 228 192 228 192 240 180 240 180 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M192 228 204 228 204 240 192 240 192 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M204 228 216 228 216 240 204 240 204 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M216 228 228 228 228 240 216 240 216 228 Z" fill="rgb(0,0,0)" stroke="none" />
+<path d="M228 228 240 228 240 240 228 240 228 228 Z" fill="rgb(0,0,0)" stroke="none" />
+</svg>

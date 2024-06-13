@@ -83,6 +83,13 @@
         "thread": "cpp",
         "cfenv": "cpp",
         "cinttypes": "cpp",
-        "typeindex": "cpp"
-    }
+        "typeindex": "cpp",
+        "*.ipp": "cpp",
+        "filesystem": "cpp"
+    },
+    "python.analysis.extraPaths": [
+        "/home/jackoozy/manipulator_ws/devel/lib/python3/dist-packages",
+        "/home/jackoozy/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }
