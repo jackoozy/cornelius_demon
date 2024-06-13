@@ -67,8 +67,8 @@ set(selfie_drawing_robot_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(selfie_drawing_robot_SOURCE_PREFIX /home/jackoozy/catkin_ws/src/selfie_drawing_robot)
-  set(selfie_drawing_robot_DEVEL_PREFIX /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/devel)
+  set(selfie_drawing_robot_SOURCE_PREFIX /home/jackoozy/cornelius_demon/src/selfie_drawing_robot)
+  set(selfie_drawing_robot_DEVEL_PREFIX /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/devel)
   set(selfie_drawing_robot_INSTALL_PREFIX "")
   set(selfie_drawing_robot_PREFIX ${selfie_drawing_robot_DEVEL_PREFIX})
 else()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /usr/local/lib;/home/jackoozy/manipulator_ws/devel/lib;/home/jackoozy/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /usr/local/lib;/home/jackoozy/cornelius_demon/devel/lib;/home/jackoozy/manipulator_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

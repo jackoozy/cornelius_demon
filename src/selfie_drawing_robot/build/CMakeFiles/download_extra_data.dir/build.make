@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot
+CMAKE_SOURCE_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build
+CMAKE_BINARY_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build
 
 # Utility rule file for download_extra_data.
 
@@ -67,6 +67,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/catkin_ws/src/selfie_drawing_robot /home/jackoozy/catkin_ws/src/selfie_drawing_robot /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/cornelius_demon/src/selfie_drawing_robot /home/jackoozy/cornelius_demon/src/selfie_drawing_robot /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 

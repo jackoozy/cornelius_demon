@@ -24,11 +24,13 @@ find_package(catkin REQUIRED
     tf2_geometry_msgs
     roscpp
     rospy
+    std_srvs
     pilz_industrial_motion_planner
 )
 
 find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED system filesystem date_time thread)
+find_package(rostest REQUIRED)
 
 
 catkin_package(
@@ -48,25 +50,23 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+include_directories(${GTEST_INCLUDE_DIRS})
 
 
 # Motion planning
-add_executable(test_script src/test_script.cpp)
-add_executable(operations src/operations.cpp src/Robot.cpp)
-catkin_install_python(PROGRAMS
-  src/demo_program.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+add_library(operations src/operations.cpp)
 
 add_executable(current_program src/current_program.cpp)
 
-target_link_libraries(test_script
-  ${catkin_LIBRARIES})
 target_link_libraries(operations
   ${catkin_LIBRARIES})
 target_link_libraries(current_program
   ${catkin_LIBRARIES}
-  ${moveit_core_LIBRARIES})
+  ${moveit_core_LIBRARIES}
+  operations)
+
+catkin_add_gtest(testMP testing/test.cpp)
+target_link_libraries(testMP ${catkin_LIBRARIES} ${GTEST_LIBRARIES} operations)
 
 
 # Line detection

@@ -168,19 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-selfie_drawing_robot/CMakeFiles/test_script.dir/rule:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/test_script.dir/rule
-.PHONY : selfie_drawing_robot/CMakeFiles/test_script.dir/rule
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
 
 # Convenience name for target.
-test_script: selfie_drawing_robot/CMakeFiles/test_script.dir/rule
+run_tests_selfie_drawing_robot_gtest_testMP: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
 
-.PHONY : test_script
+.PHONY : run_tests_selfie_drawing_robot_gtest_testMP
 
 # fast build rule for target.
-test_script/fast:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/build
-.PHONY : test_script/fast
+run_tests_selfie_drawing_robot_gtest_testMP/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+.PHONY : run_tests_selfie_drawing_robot_gtest_testMP/fast
+
+# Convenience name for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+run_tests_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule
+
+.PHONY : run_tests_selfie_drawing_robot
+
+# fast build rule for target.
+run_tests_selfie_drawing_robot/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build
+.PHONY : run_tests_selfie_drawing_robot/fast
 
 # Convenience name for target.
 selfie_drawing_robot/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule:
@@ -543,6 +558,21 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build
+.PHONY : _run_tests_selfie_drawing_robot/fast
+
+# Convenience name for target.
 selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
 .PHONY : selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
@@ -826,6 +856,21 @@ test_line_detection: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rul
 test_line_detection/fast:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
 .PHONY : test_line_detection/fast
+
+# Convenience name for target.
+selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+clean_test_results_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
+
+.PHONY : clean_test_results_selfie_drawing_robot
+
+# fast build rule for target.
+clean_test_results_selfie_drawing_robot/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build
+.PHONY : clean_test_results_selfie_drawing_robot/fast
 
 # Convenience name for target.
 selfie_drawing_robot/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -1503,6 +1548,21 @@ trajectory_msgs_generate_messages_lisp/fast:
 .PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+selfie_drawing_robot/CMakeFiles/testMP.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/testMP.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/testMP.dir/rule
+
+# Convenience name for target.
+testMP: selfie_drawing_robot/CMakeFiles/testMP.dir/rule
+
+.PHONY : testMP
+
+# fast build rule for target.
+testMP/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/build
+.PHONY : testMP/fast
+
+# Convenience name for target.
 selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_eus.dir/rule
 .PHONY : selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_eus.dir/rule
@@ -1578,6 +1638,21 @@ object_recognition_msgs_generate_messages_nodejs/fast:
 .PHONY : object_recognition_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot_gtest_testMP: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot_gtest_testMP
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot_gtest_testMP/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+.PHONY : _run_tests_selfie_drawing_robot_gtest_testMP/fast
+
+# Convenience name for target.
 selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/rule:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/rule
 .PHONY : selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/rule
@@ -1621,6 +1696,21 @@ octomap_msgs_generate_messages_lisp: selfie_drawing_robot/CMakeFiles/octomap_msg
 octomap_msgs_generate_messages_lisp/fast:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build
 .PHONY : octomap_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot_gtest: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot_gtest
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot_gtest/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build
+.PHONY : _run_tests_selfie_drawing_robot_gtest/fast
 
 # Convenience name for target.
 selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
@@ -1713,6 +1803,21 @@ octomap_msgs_generate_messages_py/fast:
 .PHONY : octomap_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule
+
+# Convenience name for target.
+run_tests_selfie_drawing_robot_gtest: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule
+
+.PHONY : run_tests_selfie_drawing_robot_gtest
+
+# fast build rule for target.
+run_tests_selfie_drawing_robot_gtest/fast:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build
+.PHONY : run_tests_selfie_drawing_robot_gtest/fast
+
+# Convenience name for target.
 selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
 .PHONY : selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
@@ -1726,33 +1831,6 @@ dynamic_reconfigure_generate_messages_cpp: selfie_drawing_robot/CMakeFiles/dynam
 dynamic_reconfigure_generate_messages_cpp/fast:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
 .PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-src/Robot.o: src/Robot.cpp.o
-
-.PHONY : src/Robot.o
-
-# target to build an object file
-src/Robot.cpp.o:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/src/Robot.cpp.o
-.PHONY : src/Robot.cpp.o
-
-src/Robot.i: src/Robot.cpp.i
-
-.PHONY : src/Robot.i
-
-# target to preprocess a source file
-src/Robot.cpp.i:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/src/Robot.cpp.i
-.PHONY : src/Robot.cpp.i
-
-src/Robot.s: src/Robot.cpp.s
-
-.PHONY : src/Robot.s
-
-# target to generate assembly for a file
-src/Robot.cpp.s:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/src/Robot.cpp.s
-.PHONY : src/Robot.cpp.s
 
 src/current_program.o: src/current_program.cpp.o
 
@@ -1862,32 +1940,32 @@ src/test_line_detection.cpp.s:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.s
 .PHONY : src/test_line_detection.cpp.s
 
-src/test_script.o: src/test_script.cpp.o
+testing/test.o: testing/test.cpp.o
 
-.PHONY : src/test_script.o
+.PHONY : testing/test.o
 
 # target to build an object file
-src/test_script.cpp.o:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/src/test_script.cpp.o
-.PHONY : src/test_script.cpp.o
+testing/test.cpp.o:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/testing/test.cpp.o
+.PHONY : testing/test.cpp.o
 
-src/test_script.i: src/test_script.cpp.i
+testing/test.i: testing/test.cpp.i
 
-.PHONY : src/test_script.i
+.PHONY : testing/test.i
 
 # target to preprocess a source file
-src/test_script.cpp.i:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/src/test_script.cpp.i
-.PHONY : src/test_script.cpp.i
+testing/test.cpp.i:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/testing/test.cpp.i
+.PHONY : testing/test.cpp.i
 
-src/test_script.s: src/test_script.cpp.s
+testing/test.s: testing/test.cpp.s
 
-.PHONY : src/test_script.s
+.PHONY : testing/test.s
 
 # target to generate assembly for a file
-src/test_script.cpp.s:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/src/test_script.cpp.s
-.PHONY : src/test_script.cpp.s
+testing/test.cpp.s:
+	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/testing/test.cpp.s
+.PHONY : testing/test.cpp.s
 
 # Help Target
 help:
@@ -1899,7 +1977,8 @@ help:
 	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... test_script"
+	@echo "... run_tests_selfie_drawing_robot_gtest_testMP"
+	@echo "... run_tests_selfie_drawing_robot"
 	@echo "... topic_tools_generate_messages_lisp"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... topic_tools_generate_messages_cpp"
@@ -1925,6 +2004,7 @@ help:
 	@echo "... operations"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_eus"
+	@echo "... _run_tests_selfie_drawing_robot"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... tf_generate_messages_lisp"
@@ -1945,6 +2025,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... test_line_detection"
+	@echo "... clean_test_results_selfie_drawing_robot"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
@@ -1991,24 +2072,25 @@ help:
 	@echo "... object_recognition_msgs_generate_messages_py"
 	@echo "... shape_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... testMP"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
+	@echo "... _run_tests_selfie_drawing_robot_gtest_testMP"
 	@echo "... octomap_msgs_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... octomap_msgs_generate_messages_lisp"
+	@echo "... _run_tests_selfie_drawing_robot_gtest"
 	@echo "... std_srvs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... moveit_ros_planning_gencfg"
 	@echo "... octomap_msgs_generate_messages_nodejs"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... octomap_msgs_generate_messages_py"
+	@echo "... run_tests_selfie_drawing_robot_gtest"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... src/Robot.o"
-	@echo "... src/Robot.i"
-	@echo "... src/Robot.s"
 	@echo "... src/current_program.o"
 	@echo "... src/current_program.i"
 	@echo "... src/current_program.s"
@@ -2021,9 +2103,9 @@ help:
 	@echo "... src/test_line_detection.o"
 	@echo "... src/test_line_detection.i"
 	@echo "... src/test_line_detection.s"
-	@echo "... src/test_script.o"
-	@echo "... src/test_script.i"
-	@echo "... src/test_script.s"
+	@echo "... testing/test.o"
+	@echo "... testing/test.i"
+	@echo "... testing/test.s"
 .PHONY : help
 
 

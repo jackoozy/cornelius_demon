@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot
+CMAKE_SOURCE_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build
+CMAKE_BINARY_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/operations.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/operations.dir/flags.make
 
 CMakeFiles/operations.dir/src/operations.cpp.o: CMakeFiles/operations.dir/flags.make
 CMakeFiles/operations.dir/src/operations.cpp.o: ../src/operations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/operations.dir/src/operations.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/operations.dir/src/operations.cpp.o -c /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/operations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/operations.dir/src/operations.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/operations.dir/src/operations.cpp.o -c /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.cpp
 
 CMakeFiles/operations.dir/src/operations.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/operations.dir/src/operations.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/operations.cpp > CMakeFiles/operations.dir/src/operations.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.cpp > CMakeFiles/operations.dir/src/operations.cpp.i
 
 CMakeFiles/operations.dir/src/operations.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/operations.dir/src/operations.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/operations.cpp -o CMakeFiles/operations.dir/src/operations.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.cpp -o CMakeFiles/operations.dir/src/operations.cpp.s
 
 CMakeFiles/operations.dir/src/Robot.cpp.o: CMakeFiles/operations.dir/flags.make
 CMakeFiles/operations.dir/src/Robot.cpp.o: ../src/Robot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/operations.dir/src/Robot.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/operations.dir/src/Robot.cpp.o -c /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/Robot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/operations.dir/src/Robot.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/operations.dir/src/Robot.cpp.o -c /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/Robot.cpp
 
 CMakeFiles/operations.dir/src/Robot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/operations.dir/src/Robot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/Robot.cpp > CMakeFiles/operations.dir/src/Robot.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/Robot.cpp > CMakeFiles/operations.dir/src/Robot.cpp.i
 
 CMakeFiles/operations.dir/src/Robot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/operations.dir/src/Robot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackoozy/catkin_ws/src/selfie_drawing_robot/src/Robot.cpp -o CMakeFiles/operations.dir/src/Robot.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/Robot.cpp -o CMakeFiles/operations.dir/src/Robot.cpp.s
 
 # Object files for target operations
 operations_OBJECTS = \
@@ -94,63 +94,63 @@ operations_EXTERNAL_OBJECTS =
 devel/lib/selfie_drawing_robot/operations: CMakeFiles/operations.dir/src/operations.cpp.o
 devel/lib/selfie_drawing_robot/operations: CMakeFiles/operations.dir/src/Robot.cpp.o
 devel/lib/selfie_drawing_robot/operations: CMakeFiles/operations.dir/build.make
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_common_planning_interface_objects.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_scene_interface.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_move_group_interface.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_py_bindings_tools.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_warehouse.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_common_planning_interface_objects.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_scene_interface.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_move_group_interface.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_py_bindings_tools.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_warehouse.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libwarehouse_ros.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_pick_place_planner.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_move_group_capabilities_base.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_lazy_free_space_updater.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_point_containment_filter.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_pointcloud_octomap_updater_core.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_semantic_world.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_mesh_filter.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_depth_self_filter.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_depth_image_octomap_updater.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_pick_place_planner.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_move_group_capabilities_base.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_lazy_free_space_updater.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_point_containment_filter.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_pointcloud_octomap_updater_core.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_semantic_world.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_mesh_filter.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_depth_self_filter.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_depth_image_octomap_updater.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libimage_transport.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_visual_tools.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/librviz_visual_tools.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/librviz_visual_tools_gui.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/librviz_visual_tools_remote_control.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/librviz_visual_tools_imarker_simple.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_visual_tools.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librviz_visual_tools.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librviz_visual_tools_gui.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librviz_visual_tools_remote_control.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librviz_visual_tools_imarker_simple.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libinteractive_markers.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_rdf_loader.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_kinematics_plugin_loader.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_robot_model_loader.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_constraint_sampler_manager_loader.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_pipeline.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_trajectory_execution_manager.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_plan_execution.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_scene_monitor.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_collision_plugin_loader.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_cpp.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_ros_occupancy_map_monitor.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_exceptions.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_background_processing.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_kinematics_base.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_robot_model.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_transforms.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_robot_state.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_robot_trajectory.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_interface.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_collision_detection.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_collision_detection_fcl.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_collision_detection_bullet.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_kinematic_constraints.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_scene.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_constraint_samplers.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_planning_request_adapter.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_profiler.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_python_tools.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_trajectory_processing.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_distance_field.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_collision_distance_field.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_kinematics_metrics.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_dynamics_solver.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_utils.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libmoveit_test_utils.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_rdf_loader.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_kinematics_plugin_loader.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_robot_model_loader.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_constraint_sampler_manager_loader.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_pipeline.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_trajectory_execution_manager.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_plan_execution.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_scene_monitor.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_collision_plugin_loader.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_cpp.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_ros_occupancy_map_monitor.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_exceptions.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_background_processing.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_kinematics_base.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_robot_model.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_transforms.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_robot_state.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_robot_trajectory.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_interface.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_collision_detection.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_collision_detection_fcl.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_collision_detection_bullet.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_kinematic_constraints.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_scene.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_constraint_samplers.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_planning_request_adapter.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_profiler.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_python_tools.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_trajectory_processing.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_distance_field.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_collision_distance_field.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_kinematics_metrics.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_dynamics_solver.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_utils.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmoveit_test_utils.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/x86_64-linux-gnu/libfcl.so.0.6.1
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libccd.so
@@ -169,8 +169,8 @@ devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/liburdfdom_
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libtinyxml.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librosconsole_bridge.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libsrdfdom.so
-devel/lib/selfie_drawing_robot/operations: /home/jackoozy/catkin_ws/devel/lib/libgeometric_shapes.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libsrdfdom.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libgeometric_shapes.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/liboctomap.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/liboctomath.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librandom_numbers.so
@@ -274,7 +274,6 @@ devel/lib/selfie_drawing_robot/operations: /usr/lib/liborocos-kdl.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libtf2_ros.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libactionlib.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libmessage_filters.so
-devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libtf2.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libroscpp.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
@@ -284,8 +283,9 @@ devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librosconsole_log
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librosconsole_backend_interface.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libroscpp_serialization.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libxmlrpcpp.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libtf2.so
+devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libroscpp_serialization.so
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/librostime.so
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
 devel/lib/selfie_drawing_robot/operations: /opt/ros/noetic/lib/libcpp_common.so
@@ -293,7 +293,7 @@ devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_sy
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
 devel/lib/selfie_drawing_robot/operations: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
 devel/lib/selfie_drawing_robot/operations: CMakeFiles/operations.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable devel/lib/selfie_drawing_robot/operations"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable devel/lib/selfie_drawing_robot/operations"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/operations.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -306,6 +306,6 @@ CMakeFiles/operations.dir/clean:
 .PHONY : CMakeFiles/operations.dir/clean
 
 CMakeFiles/operations.dir/depend:
-	cd /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/catkin_ws/src/selfie_drawing_robot /home/jackoozy/catkin_ws/src/selfie_drawing_robot /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles/operations.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackoozy/cornelius_demon/src/selfie_drawing_robot /home/jackoozy/cornelius_demon/src/selfie_drawing_robot /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles/operations.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/operations.dir/depend
 

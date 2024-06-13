@@ -1741,17 +1741,30 @@ _run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml/fast:
 .PHONY : _run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml/fast
 
 #=============================================================================
-# Target rules for targets named test_script
+# Target rules for targets named run_tests_selfie_drawing_robot_gtest_testMP
 
 # Build rule for target.
-test_script: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_script
-.PHONY : test_script
+run_tests_selfie_drawing_robot_gtest_testMP: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_selfie_drawing_robot_gtest_testMP
+.PHONY : run_tests_selfie_drawing_robot_gtest_testMP
 
 # fast build rule for target.
-test_script/fast:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/build
-.PHONY : test_script/fast
+run_tests_selfie_drawing_robot_gtest_testMP/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+.PHONY : run_tests_selfie_drawing_robot_gtest_testMP/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_selfie_drawing_robot
+
+# Build rule for target.
+run_tests_selfie_drawing_robot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_selfie_drawing_robot
+.PHONY : run_tests_selfie_drawing_robot
+
+# fast build rule for target.
+run_tests_selfie_drawing_robot/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build
+.PHONY : run_tests_selfie_drawing_robot/fast
 
 #=============================================================================
 # Target rules for targets named topic_tools_generate_messages_lisp
@@ -2066,6 +2079,19 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named _run_tests_selfie_drawing_robot
+
+# Build rule for target.
+_run_tests_selfie_drawing_robot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_selfie_drawing_robot
+.PHONY : _run_tests_selfie_drawing_robot
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build
+.PHONY : _run_tests_selfie_drawing_robot/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_cpp
 
 # Build rule for target.
@@ -2311,6 +2337,19 @@ test_line_detection: cmake_check_build_system
 test_line_detection/fast:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
 .PHONY : test_line_detection/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results_selfie_drawing_robot
+
+# Build rule for target.
+clean_test_results_selfie_drawing_robot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_selfie_drawing_robot
+.PHONY : clean_test_results_selfie_drawing_robot
+
+# fast build rule for target.
+clean_test_results_selfie_drawing_robot/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build
+.PHONY : clean_test_results_selfie_drawing_robot/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_py
@@ -2898,6 +2937,19 @@ trajectory_msgs_generate_messages_lisp/fast:
 .PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named testMP
+
+# Build rule for target.
+testMP: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testMP
+.PHONY : testMP
+
+# fast build rule for target.
+testMP/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/build
+.PHONY : testMP/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_eus
 
 # Build rule for target.
@@ -2963,6 +3015,19 @@ object_recognition_msgs_generate_messages_nodejs/fast:
 .PHONY : object_recognition_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named _run_tests_selfie_drawing_robot_gtest_testMP
+
+# Build rule for target.
+_run_tests_selfie_drawing_robot_gtest_testMP: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_selfie_drawing_robot_gtest_testMP
+.PHONY : _run_tests_selfie_drawing_robot_gtest_testMP
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot_gtest_testMP/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+.PHONY : _run_tests_selfie_drawing_robot_gtest_testMP/fast
+
+#=============================================================================
 # Target rules for targets named octomap_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -3000,6 +3065,19 @@ octomap_msgs_generate_messages_lisp: cmake_check_build_system
 octomap_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build
 .PHONY : octomap_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _run_tests_selfie_drawing_robot_gtest
+
+# Build rule for target.
+_run_tests_selfie_drawing_robot_gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_selfie_drawing_robot_gtest
+.PHONY : _run_tests_selfie_drawing_robot_gtest
+
+# fast build rule for target.
+_run_tests_selfie_drawing_robot_gtest/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build
+.PHONY : _run_tests_selfie_drawing_robot_gtest/fast
 
 #=============================================================================
 # Target rules for targets named std_srvs_generate_messages_py
@@ -3078,6 +3156,19 @@ octomap_msgs_generate_messages_py: cmake_check_build_system
 octomap_msgs_generate_messages_py/fast:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_py.dir/build.make selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_py.dir/build
 .PHONY : octomap_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_selfie_drawing_robot_gtest
+
+# Build rule for target.
+run_tests_selfie_drawing_robot_gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_selfie_drawing_robot_gtest
+.PHONY : run_tests_selfie_drawing_robot_gtest
+
+# fast build rule for target.
+run_tests_selfie_drawing_robot_gtest/fast:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build
+.PHONY : run_tests_selfie_drawing_robot_gtest/fast
 
 #=============================================================================
 # Target rules for targets named dynamic_reconfigure_generate_messages_cpp
@@ -3460,7 +3551,8 @@ help:
 	@echo "... run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml"
 	@echo "... _run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur16e.xml"
 	@echo "... _run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml"
-	@echo "... test_script"
+	@echo "... run_tests_selfie_drawing_robot_gtest_testMP"
+	@echo "... run_tests_selfie_drawing_robot"
 	@echo "... topic_tools_generate_messages_lisp"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... topic_tools_generate_messages_cpp"
@@ -3485,6 +3577,7 @@ help:
 	@echo "... operations"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_eus"
+	@echo "... _run_tests_selfie_drawing_robot"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... tf_generate_messages_lisp"
@@ -3504,6 +3597,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... test_line_detection"
+	@echo "... clean_test_results_selfie_drawing_robot"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
@@ -3549,20 +3643,24 @@ help:
 	@echo "... object_recognition_msgs_generate_messages_py"
 	@echo "... shape_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... testMP"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
+	@echo "... _run_tests_selfie_drawing_robot_gtest_testMP"
 	@echo "... octomap_msgs_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... octomap_msgs_generate_messages_lisp"
+	@echo "... _run_tests_selfie_drawing_robot_gtest"
 	@echo "... std_srvs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... moveit_ros_planning_gencfg"
 	@echo "... octomap_msgs_generate_messages_nodejs"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... octomap_msgs_generate_messages_py"
+	@echo "... run_tests_selfie_drawing_robot_gtest"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... ur20_moveit_plugin"
 	@echo "... ur16e_moveit_plugin"

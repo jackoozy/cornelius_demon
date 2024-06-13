@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/Robot.cpp" "/home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/operations.dir/src/Robot.cpp.o"
   "/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.cpp" "/home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/operations.dir/src/operations.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -14,6 +13,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"selfie_drawing_robot\""
+  "operations_EXPORTS"
   )
 
 # The include file search paths:

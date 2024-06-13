@@ -424,7 +424,6 @@ robot/ur_kinematics/clean: robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir
 # Directory level rules for directory selfie_drawing_robot
 
 # Recursive "all" directory target.
-selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/test_script.dir/all
 selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/operations.dir/all
 selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/current_program.dir/all
 selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all
@@ -437,7 +436,8 @@ selfie_drawing_robot/preinstall:
 .PHONY : selfie_drawing_robot/preinstall
 
 # Recursive "clean" directory target.
-selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/test_script.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/topic_tools_generate_messages_lisp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/topic_tools_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/topic_tools_generate_messages_cpp.dir/clean
@@ -462,6 +462,7 @@ selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/std_srvs_generate_me
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/operations.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_eus.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/tf_generate_messages_nodejs.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/tf_generate_messages_lisp.dir/clean
@@ -481,6 +482,7 @@ selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_generate_m
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/roscpp_generate_messages_py.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
@@ -526,20 +528,24 @@ selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/rosgraph_msgs_genera
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/shape_msgs_generate_messages_lisp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/testMP.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/object_recognition_msgs_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_py.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/moveit_ros_planning_gencfg.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_nodejs.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/bond_generate_messages_nodejs.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_py.dir/clean
+selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean
 
 .PHONY : selfie_drawing_robot/clean
@@ -579,6 +585,7 @@ CMakeFiles/run_tests.dir/all: pilz_industrial_motion/pilz_robot_programming/CMak
 CMakeFiles/run_tests.dir/all: robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config.dir/all
 CMakeFiles/run_tests.dir/all: robot/ur_description/CMakeFiles/_run_tests_ur_description.dir/all
 CMakeFiles/run_tests.dir/all: robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.dir/all
+CMakeFiles/run_tests.dir/all: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/all
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target run_tests"
@@ -586,7 +593,7 @@ CMakeFiles/run_tests.dir/all: robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.di
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_tests.dir/rule
@@ -632,7 +639,7 @@ CMakeFiles/clean_test_results.dir/clean:
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/tests.dir/all:
+CMakeFiles/tests.dir/all: selfie_drawing_robot/CMakeFiles/testMP.dir/all
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target tests"
@@ -640,7 +647,7 @@ CMakeFiles/tests.dir/all:
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : CMakeFiles/tests.dir/rule
@@ -831,7 +838,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_instantiation.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_instantiation.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_instantiation.test.dir/rule
@@ -859,7 +866,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_sequence_with_gripper.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_sequence_with_gripper.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_sequence_with_gripper.test.dir/rule
@@ -887,7 +894,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_brake_test.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_brake_test.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_brake_test.test.dir/rule
@@ -969,7 +976,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_integrationtest_self_collision.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_integrationtest_self_collision.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_integrationtest_self_collision.test.dir/rule
@@ -997,7 +1004,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming.dir/rule
@@ -1052,7 +1059,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop_with_gripper.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop_with_gripper.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop_with_gripper.test.dir/rule
@@ -1230,7 +1237,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_joint_position_limits.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_joint_position_limits.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_joint_position_limits.test.dir/rule
@@ -1312,7 +1319,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion_with_gripper.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion_with_gripper.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion_with_gripper.test.dir/rule
@@ -1367,7 +1374,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_cmd_conversion.test.dir/rule
@@ -1395,7 +1402,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint_package.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint_package.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint_package.dir/rule
@@ -1681,7 +1688,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest.dir/rule
@@ -1736,7 +1743,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_robot_functions.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_robot_functions.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_robot_functions.test.dir/rule
@@ -1953,7 +1960,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_error.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_error.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_error.test.dir/rule
@@ -2008,7 +2015,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_execution_stop.test.dir/rule
@@ -2063,7 +2070,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_gripper.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_gripper.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_gripper.test.dir/rule
@@ -2118,7 +2125,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause.test.dir/rule
@@ -2173,7 +2180,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_utility_functions.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_utility_functions.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_utility_functions.test.dir/rule
@@ -2228,7 +2235,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause_concurrency.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause_concurrency.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_pause_concurrency.test.dir/rule
@@ -2390,7 +2397,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_roslint.dir/rule
@@ -2418,7 +2425,7 @@ pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_p
 
 # Build rule for subdir invocation for target.
 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_program_termination.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_program_termination.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : pilz_industrial_motion/pilz_robot_programming/CMakeFiles/_run_tests_pilz_robot_programming_rostest_test_integrationtests_tst_api_program_termination.test.dir/rule
@@ -2473,7 +2480,7 @@ robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-chec
 
 # Build rule for subdir invocation for target.
 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check_tests_moveit_planning_execution.xml.dir/rule
@@ -2527,7 +2534,7 @@ robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config.dir/all: robot
 
 # Build rule for subdir invocation for target.
 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config.dir/rule
@@ -2608,7 +2615,7 @@ robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-chec
 
 # Build rule for subdir invocation for target.
 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur3e_moveit_config/CMakeFiles/_run_tests_ur3e_moveit_config_roslaunch-check.dir/rule
@@ -2690,7 +2697,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/rule
@@ -2772,7 +2779,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/rule
@@ -2827,7 +2834,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/rule
@@ -2854,7 +2861,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description.dir/all: robot/ur_desc
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description.dir/rule
@@ -2882,7 +2889,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/rule
@@ -2917,7 +2924,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check.dir/al
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check.dir/rule
@@ -2999,7 +3006,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/rule
@@ -3027,7 +3034,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/rule
@@ -3082,7 +3089,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/rule
@@ -3137,7 +3144,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/rule
@@ -3165,7 +3172,7 @@ robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_
 
 # Build rule for subdir invocation for target.
 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_description/CMakeFiles/_run_tests_ur_description_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/rule
@@ -3282,7 +3289,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5e.xml.dir/rule
@@ -3310,7 +3317,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3e.xml.dir/rule
@@ -3338,7 +3345,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur5.xml.dir/rule
@@ -3447,7 +3454,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur3.xml.dir/rule
@@ -3529,7 +3536,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur20.xml.dir/rule
@@ -3564,7 +3571,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check.dir/all: robot/u
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check.dir/rule
@@ -3592,7 +3599,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10.xml.dir/rule
@@ -3619,7 +3626,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.dir/all: robot/ur_gazebo/CMakeFi
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo.dir/rule
@@ -3763,7 +3770,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur10e.xml.dir/rule
@@ -3872,7 +3879,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur16e.xml.dir/rule
@@ -3900,7 +3907,7 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 
 # Build rule for subdir invocation for target.
 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/rule
@@ -3916,31 +3923,58 @@ robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_
 .PHONY : robot/ur_gazebo/CMakeFiles/_run_tests_ur_gazebo_roslaunch-check_tests_roslaunch_test_ur30.xml.dir/clean
 
 #=============================================================================
-# Target rules for target selfie_drawing_robot/CMakeFiles/test_script.dir
+# Target rules for target selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir
 
 # All Build rule for target.
-selfie_drawing_robot/CMakeFiles/test_script.dir/all:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/depend
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=17,18 "Built target test_script"
-.PHONY : selfie_drawing_robot/CMakeFiles/test_script.dir/all
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/all: selfie_drawing_robot/CMakeFiles/testMP.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target run_tests_selfie_drawing_robot_gtest_testMP"
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/all
 
 # Build rule for subdir invocation for target.
-selfie_drawing_robot/CMakeFiles/test_script.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/test_script.dir/all
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
-.PHONY : selfie_drawing_robot/CMakeFiles/test_script.dir/rule
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
 
 # Convenience name for target.
-test_script: selfie_drawing_robot/CMakeFiles/test_script.dir/rule
+run_tests_selfie_drawing_robot_gtest_testMP: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
 
-.PHONY : test_script
+.PHONY : run_tests_selfie_drawing_robot_gtest_testMP
 
 # clean rule for target.
-selfie_drawing_robot/CMakeFiles/test_script.dir/clean:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_script.dir/build.make selfie_drawing_robot/CMakeFiles/test_script.dir/clean
-.PHONY : selfie_drawing_robot/CMakeFiles/test_script.dir/clean
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
+
+#=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/all: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target run_tests_selfie_drawing_robot"
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+run_tests_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/rule
+
+.PHONY : run_tests_selfie_drawing_robot
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot.dir/clean
 
 #=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/topic_tools_generate_messages_lisp.dir
@@ -4516,12 +4550,12 @@ selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_nodejs.dir/clean:
 selfie_drawing_robot/CMakeFiles/operations.dir/all:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/depend
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=11,12,13 "Built target operations"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=11,12 "Built target operations"
 .PHONY : selfie_drawing_robot/CMakeFiles/operations.dir/all
 
 # Build rule for subdir invocation for target.
 selfie_drawing_robot/CMakeFiles/operations.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/operations.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : selfie_drawing_robot/CMakeFiles/operations.dir/rule
@@ -4589,6 +4623,33 @@ std_srvs_generate_messages_eus: selfie_drawing_robot/CMakeFiles/std_srvs_generat
 selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_eus.dir/clean:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_eus.dir/clean
 .PHONY : selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/all: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target _run_tests_selfie_drawing_robot"
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot.dir/clean
 
 #=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_cpp.dir
@@ -4945,7 +5006,7 @@ selfie_drawing_robot/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean:
 # Target rules for target selfie_drawing_robot/CMakeFiles/current_program.dir
 
 # All Build rule for target.
-selfie_drawing_robot/CMakeFiles/current_program.dir/all:
+selfie_drawing_robot/CMakeFiles/current_program.dir/all: selfie_drawing_robot/CMakeFiles/operations.dir/all
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/current_program.dir/build.make selfie_drawing_robot/CMakeFiles/current_program.dir/depend
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/current_program.dir/build.make selfie_drawing_robot/CMakeFiles/current_program.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=1,2 "Built target current_program"
@@ -4953,7 +5014,7 @@ selfie_drawing_robot/CMakeFiles/current_program.dir/all:
 
 # Build rule for subdir invocation for target.
 selfie_drawing_robot/CMakeFiles/current_program.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/current_program.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
 .PHONY : selfie_drawing_robot/CMakeFiles/current_program.dir/rule
@@ -5083,7 +5144,7 @@ selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean:
 selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/depend
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=14,15,16 "Built target test_line_detection"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=15,16,17 "Built target test_line_detection"
 .PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5102,6 +5163,33 @@ test_line_detection: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rul
 selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
 .PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
+
+#=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/all:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target clean_test_results_selfie_drawing_robot"
+.PHONY : selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
+
+# Convenience name for target.
+clean_test_results_selfie_drawing_robot: selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
+
+.PHONY : clean_test_results_selfie_drawing_robot
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/build.make selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/clean
 
 #=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/roscpp_generate_messages_py.dir
@@ -6319,6 +6407,34 @@ selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
 .PHONY : selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/testMP.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/testMP.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
+selfie_drawing_robot/CMakeFiles/testMP.dir/all: selfie_drawing_robot/CMakeFiles/operations.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=13,14 "Built target testMP"
+.PHONY : selfie_drawing_robot/CMakeFiles/testMP.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/testMP.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/testMP.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/testMP.dir/rule
+
+# Convenience name for target.
+testMP: selfie_drawing_robot/CMakeFiles/testMP.dir/rule
+
+.PHONY : testMP
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/testMP.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/testMP.dir/build.make selfie_drawing_robot/CMakeFiles/testMP.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/testMP.dir/clean
+
+#=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_eus.dir
 
 # All Build rule for target.
@@ -6454,6 +6570,35 @@ selfie_drawing_robot/CMakeFiles/object_recognition_msgs_generate_messages_nodejs
 .PHONY : selfie_drawing_robot/CMakeFiles/object_recognition_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all: CMakeFiles/tests.dir/all
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all: selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/all
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all: selfie_drawing_robot/CMakeFiles/testMP.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target _run_tests_selfie_drawing_robot_gtest_testMP"
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot_gtest_testMP: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot_gtest_testMP
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/clean
+
+#=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
@@ -6533,6 +6678,33 @@ octomap_msgs_generate_messages_lisp: selfie_drawing_robot/CMakeFiles/octomap_msg
 selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/clean:
 	$(MAKE) -f selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/clean
 .PHONY : selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/all: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest_testMP.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target _run_tests_selfie_drawing_robot_gtest"
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule
+
+# Convenience name for target.
+_run_tests_selfie_drawing_robot_gtest: selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/rule
+
+.PHONY : _run_tests_selfie_drawing_robot_gtest
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/_run_tests_selfie_drawing_robot_gtest.dir/clean
 
 #=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/std_srvs_generate_messages_py.dir
@@ -6697,6 +6869,33 @@ selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_py.dir/clean:
 .PHONY : selfie_drawing_robot/CMakeFiles/octomap_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
+# Target rules for target selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir
+
+# All Build rule for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/all: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest_testMP.dir/all
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/depend
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num= "Built target run_tests_selfie_drawing_robot_gtest"
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/all
+
+# Build rule for subdir invocation for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule
+
+# Convenience name for target.
+run_tests_selfie_drawing_robot_gtest: selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/rule
+
+.PHONY : run_tests_selfie_drawing_robot_gtest
+
+# clean rule for target.
+selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/clean:
+	$(MAKE) -f selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/build.make selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/clean
+.PHONY : selfie_drawing_robot/CMakeFiles/run_tests_selfie_drawing_robot_gtest.dir/clean
+
+#=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir
 
 # All Build rule for target.
@@ -6730,7 +6929,7 @@ selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/cl
 robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=33,34 "Built target ur20_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=32,33 "Built target ur20_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6757,7 +6956,7 @@ robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=29,30 "Built target ur16e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=28,29 "Built target ur16e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6784,7 +6983,7 @@ robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=39,40 "Built target ur3_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=38,39 "Built target ur3_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6811,7 +7010,7 @@ robot/ur_kinematics/CMakeFiles/ur3_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=51,52 "Built target ur5e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=50,51 "Built target ur5e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6838,7 +7037,7 @@ robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=19,20 "Built target ur10_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=18,19 "Built target ur10_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6865,7 +7064,7 @@ robot/ur_kinematics/CMakeFiles/ur10_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=23,24 "Built target ur10e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=22,23 "Built target ur10e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6892,7 +7091,7 @@ robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=31,32 "Built target ur20_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=30,31 "Built target ur20_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6919,7 +7118,7 @@ robot/ur_kinematics/CMakeFiles/ur20_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=43,44 "Built target ur3e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=42,43 "Built target ur3e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6946,7 +7145,7 @@ robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=27,28 "Built target ur16e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=26,27 "Built target ur16e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6973,7 +7172,7 @@ robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=21,22 "Built target ur10_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=20,21 "Built target ur10_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7000,7 +7199,7 @@ robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=35,36 "Built target ur30_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=34,35 "Built target ur30_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7027,7 +7226,7 @@ robot/ur_kinematics/CMakeFiles/ur30_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=41,42 "Built target ur3_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=40,41 "Built target ur3_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7054,7 +7253,7 @@ robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=37,38 "Built target ur30_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=36,37 "Built target ur30_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7081,7 +7280,7 @@ robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=45,46 "Built target ur3e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=44,45 "Built target ur3e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7108,7 +7307,7 @@ robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=49,50 "Built target ur5_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=48,49 "Built target ur5_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7135,7 +7334,7 @@ robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=25,26 "Built target ur10e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=24,25 "Built target ur10e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7162,7 +7361,7 @@ robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=47,48 "Built target ur5_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=46,47 "Built target ur5_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7189,7 +7388,7 @@ robot/ur_kinematics/CMakeFiles/ur5_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=53,54 "Built target ur5e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=52,53 "Built target ur5e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.

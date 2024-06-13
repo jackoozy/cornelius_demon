@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot
+CMAKE_SOURCE_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build
+CMAKE_BINARY_DIR = /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,6 +79,16 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -125,21 +135,11 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -595,6 +595,19 @@ rosgraph_msgs_generate_messages_py: cmake_check_build_system
 rosgraph_msgs_generate_messages_py/fast:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named test_line_detection
+
+# Build rule for target.
+test_line_detection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_line_detection
+.PHONY : test_line_detection
+
+# fast build rule for target.
+test_line_detection/fast:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/build
+.PHONY : test_line_detection/fast
 
 #=============================================================================
 # Target rules for targets named doxygen
@@ -1676,6 +1689,19 @@ pcl_msgs_generate_messages_py/fast:
 .PHONY : pcl_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named current_program
+
+# Build rule for target.
+current_program: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 current_program
+.PHONY : current_program
+
+# fast build rule for target.
+current_program/fast:
+	$(MAKE) -f CMakeFiles/current_program.dir/build.make CMakeFiles/current_program.dir/build
+.PHONY : current_program/fast
+
+#=============================================================================
 # Target rules for targets named topic_tools_generate_messages_eus
 
 # Build rule for target.
@@ -1845,6 +1871,60 @@ src/Robot.cpp.s:
 	$(MAKE) -f CMakeFiles/operations.dir/build.make CMakeFiles/operations.dir/src/Robot.cpp.s
 .PHONY : src/Robot.cpp.s
 
+src/current_program.o: src/current_program.cpp.o
+
+.PHONY : src/current_program.o
+
+# target to build an object file
+src/current_program.cpp.o:
+	$(MAKE) -f CMakeFiles/current_program.dir/build.make CMakeFiles/current_program.dir/src/current_program.cpp.o
+.PHONY : src/current_program.cpp.o
+
+src/current_program.i: src/current_program.cpp.i
+
+.PHONY : src/current_program.i
+
+# target to preprocess a source file
+src/current_program.cpp.i:
+	$(MAKE) -f CMakeFiles/current_program.dir/build.make CMakeFiles/current_program.dir/src/current_program.cpp.i
+.PHONY : src/current_program.cpp.i
+
+src/current_program.s: src/current_program.cpp.s
+
+.PHONY : src/current_program.s
+
+# target to generate assembly for a file
+src/current_program.cpp.s:
+	$(MAKE) -f CMakeFiles/current_program.dir/build.make CMakeFiles/current_program.dir/src/current_program.cpp.s
+.PHONY : src/current_program.cpp.s
+
+src/line_detection.o: src/line_detection.cpp.o
+
+.PHONY : src/line_detection.o
+
+# target to build an object file
+src/line_detection.cpp.o:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/line_detection.cpp.o
+.PHONY : src/line_detection.cpp.o
+
+src/line_detection.i: src/line_detection.cpp.i
+
+.PHONY : src/line_detection.i
+
+# target to preprocess a source file
+src/line_detection.cpp.i:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/line_detection.cpp.i
+.PHONY : src/line_detection.cpp.i
+
+src/line_detection.s: src/line_detection.cpp.s
+
+.PHONY : src/line_detection.s
+
+# target to generate assembly for a file
+src/line_detection.cpp.s:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/line_detection.cpp.s
+.PHONY : src/line_detection.cpp.s
+
 src/operations.o: src/operations.cpp.o
 
 .PHONY : src/operations.o
@@ -1871,6 +1951,33 @@ src/operations.s: src/operations.cpp.s
 src/operations.cpp.s:
 	$(MAKE) -f CMakeFiles/operations.dir/build.make CMakeFiles/operations.dir/src/operations.cpp.s
 .PHONY : src/operations.cpp.s
+
+src/test_line_detection.o: src/test_line_detection.cpp.o
+
+.PHONY : src/test_line_detection.o
+
+# target to build an object file
+src/test_line_detection.cpp.o:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.o
+.PHONY : src/test_line_detection.cpp.o
+
+src/test_line_detection.i: src/test_line_detection.cpp.i
+
+.PHONY : src/test_line_detection.i
+
+# target to preprocess a source file
+src/test_line_detection.cpp.i:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.i
+.PHONY : src/test_line_detection.cpp.i
+
+src/test_line_detection.s: src/test_line_detection.cpp.s
+
+.PHONY : src/test_line_detection.s
+
+# target to generate assembly for a file
+src/test_line_detection.cpp.s:
+	$(MAKE) -f CMakeFiles/test_line_detection.dir/build.make CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.s
+.PHONY : src/test_line_detection.cpp.s
 
 src/test_script.o: src/test_script.cpp.o
 
@@ -1907,12 +2014,13 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
+	@echo "... list_install_components"
+	@echo "... rebuild_cache"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... moveit_msgs_generate_messages_nodejs"
 	@echo "... graph_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... topic_tools_generate_messages_cpp"
-	@echo "... rebuild_cache"
 	@echo "... moveit_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... visualization_msgs_generate_messages_lisp"
@@ -1942,6 +2050,7 @@ help:
 	@echo "... shape_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... test_line_detection"
 	@echo "... doxygen"
 	@echo "... download_extra_data"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
@@ -2027,6 +2136,7 @@ help:
 	@echo "... moveit_msgs_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... test"
+	@echo "... current_program"
 	@echo "... topic_tools_generate_messages_eus"
 	@echo "... topic_tools_generate_messages_nodejs"
 	@echo "... graph_msgs_generate_messages_cpp"
@@ -2034,7 +2144,6 @@ help:
 	@echo "... bond_generate_messages_eus"
 	@echo "... graph_msgs_generate_messages_nodejs"
 	@echo "... test_script"
-	@echo "... list_install_components"
 	@echo "... gmock_main"
 	@echo "... gmock"
 	@echo "... gtest_main"
@@ -2042,9 +2151,18 @@ help:
 	@echo "... src/Robot.o"
 	@echo "... src/Robot.i"
 	@echo "... src/Robot.s"
+	@echo "... src/current_program.o"
+	@echo "... src/current_program.i"
+	@echo "... src/current_program.s"
+	@echo "... src/line_detection.o"
+	@echo "... src/line_detection.i"
+	@echo "... src/line_detection.s"
 	@echo "... src/operations.o"
 	@echo "... src/operations.i"
 	@echo "... src/operations.s"
+	@echo "... src/test_line_detection.o"
+	@echo "... src/test_line_detection.i"
+	@echo "... src/test_line_detection.s"
 	@echo "... src/test_script.o"
 	@echo "... src/test_script.i"
 	@echo "... src/test_script.s"

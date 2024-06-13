@@ -1,4 +1,4 @@
-prefix=/home/jackoozy/catkin_ws/src/selfie_drawing_robot/build/devel
+prefix=/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/build/devel
 
 Name: selfie_drawing_robot
 Description: Description of selfie_drawing_robot

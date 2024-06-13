@@ -52,7 +52,3 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/selfie_drawing_robot" TYPE FILE FILES "/home/jackoozy/cornelius_demon/src/selfie_drawing_robot/package.xml")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/selfie_drawing_robot" TYPE PROGRAM FILES "/home/jackoozy/cornelius_demon/build/selfie_drawing_robot/catkin_generated/installspace/demo_program.py")
-endif()
-

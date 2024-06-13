@@ -1,0 +1,572 @@
+#include <memory>
+
+#include <rclcpp/rclcpp.hpp>
+#include <moveit/move_group_interface/move_group_interface.h>
+#include <moveit/planning_scene_interface/planning_scene_interface.h>
+
+#include <moveit_msgs/msg/display_robot_state.hpp>
+#include <moveit_msgs/msg/display_trajectory.hpp>
+// #include <chrono>
+
+// Create a ROS logger
+static const rclcpp::Logger LOGGER = rclcpp::get_logger("hello_moveit");
+
+int main(int argc, char * argv[])
+{
+    // auto start_time = std::chrono::high_resolution_clock::now();
+
+
+    // Initialize ROS and create the Node
+    rclcpp::init(argc, argv);
+
+    rclcpp::NodeOptions node_options;
+    node_options.automatically_declare_parameters_from_overrides(true);
+
+    auto move_group_node = std::make_shared<rclcpp::Node>("hello_moveit", node_options);
+
+    rclcpp::executors::SingleThreadedExecutor executor;
+    executor.add_node(move_group_node);
+    std::thread([&executor]() { executor.spin(); }).detach();
+    
+    static const std::string PLANNING_GROUP_ARM = "ur_manipulator";
+
+    // Create the MoveIt Move Group Interface for panda arm
+    moveit::planning_interface::MoveGroupInterface move_group_arm = moveit::planning_interface::MoveGroupInterface(move_group_node, PLANNING_GROUP_ARM);
+
+    const moveit::core::JointModelGroup *joint_model_group_arm = move_group_arm.getCurrentState()->getJointModelGroup(PLANNING_GROUP_ARM);
+
+    //Get current state
+    moveit::core::RobotStatePtr current_state_arm = move_group_arm.getCurrentState(10);
+
+    std::vector<double> joint_group_positions_arm;
+    current_state_arm->copyJointGroupPositions(joint_model_group_arm, joint_group_positions_arm);
+
+
+    //Go home
+    move_group_arm.setStartStateToCurrentState();
+    RCLCPP_INFO(LOGGER, "Going home");
+
+    // joint_group_positions_arm[0] = 0.00 //Shoulder Pan
+    joint_group_positions_arm[1] = 2.50;    //Shoulder lift
+    joint_group_positions_arm[2] = 1.50;    //Elbow
+    joint_group_positions_arm[3] = -1.50;   //Wrist 1
+    joint_group_positions_arm[4] = -1.55;   //Wrist 2
+    joint_group_positions_arm[5] = 0.00;    //Wrist 3
+
+    move_group_arm.setJointValueTarget(joint_group_positions_arm);
+
+    moveit::planning_interface::MoveGroupInterface::Plan my_plan_arm;
+    bool success_arm = (move_group_arm.plan(my_plan_arm) == moveit::core::MoveItErrorCode::SUCCESS);
+    //Execute
+    move_group_arm.execute(my_plan_arm);
+
+    //Pregrasp
+
+    RCLCPP_INFO(LOGGER, "Pregrasp position");
+    current_state_arm = move_group_arm.getCurrentState(10);
+    current_state_arm->copyJointGroupPositions(joint_model_group_arm, joint_group_positions_arm);
+
+    geometry_msgs::msg::Pose target_pose1;
+    target_pose1.orientation.x = -1.0;
+    target_pose1.orientation.y = 0.0;
+    target_pose1.orientation.z = 0.0;
+    target_pose1.orientation.w = 0.0;
+    target_pose1.position.x = 0.343;
+    target_pose1.position.y = 0.132;
+    target_pose1.position.z = 0.264;
+    move_group_arm.setPoseTarget(target_pose1);
+
+    success_arm = (move_group_arm.plan(my_plan_arm) == moveit::core::MoveItErrorCode::SUCCESS);
+    //Execute
+    move_group_arm.execute(my_plan_arm);
+
+    //////CARTESIAN MOVEMENT
+    std::vector<geometry_msgs::msg::Pose> waypoints;
+    //Add initial pose to waypoints
+    waypoints.push_back(target_pose1);
+    //Approach
+
+    RCLCPP_INFO(LOGGER, "Approach to object");
+    current_state_arm = move_group_arm.getCurrentState(10);
+    current_state_arm->copyJointGroupPositions(joint_model_group_arm, joint_group_positions_arm);
+
+    float delta = 0.04;
+    target_pose1.orientation.x = -1.0;
+    target_pose1.orientation.y = 0.0;
+    target_pose1.orientation.z = 0.0;
+    target_pose1.orientation.w = 0.0;
+    target_pose1.position.x = 0.343;
+    target_pose1.position.y = 0.132;
+    target_pose1.position.z -= delta;
+    waypoints.push_back(target_pose1);
+
+    //Retreat
+
+    RCLCPP_INFO(LOGGER, "Retreat from object");
+    current_state_arm = move_group_arm.getCurrentState(10);
+    current_state_arm->copyJointGroupPositions(joint_model_group_arm, joint_group_positions_arm);
+
+    target_pose1.orientation.x = -1.0;
+    target_pose1.orientation.y = 0.0;
+    target_pose1.orientation.z = 0.0;
+    target_pose1.orientation.w = 0.0;
+    target_pose1.position.x = 0.343;
+    target_pose1.position.y = 0.132;
+    target_pose1.position.z += delta;
+    waypoints.push_back(target_pose1);
+    
+
+    double eef_step = 0.01;
+    double jump_threshold = 0.0;
+    moveit_msgs::msg::RobotTrajectory trajectory;
+    bool avoid_collision = true;
+    moveit_msgs::msg::MoveItErrorCodes* error_code = nullptr;
+
+    // Computing the Cartesian path, which is stored in trajectory
+    double fraction = move_group_arm.computeCartesianPath(waypoints, eef_step,   jump_threshold, trajectory, avoid_collision, error_code);
+    RCLCPP_INFO(LOGGER, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
+
+    // Check if complete path is possible and execute the trajectory
+    if(fraction == 1)
+    {
+        //Execute
+        move_group_arm.execute(trajectory);
+    }
+    else
+    {
+        RCLCPP_ERROR(LOGGER, "Cartesian path plan failed with error code: %d", error_code->val);
+    }
+
+    rclcpp::shutdown();
+    return 0;
+}
+
+
+// #include <memory>
+
+// #include <rclcpp/rclcpp.hpp>
+// #include <moveit/move_group_interface/move_group_interface.h>
+// // #include <chrono>
+// #include <stdio.h>
+
+// int main(int argc, char * argv[])
+// {
+//     // auto start_time = std::chrono::high_resolution_clock::now();
+
+
+//   // Initialize ROS and create the Node
+//   rclcpp::init(argc, argv);
+//   auto const node = std::make_shared<rclcpp::Node>("hello_moveit");
+
+//   // Create a ROS logger
+//   auto const logger = rclcpp::get_logger("hello_moveit");
+
+//     // Create a timer to periodically check for ROS callbacks
+//     auto timer_callback = [&]()
+//     {
+//         rclcpp::spin_some(node);
+//     };
+//     auto timer = node->create_wall_timer(std::chrono::milliseconds(100), timer_callback);
+
+
+//   // Create the MoveIt Move Group Interface for panda arm
+//   using moveit::planning_interface::MoveGroupInterface;
+//   auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
+
+//   unsigned int increment_count = 1;
+
+//   //x - forward(+) and backward(-)
+//   //y - left(+) and right(-)
+//   //z - up(+) and down(-)
+
+//   // Variable to hold waypoints
+//   std::vector<geometry_msgs::msg::Pose> waypoints;
+
+//     // auto target_pose = []{
+//     //     geometry_msgs::msg::Pose msg;
+//     //     msg.orientation.w = 1.0;
+//     //     msg.position.x = 0.15;
+//     //     msg.position.y = 0.2;
+//     //     msg.position.z = 0.5;
+//     //     return msg;
+//     // }();
+
+//     //Current pose
+//     geometry_msgs::msg::Pose start_pose = move_group_interface.getCurrentPose().pose;
+
+//     //Variable for first target pose waypoint
+//     geometry_msgs::msg::Pose target_pose = start_pose;
+
+//     waypoints.push_back(target_pose);
+
+
+//   for(unsigned int i=0 ; i < increment_count ; i++)
+//   {
+//     target_pose.position.z -= 0.1/increment_count; //Right
+//     // Add target pose to waypoints
+//     waypoints.push_back(target_pose);
+//   }
+
+
+//   // We want the Cartesian path to be interpolated at a resolution of 1 cm which is why we will specify 0.01 as the max step in Cartesian translation
+//   // We will specify the jump threshold as 0.0, effectively disabling it
+//   moveit_msgs::msg::RobotTrajectory trajectory;
+//   const double jump_threshold = 0.1;
+//   const double eef_step = 0.01;
+
+//   moveit_msgs::msg::MoveItErrorCodes* error_code = nullptr;
+
+//   //Seeing if an increase in the plan attempts assists with weird movements
+//   move_group_interface.setNumPlanningAttempts(200);
+
+// //   auto end_time = std::chrono::high_resolution_clock::now();
+// //   std::chrono::duration<double> elapsed_time = end_time - start_time;
+// //   while(elapsed_time.count() < 30)
+// //   {
+// //     end_time = std::chrono::high_resolution_clock::now();
+// //     elapsed_time = end_time - start_time;
+// //   }
+  
+//   // Computing the Cartesian path, which is stored in trajectory
+//   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step,   jump_threshold, trajectory, true, error_code);
+//   RCLCPP_INFO(logger, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
+
+//   // Check if complete path is possible and execute the trajectory
+//   if(fraction == 1)
+//   {
+//     move_group_interface.execute(trajectory);
+//   }
+//   else
+//   {
+//     if(fraction >= 0)
+//     {
+//         //If cartesian fails, attempt ikine
+//         // Set target Poses
+//         std::for_each(waypoints.begin(),waypoints.end(),[&](auto const target_pose)
+//         {
+//             move_group_interface.setPoseTarget(target_pose);
+
+//             // Create a plan to that target pose
+//             auto const [success, plan] = [&move_group_interface]{
+//                 moveit::planning_interface::MoveGroupInterface::Plan msg;
+//                 auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+//                 return std::make_pair(ok, msg);
+//             }();
+
+//             // Execute the plan
+//             if(success)
+//             {
+//                 move_group_interface.execute(plan);
+//             }
+//             else
+//             {
+//                 RCLCPP_ERROR(logger, "Planing failed!");
+//             }
+//         });
+//         //RCLCPP_ERROR(logger, "Cartesian path plan failed with error code: %d", error_code->val);
+//     }
+//   }
+
+// //   while(elapsed_time.count() < 60)
+// //   {
+// //     end_time = std::chrono::high_resolution_clock::now();
+// //     elapsed_time = end_time - start_time;
+// //   }
+
+//     // Run the ROS node
+//     rclcpp::spin(node);
+  
+//   // Shutdown
+//   rclcpp::shutdown();
+//   return 0;
+// }
+
+
+// #include <memory>
+
+// #include <rclcpp/rclcpp.hpp>
+// #include <moveit/move_group_interface/move_group_interface.h>
+// #include <chrono>
+// #include <stdio.h>
+
+// int main(int argc, char * argv[])
+// {
+//     auto start_time = std::chrono::high_resolution_clock::now();
+
+
+//   // Initialize ROS and create the Node
+//   rclcpp::init(argc, argv);
+//   auto const node = std::make_shared<rclcpp::Node>("hello_moveit");
+
+//   // Create a ROS logger
+//   auto const logger = rclcpp::get_logger("hello_moveit");
+
+//   // We spin up a SingleThreadedExecutor to get current pose of the robot later
+//   rclcpp::executors::SingleThreadedExecutor executor;
+//   executor.add_node(node);
+//   auto spinner = std::thread([&executor]() { executor.spin(); });
+
+
+//   // Create the MoveIt Move Group Interface for panda arm
+//   using moveit::planning_interface::MoveGroupInterface;
+//   auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
+
+//   unsigned int increment_count = 1;
+
+//   //x - forward(+) and backward(-)
+//   //y - left(+) and right(-)
+//   //z - up(+) and down(-)
+
+//   // Variable to hold waypoints
+//   std::vector<geometry_msgs::msg::Pose> waypoints;
+
+//     auto target_pose = []{
+//         geometry_msgs::msg::Pose msg;
+//         msg.orientation.w = 1.0;
+//         msg.position.x = 0.15;
+//         msg.position.y = 0.2;
+//         msg.position.z = 0.5;
+//         return msg;
+//     }();
+
+//     waypoints.push_back(target_pose);
+
+
+//   for(unsigned int i=0 ; i < increment_count ; i++)
+//   {
+//     target_pose.position.z -= 0.1/increment_count; //Right
+//     // Add target pose to waypoints
+//     waypoints.push_back(target_pose);
+//   }
+
+
+//   // We want the Cartesian path to be interpolated at a resolution of 1 cm which is why we will specify 0.01 as the max step in Cartesian translation
+//   // We will specify the jump threshold as 0.0, effectively disabling it
+//   moveit_msgs::msg::RobotTrajectory trajectory;
+//   const double jump_threshold = 0.1;
+//   const double eef_step = 0.01;
+
+//   moveit_msgs::msg::MoveItErrorCodes* error_code = nullptr;
+
+//   //Seeing if an increase in the plan attempts assists with weird movements
+//   move_group_interface.setNumPlanningAttempts(200);
+
+//   auto end_time = std::chrono::high_resolution_clock::now();
+//   std::chrono::duration<double> elapsed_time = end_time - start_time;
+//   while(elapsed_time.count() < 30)
+//   {
+//     end_time = std::chrono::high_resolution_clock::now();
+//     elapsed_time = end_time - start_time;
+//   }
+  
+//   // Computing the Cartesian path, which is stored in trajectory
+//   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step,   jump_threshold, trajectory, true, error_code);
+//   RCLCPP_INFO(logger, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
+
+//   // Check if complete path is possible and execute the trajectory
+//   if(fraction == 1)
+//   {
+//     move_group_interface.execute(trajectory);
+//   }
+//   else
+//   {
+//     if(fraction == 0)
+//     {
+//         RCLCPP_ERROR(logger, "Cartesian path plan failed with error code: %d", error_code->val);
+//     }
+//   }
+
+//   while(elapsed_time.count() < 60)
+//   {
+//     end_time = std::chrono::high_resolution_clock::now();
+//     elapsed_time = end_time - start_time;
+//   }
+  
+//   // Shutdown
+//   rclcpp::shutdown();
+//   spinner.join();
+//   return 0;
+// }
+
+
+
+  // Current pose
+//   geometry_msgs::msg::Pose start_pose = move_group_interface.getCurrentPose().pose;
+
+  // Variable for first target pose waypoint
+//   geometry_msgs::msg::Pose target_pose = start_pose;
+
+
+
+//   for(unsigned int i=0 ; i < increment_count ; i++)
+//   {
+//     target_pose.position.x += 0.1/increment_count; //Forward
+//     target_pose.position.z -= 0.2/increment_count; //Up
+//     // Add target pose to waypoints
+//     waypoints.push_back(target_pose);
+//   }
+
+
+
+
+// #include <memory>
+
+// #include <rclcpp/rclcpp.hpp>
+// #include <moveit/move_group_interface/move_group_interface.h>
+
+// int main(int argc, char * argv[])
+// {
+//   // Initialize ROS and create the Node
+//   rclcpp::init(argc, argv);
+//   auto const node = std::make_shared<rclcpp::Node>(
+//     "hello_moveit",
+//     rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
+//   );
+
+//   // Create a ROS logger
+//   auto const logger = rclcpp::get_logger("hello_moveit");
+
+//   // Create the MoveIt MoveGroup Interface
+//     using moveit::planning_interface::MoveGroupInterface;
+//     auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
+
+//     std::vector<geometry_msgs::msg::Pose> poses;
+
+//     rclcpp::executors::SingleThreadedExecutor executor;
+//     executor.add_node(node);
+//     auto spinner = std::thread([&executor]() { executor.spin(); });
+
+//     unsigned int increment_count = 15;
+
+//     // auto const desired_pose = []{
+//     //     geometry_msgs::msg::Pose msg;
+//     //     msg.orientation.w = 1.0;
+//     //     msg.position.x = 0.15;
+//     //     msg.position.y = 0.2;
+//     //     msg.position.z = 0.5;
+//     //     return msg;
+//     // }()
+
+//     geometry_msgs::msg::Pose current_pose = move_group_interface.getCurrentPose().pose;
+//     geometry_msgs::msg::Pose desired_pose = current_pose;
+
+//     for(unsigned int i=0 ; i < increment_count ; i++)
+//     {
+//         desired_pose.position.z -= 0.1/increment_count; //Right
+//         // Add target pose to waypoints
+//         poses.push_back(desired_pose);
+//     }
+
+//     // desired_pose.position.z -= 0.05;
+//     // poses.push_back(desired_pose);
+
+//     // desired_pose.position.x += 0.05;
+//     // poses.push_back(desired_pose);
+
+//     // desired_pose.position.x -= 0.025;
+//     // desired_pose.position.y += 0.05;
+//     // poses.push_back(desired_pose);
+
+//     // desired_pose.position.x -= 0.025;
+//     // desired_pose.position.y -= 0.05;
+//     // poses.push_back(desired_pose);
+
+//     // moveit_msgs::msg::RobotTrajectory trajectory;
+//     // const double jump_threshold = 0.0;
+//     // const double eef_step = 0.01;
+    
+//     // // Computing the Cartesian path, which is stored in trajectory
+//     // double fraction = move_group_interface.computeCartesianPath(poses, eef_step,   jump_threshold, trajectory);
+//     // RCLCPP_INFO(logger, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
+
+//     // // Check if complete path is possible and execute the trajectory
+//     // if(fraction == 1){
+//     //     move_group_interface.execute(trajectory);
+//     // }
+
+//     move_group_interface.setNumPlanningAttempts(100);
+
+//     // Set target Poses
+//     std::for_each(poses.begin(),poses.end(),[&](auto const target_pose)
+//     {
+//         move_group_interface.setPoseTarget(target_pose);
+
+//         // Create a plan to that target pose
+//         auto const [success, plan] = [&move_group_interface]{
+//             moveit::planning_interface::MoveGroupInterface::Plan msg;
+//             auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+//             return std::make_pair(ok, msg);
+//         }();
+
+//         // Execute the plan
+//         if(success)
+//         {
+//             move_group_interface.execute(plan);
+//         }
+//         else
+//         {
+//             RCLCPP_ERROR(logger, "Planing failed!");
+//         }
+//     });
+
+//     // Shutdown ROS
+//     rclcpp::shutdown();
+//     spinner.join();
+//     return 0;
+// }
+
+
+
+
+// 00920   double computeCartesianPath(const std::vector<geometry_msgs::Pose>& waypoints, double step, double jump_threshold,
+// 00921                               moveit_msgs::RobotTrajectory& msg, const moveit_msgs::Constraints& path_constraints,
+// 00922                               bool avoid_collisions, moveit_msgs::MoveItErrorCodes& error_code)
+// 00923   {
+// 00924     moveit_msgs::GetCartesianPath::Request req;
+// 00925     moveit_msgs::GetCartesianPath::Response res;
+// 00926 
+// 00927     if (considered_start_state_)
+// 00928       robot_state::robotStateToRobotStateMsg(*considered_start_state_, req.start_state);
+// 00929     else
+// 00930       req.start_state.is_diff = true;
+// 00931 
+// 00932     req.group_name = opt_.group_name_;
+// 00933     req.header.frame_id = getPoseReferenceFrame();
+// 00934     req.header.stamp = ros::Time::now();
+// 00935     req.waypoints = waypoints;
+// 00936     req.max_step = step;
+// 00937     req.jump_threshold = jump_threshold;
+// 00938     req.path_constraints = path_constraints;
+// 00939     req.avoid_collisions = avoid_collisions;
+// 00940 
+// 00941     if (cartesian_path_service_.call(req, res))
+// 00942     {
+// 00943       error_code = res.error_code;
+// 00944       if (res.error_code.val == moveit_msgs::MoveItErrorCodes::SUCCESS)
+// 00945       {
+// 00946         msg = res.solution;
+// 00947         return res.fraction;
+// 00948       }
+// 00949       else
+// 00950         return -1.0;
+// 00951     }
+// 00952     else
+// 00953     {
+// 00954       error_code.val = error_code.FAILURE;
+// 00955       return -1.0;
+// 00956     }
+// 00957   }
+
+
+
+
+
+// 01316   ros::ServiceClient cartesian_path_service_;
+
+
+
+
+
+// 00173     cartesian_path_service_ =
+// 00174         node_handle_.serviceClient<moveit_msgs::GetCartesianPath>(move_group::CARTESIAN_PATH_SERVICE_NAME);
+// 00175     plan_grasps_service_ = node_handle_.serviceClient<moveit_msgs::GraspPlanning>(GRASP_PLANNING_SERVICE_NAME);

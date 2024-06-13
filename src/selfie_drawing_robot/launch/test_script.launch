@@ -7,10 +7,11 @@
 
   <node name="current_program" pkg="selfie_drawing_robot" type="current_program" respawn="false" output="screen">
     <rosparam command="load" file="$(find ur3e_moveit_config)/config/kinematics.yaml"/> 
-    <!-- <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/>  -->
-    <!-- <param name="/move_group/planning_plugin"> -->
-    <param name="/planning_plugin" value="pilz_industrial_motion_planner::CommandPlanner"/>
-    <!-- <rosparam command="load" file="$(find ur3e_moveit_config)/config/ompl_planning.yaml"/> -->
+    <param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/> 
+    <!-- <param name="/move_group/planning_plugin"/> -->
+    <!-- <param name="/planning_plugin" value="pilz_industrial_motion_planner::CommandPlanner"/> -->
+    <rosparam command="load" file="$(find ur3e_moveit_config)/config/ompl_planning.yaml"/>
+    
     <rosparam command="load" file="$(find ur3e_moveit_config)/config/cartesian_limits.yaml" ns="robot_description_planning"/>
     <rosparam command="load" file="$(find ur3e_moveit_config)/config/joint_names.yaml"/> 
   </node>

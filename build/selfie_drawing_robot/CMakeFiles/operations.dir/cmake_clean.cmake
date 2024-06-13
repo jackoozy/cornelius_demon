@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/jackoozy/cornelius_demon/devel/lib/selfie_drawing_robot/operations"
-  "/home/jackoozy/cornelius_demon/devel/lib/selfie_drawing_robot/operations.pdb"
-  "CMakeFiles/operations.dir/src/Robot.cpp.o"
+  "/home/jackoozy/cornelius_demon/devel/lib/liboperations.pdb"
+  "/home/jackoozy/cornelius_demon/devel/lib/liboperations.so"
   "CMakeFiles/operations.dir/src/operations.cpp.o"
 )
 
