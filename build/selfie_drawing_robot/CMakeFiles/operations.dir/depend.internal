@@ -4,6 +4,30 @@
 selfie_drawing_robot/CMakeFiles/operations.dir/src/operations.cpp.o
  /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.cpp
  /home/jackoozy/cornelius_demon/src/selfie_drawing_robot/src/operations.h
+ /opt/ros/noetic/include/geometry_msgs/Point.h
+ /opt/ros/noetic/include/geometry_msgs/Pose.h
+ /opt/ros/noetic/include/geometry_msgs/Quaternion.h
+ /opt/ros/noetic/include/geometry_msgs/Vector3.h
+ /opt/ros/noetic/include/ros/builtin_message_traits.h
+ /opt/ros/noetic/include/ros/datatypes.h
+ /opt/ros/noetic/include/ros/duration.h
+ /opt/ros/noetic/include/ros/exception.h
+ /opt/ros/noetic/include/ros/macros.h
+ /opt/ros/noetic/include/ros/message_forward.h
+ /opt/ros/noetic/include/ros/message_operations.h
+ /opt/ros/noetic/include/ros/message_traits.h
+ /opt/ros/noetic/include/ros/package.h
+ /opt/ros/noetic/include/ros/platform.h
+ /opt/ros/noetic/include/ros/roscpp_serialization_macros.h
+ /opt/ros/noetic/include/ros/rostime_decl.h
+ /opt/ros/noetic/include/ros/serialization.h
+ /opt/ros/noetic/include/ros/serialized_message.h
+ /opt/ros/noetic/include/ros/time.h
+ /opt/ros/noetic/include/ros/types.h
+ /opt/ros/noetic/include/std_msgs/ColorRGBA.h
+ /opt/ros/noetic/include/std_msgs/Header.h
+ /opt/ros/noetic/include/visualization_msgs/Marker.h
+ /opt/ros/noetic/include/visualization_msgs/MarkerArray.h
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/Geometry

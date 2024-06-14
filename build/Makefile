@@ -2326,19 +2326,6 @@ actionlib_generate_messages_nodejs/fast:
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named test_line_detection
-
-# Build rule for target.
-test_line_detection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_line_detection
-.PHONY : test_line_detection
-
-# fast build rule for target.
-test_line_detection/fast:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
-.PHONY : test_line_detection/fast
-
-#=============================================================================
 # Target rules for targets named clean_test_results_selfie_drawing_robot
 
 # Build rule for target.
@@ -3596,7 +3583,6 @@ help:
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... test_line_detection"
 	@echo "... clean_test_results_selfie_drawing_robot"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_eus"

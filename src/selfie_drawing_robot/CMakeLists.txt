@@ -20,9 +20,14 @@ find_package(catkin REQUIRED
     tf2_geometry_msgs
     roscpp
     rospy
+    visualization_msgs
+)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(glfw3 REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
 
 
 find_package(Eigen3 REQUIRED)
@@ -48,56 +53,53 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${OPENGL_LIBRARIES}
+  ${GTEST_INCLUDE_DIRS}
+  ${GLUT_INCLUDE_DIRS}
 )
-include_directories(${GTEST_INCLUDE_DIRS})
 
-# Set the Python interpreter to use your conda environment
-set(PYTHON_EXECUTABLE /home/lucas/cornEnv/bin/python)
+# # Set the Python interpreter to use your conda environment
+# set(PYTHON_EXECUTABLE /home/lucas/cornEnv/bin/python)
 
 # Motion planning
-<<<<<<< HEAD
 add_library(operations src/operations.cpp)
-
 add_executable(current_program src/current_program.cpp)
 
-=======
-add_executable(test_script src/test_script.cpp)
-add_executable(operations src/operations.cpp src/Robot.cpp)
-add_executable(current_program src/current_program.cpp)
-
-target_link_libraries(test_script
-  ${catkin_LIBRARIES}
-)
-
->>>>>>> 8d8c5a2f111aea9f480f1d445aeb211ba3e9a780
 target_link_libraries(operations
   ${catkin_LIBRARIES}
-<<<<<<< HEAD
   ${moveit_core_LIBRARIES}
-  operations)
-
-catkin_add_gtest(testMP testing/test.cpp)
-target_link_libraries(testMP ${catkin_LIBRARIES} ${GTEST_LIBRARIES} operations)
-=======
+  ${OPENGL_LIBRARIES} 
+  ${GLUT_LIBRARY} 
 )
->>>>>>> 8d8c5a2f111aea9f480f1d445aeb211ba3e9a780
 
 target_link_libraries(current_program
   ${catkin_LIBRARIES}
   ${moveit_core_LIBRARIES}
+  operations
+  ${OPENGL_LIBRARIES} 
+  ${GLUT_LIBRARY} 
 )
 
-# Line detection
-add_executable(test_line_detection src/test_line_detection.cpp src/line_detection.cpp)
-target_link_libraries(test_line_detection ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
-# Install Python scripts
-catkin_install_python(PROGRAMS
-  src/userInterface.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# MP Testing
+catkin_add_gtest(testMP testing/test.cpp)
+target_link_libraries(testMP 
+  ${catkin_LIBRARIES} 
+  ${GTEST_LIBRARIES} 
+  operations
 )
 
-# Install launch files
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-)
+
+# # Line detection
+# add_executable(test_line_detection src/test_line_detection.cpp src/line_detection.cpp)
+# target_link_libraries(test_line_detection ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+# # Install Python scripts
+# catkin_install_python(PROGRAMS
+#   src/userInterface.py
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
+
+# # Install launch files
+# install(DIRECTORY launch/
+#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+# )

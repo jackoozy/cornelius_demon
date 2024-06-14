@@ -40,6 +40,8 @@
   <build_depend>pilz_industrial_motion_planner</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_srvs</build_depend>
+  <build_depend>glfw3</build_depend>
+  <build_depend>opengl</build_depend>
 
 
   <exec_depend>panda_moveit_config</exec_depend>
@@ -69,10 +71,14 @@
   <exec_depend>pilz_industrial_motion_planner</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_srvs</exec_depend>
+  <exec_depend>glfw3</exec_depend>
+  <exec_depend>opengl</exec_depend>
 
   <build_depend>gtest</build_depend>
   <build_export_depend>gtest</build_export_depend>
   <exec_depend>gtest</exec_depend>
+  <build_depend>freeglut3-dev</build_depend>
+  <exec_depend>freeglut3</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

@@ -843,21 +843,6 @@ actionlib_generate_messages_nodejs/fast:
 .PHONY : actionlib_generate_messages_nodejs/fast
 
 # Convenience name for target.
-selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule
-.PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule
-
-# Convenience name for target.
-test_line_detection: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule
-
-.PHONY : test_line_detection
-
-# fast build rule for target.
-test_line_detection/fast:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
-.PHONY : test_line_detection/fast
-
-# Convenience name for target.
 selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
 .PHONY : selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/rule
@@ -1859,33 +1844,6 @@ src/current_program.cpp.s:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/current_program.dir/build.make selfie_drawing_robot/CMakeFiles/current_program.dir/src/current_program.cpp.s
 .PHONY : src/current_program.cpp.s
 
-src/line_detection.o: src/line_detection.cpp.o
-
-.PHONY : src/line_detection.o
-
-# target to build an object file
-src/line_detection.cpp.o:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/line_detection.cpp.o
-.PHONY : src/line_detection.cpp.o
-
-src/line_detection.i: src/line_detection.cpp.i
-
-.PHONY : src/line_detection.i
-
-# target to preprocess a source file
-src/line_detection.cpp.i:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/line_detection.cpp.i
-.PHONY : src/line_detection.cpp.i
-
-src/line_detection.s: src/line_detection.cpp.s
-
-.PHONY : src/line_detection.s
-
-# target to generate assembly for a file
-src/line_detection.cpp.s:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/line_detection.cpp.s
-.PHONY : src/line_detection.cpp.s
-
 src/operations.o: src/operations.cpp.o
 
 .PHONY : src/operations.o
@@ -1912,33 +1870,6 @@ src/operations.s: src/operations.cpp.s
 src/operations.cpp.s:
 	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/operations.dir/build.make selfie_drawing_robot/CMakeFiles/operations.dir/src/operations.cpp.s
 .PHONY : src/operations.cpp.s
-
-src/test_line_detection.o: src/test_line_detection.cpp.o
-
-.PHONY : src/test_line_detection.o
-
-# target to build an object file
-src/test_line_detection.cpp.o:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.o
-.PHONY : src/test_line_detection.cpp.o
-
-src/test_line_detection.i: src/test_line_detection.cpp.i
-
-.PHONY : src/test_line_detection.i
-
-# target to preprocess a source file
-src/test_line_detection.cpp.i:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.i
-.PHONY : src/test_line_detection.cpp.i
-
-src/test_line_detection.s: src/test_line_detection.cpp.s
-
-.PHONY : src/test_line_detection.s
-
-# target to generate assembly for a file
-src/test_line_detection.cpp.s:
-	cd /home/jackoozy/cornelius_demon/build && $(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/src/test_line_detection.cpp.s
-.PHONY : src/test_line_detection.cpp.s
 
 testing/test.o: testing/test.cpp.o
 
@@ -2024,7 +1955,6 @@ help:
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... test_line_detection"
 	@echo "... clean_test_results_selfie_drawing_robot"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_eus"
@@ -2094,15 +2024,9 @@ help:
 	@echo "... src/current_program.o"
 	@echo "... src/current_program.i"
 	@echo "... src/current_program.s"
-	@echo "... src/line_detection.o"
-	@echo "... src/line_detection.i"
-	@echo "... src/line_detection.s"
 	@echo "... src/operations.o"
 	@echo "... src/operations.i"
 	@echo "... src/operations.s"
-	@echo "... src/test_line_detection.o"
-	@echo "... src/test_line_detection.i"
-	@echo "... src/test_line_detection.s"
 	@echo "... testing/test.o"
 	@echo "... testing/test.i"
 	@echo "... testing/test.s"

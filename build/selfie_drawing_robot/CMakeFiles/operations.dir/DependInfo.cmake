@@ -28,6 +28,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/vtk-7.1"
   "/usr/include/freetype2"
   "/usr/include/opencv4"
+  "/usr/lib/x86_64-linux-gnu/libGL.so"
+  "/usr/lib/x86_64-linux-gnu/libGLU.so"
   )
 
 # Targets to which this target links.

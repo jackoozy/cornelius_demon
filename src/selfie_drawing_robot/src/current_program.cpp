@@ -7,6 +7,12 @@
 #include <boost/scoped_ptr.hpp>
 #include <iostream>
 #include <thread>
+#include <visualization_msgs/MarkerArray.h>
+#include <visualization_msgs/InteractiveMarkerUpdate.h>
+#include <signal.h>
+#include <atomic>
+
+
 
 // MoveIt
 #include <moveit/robot_model_loader/robot_model_loader.h>
@@ -21,27 +27,92 @@
 
 
 const double tau = 2 * M_PI;
+int numMarkerCallBacks = 0;
+Operations ops;
+std::atomic<bool> g_stopThreads(false);
+Eigen::Vector3d currentPose;
 
-
-void testFunction(){
-
+void signalHandler(int signum) {
+    if (signum == SIGINT) {
+        g_stopThreads.store(true);
+    }
 }
 
-// Callback function for messages from GUI
-void callback(const std_msgs::String::ConstPtr& msg)
+// Interface with UI
+void uiCallback(const std_msgs::String::ConstPtr& msg)
 {
     ROS_INFO("Received message: %s", msg->data.c_str());
-    
+
+    // Assuming ops is an instance of your Operations class
+    if (msg->data == "calibration 0") {
+        ops.topLeftCorner = currentPose;
+    } else if (msg->data == "calibration 1") {
+        ops.topRightCorner = currentPose;
+    } else if (msg->data == "calibration 2") {
+        ops.bottomLeftCorner = currentPose;
+    } else if (msg->data == "calibration 3") {
+        ops.bottomRightCorner = currentPose;
+    } else {
+        ROS_WARN("Invalid calibration message: %s", msg->data.c_str());
+    }
 }
 
-// Move to position
-void moveTo(){
+void publishArr(ros::Publisher* pub, visualization_msgs::MarkerArray* arr){
+  ros::Rate rate(1); // Adjust publishing rate as needed
+  while (ros::ok() && !g_stopThreads.load()) {
+      pub->publish(*arr);
+      // ros::spinOnce();
+      rate.sleep();
+  }
+}
 
+void publishMrk(ros::Publisher* pub, std::vector<visualization_msgs::Marker>* sphere){
+  ros::Rate rate(1); // Adjust publishing rate as needed
+  while (numMarkerCallBacks<4 && !g_stopThreads.load()) {
+    for (auto marker : *sphere)
+      pub->publish(marker);
+    rate.sleep();
+  }
+
+}
+
+void calibratorSimCallBack(const geometry_msgs::PointStamped::ConstPtr& msg) {
+  ROS_INFO("\n Received point: x=%f, y=%f, z=%f", msg->point.x, msg->point.y, msg->point.z);
+
+  switch (numMarkerCallBacks) {
+      case 0:
+          ops.bottomLeftCorner.x() = msg->point.x;
+          ops.bottomLeftCorner.y() = msg->point.y;
+          ops.bottomLeftCorner.z() = msg->point.z;
+          break;
+      case 1:
+          ops.topLeftCorner.x() = msg->point.x;
+          ops.topLeftCorner.y() = msg->point.y;
+          ops.topLeftCorner.z() = msg->point.z;
+          break;
+      case 2:
+          ops.topRightCorner.x() = msg->point.x;
+          ops.topRightCorner.y() = msg->point.y;
+          ops.topRightCorner.z() = msg->point.z;
+          break;
+      case 3:
+          ops.bottomRightCorner.x() = msg->point.x;
+          ops.bottomRightCorner.y() = msg->point.y;
+          ops.bottomRightCorner.z() = msg->point.z;
+          break;
+      default:
+          ROS_ERROR("Invalid number of callbacks");
+          break;
+  }
+
+  ++numMarkerCallBacks;
 }
 
 int main(int argc, char** argv)
 {
-  Operations operations();
+  // Allow time for rviz launch
+  std::this_thread::sleep_for(std::chrono::seconds(5));
+
 
   // NODE SETUP
   const std::string node_name = "current_program";
@@ -50,9 +121,61 @@ int main(int argc, char** argv)
   // Create a publisher to publish messages of type std_msgs::String on the "gui_com" topic
   ros::Publisher pub = node_handle.advertise<std_msgs::String>("gui_com", 10);
   // Create a subscriber to subscribe to messages of type std_msgs::String on the "gui_com" topic
-  ros::Subscriber sub = node_handle.subscribe("gui_com", 10, callback);
+  ros::Subscriber sub_ui = node_handle.subscribe("gui_com", 10, uiCallback);
+  // SIMULATION SPECIFIC
+  // Publisher for marker array drawing
+  ros::Publisher marker_arr_pub = node_handle.advertise<visualization_msgs::MarkerArray>("markers", 10);
+  // Publisher for marker array corners
+  ros::Publisher marker_corners_pub = node_handle.advertise<visualization_msgs::MarkerArray>("corners", 10);
+  // Publisher for markers
+  ros::Publisher marker_pub = node_handle.advertise<visualization_msgs::Marker>("sphere_markers", 100);
+  // Subscriber to clicked points
+  ros::Subscriber sub_calibration_sim = node_handle.subscribe<geometry_msgs::PointStamped>("/clicked_point", 10, calibratorSimCallBack);
   ros::AsyncSpinner spinner(1);
   spinner.start();
+
+
+  // SIMULATION
+  // DRAWSPACE SELECTION
+  geometry_msgs::Point ctr;
+  ctr.x = 0.0;
+  ctr.y = 0.0;
+  ctr.z = .25;
+  std::vector<visualization_msgs::Marker> sphere = ops.createSphereMarkers(ctr, 0.4, 40);
+  std::thread marker_thread(publishMrk, &marker_pub, &sphere);
+  ROS_INFO("\n Calibrate by clicking corners from bottom left in clockwise fashion.");
+  ros::Rate rate(2);
+  marker_thread.join();
+  ROS_INFO("\n Calibration completed.");
+  // VISUALISE SPATIAL TRAJECTORY & RESULTANT DRAWSPACE CORNERS
+  // Convert SVG and render spatial draw-space coordinates of all strokes
+  ops.calculateDrawSpaceTransformation();
+  ops.svg_to_contours("sample_5");
+  ops.renderSpatialData();
+  // Create a marker array message
+  visualization_msgs::MarkerArray marker_array;
+  // Populate marker array with spheres using Operations class methods
+  marker_array = ops.generateMarkerArray();
+  // Publish marker array 
+  std::thread trajThread(publishArr, &marker_arr_pub, &marker_array);
+  ROS_INFO("\n Publishing SVG data to transformed spatial trajectory.");
+  // Publish corners of drawspace
+  auto corners = ops.getCornersDrawSpace();
+
+  std::thread cornersThread(publishArr, &marker_corners_pub, &corners);
+  // CLEANUP
+  // Wait for Ctrl+C to stop threads
+  while (!g_stopThreads.load()) {
+      std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  trajThread.join();
+  cornersThread.join();
+  return 1;
+
+
+
+  // while(1)
+  //   std::this_thread::sleep_for(std::chrono::seconds(5));
 
   static const std::string PLANNING_GROUP = "manipulator";
   moveit::planning_interface::MoveGroupInterface move_group_interface(PLANNING_GROUP);

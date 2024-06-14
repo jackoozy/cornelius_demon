@@ -426,7 +426,6 @@ robot/ur_kinematics/clean: robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir
 # Recursive "all" directory target.
 selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/operations.dir/all
 selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/current_program.dir/all
-selfie_drawing_robot/all: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all
 
 .PHONY : selfie_drawing_robot/all
 
@@ -481,7 +480,6 @@ selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_msgs_gener
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
-selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/roscpp_generate_messages_py.dir/clean
 selfie_drawing_robot/clean: selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
@@ -5138,33 +5136,6 @@ selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean:
 .PHONY : selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target selfie_drawing_robot/CMakeFiles/test_line_detection.dir
-
-# All Build rule for target.
-selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/depend
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=15,16,17 "Built target test_line_detection"
-.PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all
-
-# Build rule for subdir invocation for target.
-selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 selfie_drawing_robot/CMakeFiles/test_line_detection.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jackoozy/cornelius_demon/build/CMakeFiles 0
-.PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule
-
-# Convenience name for target.
-test_line_detection: selfie_drawing_robot/CMakeFiles/test_line_detection.dir/rule
-
-.PHONY : test_line_detection
-
-# clean rule for target.
-selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean:
-	$(MAKE) -f selfie_drawing_robot/CMakeFiles/test_line_detection.dir/build.make selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
-.PHONY : selfie_drawing_robot/CMakeFiles/test_line_detection.dir/clean
-
-#=============================================================================
 # Target rules for target selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir
 
 # All Build rule for target.
@@ -6929,7 +6900,7 @@ selfie_drawing_robot/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/cl
 robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=32,33 "Built target ur20_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=29,30 "Built target ur20_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6956,7 +6927,7 @@ robot/ur_kinematics/CMakeFiles/ur20_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=28,29 "Built target ur16e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=25,26 "Built target ur16e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6983,7 +6954,7 @@ robot/ur_kinematics/CMakeFiles/ur16e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=38,39 "Built target ur3_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=35,36 "Built target ur3_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7010,7 +6981,7 @@ robot/ur_kinematics/CMakeFiles/ur3_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=50,51 "Built target ur5e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=47,48 "Built target ur5e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7037,7 +7008,7 @@ robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=18,19 "Built target ur10_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=15,16 "Built target ur10_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7064,7 +7035,7 @@ robot/ur_kinematics/CMakeFiles/ur10_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=22,23 "Built target ur10e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=19,20 "Built target ur10e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7091,7 +7062,7 @@ robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur20_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=30,31 "Built target ur20_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=27,28 "Built target ur20_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur20_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7118,7 +7089,7 @@ robot/ur_kinematics/CMakeFiles/ur20_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=42,43 "Built target ur3e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=39,40 "Built target ur3e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7145,7 +7116,7 @@ robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=26,27 "Built target ur16e_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=23,24 "Built target ur16e_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7172,7 +7143,7 @@ robot/ur_kinematics/CMakeFiles/ur16e_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur10_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=20,21 "Built target ur10_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=17,18 "Built target ur10_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7199,7 +7170,7 @@ robot/ur_kinematics/CMakeFiles/ur10_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=34,35 "Built target ur30_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=31,32 "Built target ur30_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7226,7 +7197,7 @@ robot/ur_kinematics/CMakeFiles/ur30_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur3_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=40,41 "Built target ur3_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=37,38 "Built target ur3_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7253,7 +7224,7 @@ robot/ur_kinematics/CMakeFiles/ur3_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur30_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=36,37 "Built target ur30_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=33,34 "Built target ur30_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7280,7 +7251,7 @@ robot/ur_kinematics/CMakeFiles/ur30_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur3e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=44,45 "Built target ur3e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=41,42 "Built target ur3e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7307,7 +7278,7 @@ robot/ur_kinematics/CMakeFiles/ur3e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=48,49 "Built target ur5_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=45,46 "Built target ur5_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7334,7 +7305,7 @@ robot/ur_kinematics/CMakeFiles/ur5_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur10e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=24,25 "Built target ur10e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=21,22 "Built target ur10e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7361,7 +7332,7 @@ robot/ur_kinematics/CMakeFiles/ur10e_moveit_plugin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all:
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_kin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5_kin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=46,47 "Built target ur5_kin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=43,44 "Built target ur5_kin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5_kin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7388,7 +7359,7 @@ robot/ur_kinematics/CMakeFiles/ur5_kin.dir/clean:
 robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/all: robot/ur_kinematics/CMakeFiles/ur5e_kin.dir/all
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/depend
 	$(MAKE) -f robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build.make robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=52,53 "Built target ur5e_moveit_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jackoozy/cornelius_demon/build/CMakeFiles --progress-num=49,50 "Built target ur5e_moveit_plugin"
 .PHONY : robot/ur_kinematics/CMakeFiles/ur5e_moveit_plugin.dir/all
 
 # Build rule for subdir invocation for target.

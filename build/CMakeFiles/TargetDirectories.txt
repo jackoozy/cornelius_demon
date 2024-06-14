@@ -240,7 +240,6 @@
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_cpp.dir
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/actionlib_generate_messages_nodejs.dir
-/home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/test_line_detection.dir
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/clean_test_results_selfie_drawing_robot.dir
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/roscpp_generate_messages_py.dir
 /home/jackoozy/cornelius_demon/build/selfie_drawing_robot/CMakeFiles/trajectory_msgs_generate_messages_eus.dir

@@ -1,5 +1,16 @@
 #include <gtest/gtest.h>
+#include <GLFW/glfw3.h>
+#include <GL/glut.h>
 #include "../src/operations.h"
+
+std::vector<std::vector<Eigen::Vector3d>> POINTS;
+
+void printContour(const std::vector<Point>& contour) {
+    for (const auto& point : contour) {
+        std::cout << "(" << point.x << ", " << point.y << ") ";
+    }
+    std::cout << std::endl;
+}
 
 // Test the capacity to map point in the normalised page coordinates to spatial coordinates on the draw-sapce
 TEST(MPTest, testMappingToDrawSpace) {
@@ -13,7 +24,9 @@ TEST(MPTest, testMappingToDrawSpace) {
 
     ops.calculateDrawSpaceTransformation();
 
-    Eigen::Vector2d testPoint(0.5, 0.5);
+    Point testPoint;
+    testPoint.x = 0.5; 
+    testPoint.y = 0.5;
 
     Eigen::Vector3d testPointWorld = ops.drawSpaceToWorld(testPoint);
     // Extract the individual components of the resulting vector
@@ -32,10 +45,19 @@ TEST(MPTest, testMappingToDrawSpace) {
     EXPECT_DOUBLE_EQ(z, expected_z);
 }
 
-// Optionally, define more test cases...
-TEST(YourTestSuiteName, AnotherTestCaseName) {
-    // Test code for another test case
+// Qualitative test: capability to convert SVG data into usable vector format where coordinates normalised [0, 1]
+TEST(MPTest, testSVGConversion) {
+    Operations ops;
+    
+    ContourData ctr = ops.svg_to_contours("sample_5");
+
+    // Print out the contours
+    for (size_t i = 0; i < ctr.contours.size(); ++i) {
+        std::cout << "Contour " << i + 1 << ":" << std::endl;
+        printContour(ctr.contours[i]);
+    }
 }
+
 
 // Define a main function
 int main(int argc, char **argv) {
